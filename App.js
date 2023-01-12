@@ -3,10 +3,12 @@ import {
   SafeAreaView,
   ScrollView,
   StatusBar,
+  KeyboardAvoidingView,
   StyleSheet,
   Text,
   useColorScheme,
   View,
+  Image,
 } from 'react-native';
 
 import {
@@ -17,59 +19,79 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import {Avatar, Card, IconButton, Button, Searchbar} from 'react-native-paper';
+import {
+  Avatar,
+  Card,
+  IconButton,
+  Button,
+  Badge,
+  Searchbar,
+} from 'react-native-paper';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 const LeftContent = props => <Avatar.Icon {...props} icon="folder" />;
-
-const MyComponent = () => (
-  <Card.Title
-    title="Card Title"
-    subtitle="Card Subtitle"
-    left={props => <Avatar.Icon {...props} icon="folder" />}
-    right={props => (
-      <IconButton {...props} icon="more-vert" onPress={() => {}} />
-    )}
-  />
-);
-const Section = ({children, title}) => {
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: true ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: true ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
-
+const teamMembers = [
+  {
+    color: '#fdc0bd',
+    name: 'Rashmi',
+    posion: 'Trainee',
+    state: 'Present',
+  },
+  {
+    color: '#fdc0bd',
+    name: 'Rashmi',
+    posion: 'Trainee',
+    state: 'Present',
+  },
+  {
+    color: '#fdc0bd',
+    name: 'Rashmi',
+    posion: 'Trainee',
+    state: 'Present',
+  },
+  {
+    color: '#fdc0bd',
+    name: 'Rashmi',
+    posion: 'Trainee',
+    state: 'Present',
+  },
+  {
+    color: '#fdc0bd',
+    name: 'Rashmi',
+    posion: 'Trainee',
+    state: 'Present',
+  },
+  {
+    color: '#fdc0bd',
+    name: 'Rashmi',
+    posion: 'Trainee',
+    state: 'Present',
+  },
+  {
+    color: '#fdc0bd',
+    name: 'Rashmi',
+    posion: 'Trainee',
+    state: 'Present',
+  },
+];
+const MyTeam = [1, 2, 3, 4];
 const App = () => {
   const [searchQuery, setSearchQuery] = React.useState('');
 
   const onChangeSearch = query => setSearchQuery(query);
   const backgroundStyle = {
-    backgroundColor: true ? Colors.darker : Colors.lighter,
+    backgroundColor: Colors.lighter,
   };
 
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
-        barStyle={true ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
+        translucent
+        backgroundColor="transparent"
+        barStyle={false ? 'light-content' : 'dark-content'}
       />
+
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
@@ -81,42 +103,374 @@ const App = () => {
               onChangeText={onChangeSearch}
               value={searchQuery}
             />
-            <Avatar.Icon size={20} icon="folder" />
+            <MaterialCommunityIcons
+              name="chat"
+              size={33}
+              style={{marginLeft: 20}}
+              color="#00ab55"
+            />
           </View>
-          <View>
-            <Text>Hello World</Text>
-            <Text>View</Text>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              marginLeft: 10,
+              marginRight: 10,
+            }}>
+            <Text style={{color: '#212a35'}}>Announcements</Text>
+            <Text style={{color: '#139f5a', textDecorationLine: 'underline'}}>
+              View All{' '}
+            </Text>
           </View>
-          <MyComponent />
-        </View>
-       
-        <View style={styles.bottom} >
-           <Text>WELCOME</Text>
-           <Card>
-    <Card.Content style={{width:100}}>
-      <Text variant="titleLarge">Card title</Text>
-      <Text variant="bodyMedium">Card content</Text>
-    </Card.Content>
-  </Card>
-        </View>
-        <View style={styles.WelcomeSection}>
 
-</View>
+          <View style={{flexDirection: 'row'}}>
+            <View style={{marginLeft: 10}}>
+              <Card.Title
+                title="Employees expected to cloack"
+                subtitle="1 hour ago"
+                titleStyle={{fontSize: 16}}
+                style={{
+                  backgroundColor: '#e0c8ae',
+                  width: '70%',
+                  height: 60,
+                  borderRadius: 20,
+                  alignSelf: 'center',
+                  paddingRight: 5,
+                }}
+                left={props => (
+                  <Avatar.Icon
+                    {...props}
+                    style={{backgroundColor: '#fede68'}}
+                    icon="clock"
+                    color="#ef9c21"
+                  />
+                )}
+              />
+            </View>
+            <View>
+              <Card.Title
+                title="Card Title"
+                subtitle="1 hour ago"
+                style={{
+                  backgroundColor: '#e0c8ae',
+                  width: '60%',
+                  height: 60,
+                  borderRadius: 20,
+                  alignSelf: 'center',
+                }}
+                left={props => (
+                  <Avatar.Icon
+                    {...props}
+                    style={{backgroundColor: '#fede68'}}
+                    icon="clock"
+                    color="#ef9c21"
+                  />
+                )}
+              />
+            </View>
+          </View>
+        </View>
+
+        <View style={styles.bottom}>
+          <Text
+            style={{
+              fontSize: 20,
+              fontFamily: 'MoonDance-Regular',
+              color: '#f4bd94',
+              fontWeight: 'bold',
+            }}>
+            WELCOME
+          </Text>
+          <Card
+            style={{
+              width: 130,
+              height: 150,
+              borderRadius: 12,
+              backgroundColor: '#e9f8ff',
+              borderWidth: 1,
+              borderColor: '#b8e7f9',
+            }}>
+            <Card.Content>
+              <Badge
+                style={{alignSelf: 'center', backgroundColor: '#c2e9fc'}}
+                size={63}>
+                v
+              </Badge>
+
+              <Text
+                variant="titleLarge"
+                style={{
+                  color: '#4495bb',
+                  alignSelf: 'center',
+                  fontWeight: 'bold',
+                  fontSize: 20,
+                }}>
+                Megha
+              </Text>
+              <Text
+                variant="bodyMedium"
+                style={{color: '#657582', alignSelf: 'center'}}>
+                Ux Designer Join today
+              </Text>
+            </Card.Content>
+          </Card>
+        </View>
+
         <View
           style={{
-            backgroundColor: false ? Colors.black : Colors.white,
+            backgroundColor: Colors.white,
+            width: '85%',
+            marginTop: 20,
+            marginBottom: 20,
+            backgroundColor: '#e9f8ff',
+            borderRadius: 10,
+            alignSelf: 'center',
           }}>
-          <MyComponent />
-          <MyComponent />
-          <MyComponent />
+          <Card.Title
+            title="03/01/2023"
+            subtitle="Clock in-hh:mm AM  Clock Out-hh:mm PM "
+            left={props => (
+              <MaterialCommunityIcons name="clock" size={33} color="#0089c8" />
+            )}
+            right={props => (
+              <Button
+                mode="contained"
+                style={{
+                  backgroundColor: '#0089c8',
+                  borderRadius: 10,
+                  marginRight: 10,
+                }}
+                onPress={() => console.log('Pressed')}>
+                Check in
+              </Button>
+            )}
+          />
+        </View>
+        <View style={styles.MyTeam}>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              margin: 20,
+            }}>
+            <Text style={{color: '#212a35'}}>My Team</Text>
+            <Text style={{color: '#139f5a', textDecorationLine: 'underline'}}>
+              View All{' '}
+            </Text>
+          </View>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              margin: 4,
+              marginBottom: 7,
+            }}>
+            <View
+              style={{
+                width: 65,
+                height: 60,
+                backgroundColor: 'gray',
+
+                borderRadius: 9,
+                backgroundColor: '#e6f5ee',
+                borderWidth: 2,
+                borderColor: '#00ab55',
+              }}></View>
+            <View
+              style={{
+                width: 65,
+                height: 60,
+                backgroundColor: 'gray',
+                borderRadius: 9,
+                backgroundColor: '#f9e7e7',
+              }}></View>
+            <View
+              style={{
+                width: 65,
+                height: 60,
+                backgroundColor: 'gray',
+
+                borderRadius: 9,
+                backgroundColor: '#f9e7e7',
+              }}></View>
+            <View
+              style={{
+                width: 65,
+                height: 60,
+                backgroundColor: 'gray',
+
+                borderRadius: 9,
+                backgroundColor: '#e7f0f5',
+              }}></View>
+          </View>
+
+          {teamMembers.map(member => {
+            return (
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-around',
+                  alignItems: 'center',
+                  width: '100%',
+                  marginBottom: 10,
+                }}>
+                <View style={{width: 65}}>
+                  <Avatar.Image
+                    size={50}
+                    source={require('../sample1/src/Images/hospital.png')}
+                  />
+                </View>
+                <Text style={{color: '#212a35', width: 65}}>neeraja</Text>
+                <Text style={{color: '#212a35', width: 65}}>Trainee</Text>
+                <View style={{flexDirection: 'row', width: 68}}>
+                  <Badge
+                    style={{
+                      marginBottom: 'auto',
+                      marginTop: 'auto',
+                      marginRight: 6,
+                      color: '#00ab55',
+                    }}
+                    size={16}
+                    color="#00ab55"></Badge>
+                  <Text style={{color: '#212a35'}}>Present</Text>
+                </View>
+              </View>
+            );
+          })}
+        </View>
+        <View style={[styles.MyTeam, {height: 200}]}>
+          <Text
+            style={{
+              color: 'red',
+              margin: 10,
+              fontSize: 20,
+              fontWeight: 'bold',
+            }}>
+            Quick Links
+          </Text>
+          <View style={{flexDirection: 'row', width: '100%'}}>
+            <View
+              style={{
+                width: 100,
+                height: 70,
+                backgroundColor: 'blue',
+                margin: 5,
+                borderRadius: 10,
+              }}>
+              <Text style={{color: '#212a35'}}>Present</Text>
+            </View>
+            <View
+              style={{
+                width: 100,
+                height: 70,
+                backgroundColor: 'blue',
+                margin: 5,
+                borderRadius: 10,
+              }}>
+              <Text style={{color: '#212a35'}}>Present</Text>
+            </View>
+            <View
+              style={{
+                width: 100,
+                height: 70,
+                backgroundColor: 'blue',
+                margin: 5,
+                borderRadius: 10,
+              }}>
+              <Text style={{color: '#212a35'}}>Present</Text>
+            </View>
+          </View>
+        </View>
+
+        <View style={[styles.MyTeam]}>
+          <Text
+            style={{
+              color: 'red',
+              margin: 10,
+              fontSize: 20,
+              fontWeight: 'bold',
+            }}>
+            Quick Links
+          </Text>
+          {MyTeam.map(() => {
+            return (
+              <View style={styles.quickLinks}>
+                <Text style={{color: '#212a35'}}>Trainee</Text>
+                <Avatar.Image
+                  size={90}
+                  source={require('../sample1/src/Images/hospital.png')}
+                />
+
+                <Text style={{color: '#212a35'}}>neeraja</Text>
+                <MaterialCommunityIcons
+                  name="clock"
+                  size={33}
+                  color="#0089c8"
+                />
+              </View>
+            );
+          })}
+        </View>
+        <View style={[styles.MyTeam]}>
+        <Text
+            style={{
+              color: 'red',
+              margin: 10,
+              fontSize: 20,
+              fontWeight: 'bold',
+            }}>
+          My tasks
+          </Text>
+          <View style={{justifyContent:'center',alignItems:'center'}}>
+          {MyTeam.map(()=>{
+            return(
+              <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-evenly',
+              alignItems:'center',
+            width:'80%',
+           marginBottom:20,
+             height:49,
+             borderWidth:1,
+           
+             borderRadius:10
+            }}>
+            <Text style={{color: '#212a35'}}>Attendance</Text>
+            <Text style={{color: '#212a35'}}>17</Text>
+            <Text style={{color: '#139f5a', textDecorationLine: 'underline'}}>
+              View All
+            </Text>
+          </View> 
+            )
+          })}
+          </View>
         </View>
       </ScrollView>
-      <View style={styles.footerSection} >
-      <Avatar.Icon size={24} icon="folder" />
+    
 
-      <Avatar.Icon size={24} icon="folder" />
-      <Avatar.Icon size={24} icon="folder" />
-
+      <View style={styles.footerSection}>
+        <View>
+          <MaterialCommunityIcons
+            name="home-variant"
+            size={34}
+            color="#00ab55"
+          />
+          <Text style={{color: '#00ab55'}}>Home</Text>
+        </View>
+        <View>
+          <Avatar.Icon
+            size={34}
+            icon="folder"
+            style={{backgroundColor: '#8f81b7'}}
+          />
+          <Text style={{color: '#637382'}}>My Space</Text>
+        </View>
+        <View style={{justifyContent: 'center', alignItems: 'center'}}>
+          <MaterialIcons name="notifications" size={34} color="#637382" />
+          <Text style={{color: '#637382'}}>Notifications</Text>
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -131,8 +485,21 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: '600',
   },
-  container:{
-    height:'100%'
+  container: {
+    height: '100%',
+    backgroundColor: 'white',
+  },
+  quickLinks: {
+    width: '90%',
+    height: 60,
+    backgroundColor: 'blue',
+    borderRadius: 20,
+    alignSelf: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 3,
+    marginBottom: 50,
   },
   sectionDescription: {
     marginTop: 8,
@@ -144,18 +511,23 @@ const styles = StyleSheet.create({
   },
 
   headerPart: {
-    backgroundColor: 'grey',
+    backgroundColor: '#d9d9d9',
     height: 230,
+    justifyContent: 'space-evenly',
     flex: 1,
-    marginBottom:10,
+    marginBottom: 10,
   },
   search: {
     width: 250,
     height: 35,
+    backgroundColor: '#ffffff',
   },
   bottom: {
-    height: 300,
-    backgroundColor: 'pink',
+    height: 250,
+    backgroundColor: '#d9d9d9',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
   },
@@ -163,18 +535,27 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop: 30,
   },
-  WelcomeSection:{
-//
+  MyTeam: {
+    backgroundColor: 'white',
+    borderWidth: 1,
+    borderColor: '#e5e5e5',
+    margin: 10,
+    borderRadius: 18,
   },
-  footerSection:{
-    width:'100%',
-    height:50,
-    flexDirection:'row',
-    justifyContent:'space-between',
-    alignItems:'center',
-    backgroundColor:'grey'
-  }
+  footerSection: {
+    width: '100%',
+    paddingLeft: 25,
+    paddingRight: 25,
+    height: 72,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: '#ffffff',
+    borderWidth: 1,
+    borderTopColor: '#e5e5e5',
+  },
 });
 
 export default App;
