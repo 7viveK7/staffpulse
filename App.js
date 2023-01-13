@@ -34,48 +34,93 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 const LeftContent = props => <Avatar.Icon {...props} icon="folder" />;
 const teamMembers = [
   {
-    color: '#fdc0bd',
+    color: '#dad0fa',
     name: 'Rashmi',
     posion: 'Trainee',
     state: 'Present',
   },
   {
-    color: '#fdc0bd',
+    color: '#febeba',
+    name: 'Manisha',
+    posion: 'HR',
+    state: 'Present',
+  },
+  {
+    color: '#dad2fa',
+    name: 'Abhishek',
+    posion: 'Developer',
+    state: 'Present',
+  },
+  {
+    color: '##bff0c9',
+    name: 'Neeraj',
+    posion: 'HR',
+    state: 'Absent',
+  },
+  {
+    color: '#79927b',
     name: 'Rashmi',
     posion: 'Trainee',
     state: 'Present',
   },
   {
-    color: '#fdc0bd',
-    name: 'Rashmi',
+    color: '#fed9a5',
+    name: 'R',
     posion: 'Trainee',
     state: 'Present',
   },
   {
-    color: '#fdc0bd',
-    name: 'Rashmi',
-    posion: 'Trainee',
-    state: 'Present',
-  },
-  {
-    color: '#fdc0bd',
-    name: 'Rashmi',
-    posion: 'Trainee',
-    state: 'Present',
-  },
-  {
-    color: '#fdc0bd',
-    name: 'Rashmi',
-    posion: 'Trainee',
-    state: 'Present',
-  },
-  {
-    color: '#fdc0bd',
+    color: '#fdb8b3',
     name: 'Rashmi',
     posion: 'Trainee',
     state: 'Present',
   },
 ];
+const celebrations=[
+  {
+    profile:'',
+    name:'',
+    color:'',
+    celebratetype:''
+  }, {
+    profile:'',
+    name:'',
+    color:'',
+    celebratetype:''
+  }
+  ,
+  {
+    profile:'',
+    name:'',
+    color:'',
+    celebratetype:''
+  }
+  ,
+  {
+    profile:'',
+    name:'',
+    color:'',
+    celebratetype:''
+  }
+]
+const myTask=[
+  {
+    task:'',
+    numberOf:''
+  },
+  {
+    task:'',
+    numberOf:''
+  },
+  {
+    task:'',
+    numberOf:''
+  },
+  {
+    task:'',
+    numberOf:''
+  },
+]
 const MyTeam = [1, 2, 3, 4];
 const App = () => {
   const [searchQuery, setSearchQuery] = React.useState('');
@@ -322,8 +367,6 @@ const App = () => {
           </View>
           </ScrollView>
         
-         
-         
         </View>
 
         <View
@@ -428,22 +471,25 @@ const App = () => {
                 <View style={{width: 65}}>
                   <Avatar.Image
                     size={50}
+                    style={{backgroundColor:member.color}}
+                    
                     source={require('../sample1/src/Images/hospital.png')}
                   />
                 </View>
-                <Text style={{color: '#212a35', width: 65}}>neeraja</Text>
-                <Text style={{color: '#212a35', width: 65}}>Trainee</Text>
+                <Text style={{color: '#212a35', width: 65}}>{member.name}</Text>
+                <Text style={{color: '#212a35', width: 65}}>{member.posion}</Text>
                 <View style={{flexDirection: 'row', width: 68}}>
                   <Badge
                     style={{
                       marginBottom: 'auto',
                       marginTop: 'auto',
                       marginRight: 6,
-                      color: '#00ab55',
+                     
                     }}
                     size={16}
-                    color="#00ab55"></Badge>
-                  <Text style={{color: '#212a35'}}>Present</Text>
+                    color='green'
+                    ></Badge>
+                  <Text style={{color: '#212a35'}}>{member.state}</Text>
                 </View>
               </View>
             );
@@ -464,7 +510,23 @@ const App = () => {
               style={{
                 width: 100,
                 height: 70,
-                backgroundColor: 'blue',
+                backgroundColor: '#def5fa',
+                margin: 5,
+                borderRadius: 10,
+              }}>
+              <Text style={{color: '#212a35'}}>Present </Text>
+              <MaterialCommunityIcons
+                  name="arrow-top-right"
+                  size={33}
+                  color="#0089c8"
+                />
+            </View>
+           
+            <View
+              style={{
+                width: 100,
+                height: 70,
+                backgroundColor: '#def5fa',
                 margin: 5,
                 borderRadius: 10,
               }}>
@@ -479,31 +541,16 @@ const App = () => {
               style={{
                 width: 100,
                 height: 70,
-                backgroundColor: 'blue',
+                backgroundColor: '#def5fa',
                 margin: 5,
                 borderRadius: 10,
               }}>
-              <Text style={{color: '#212a35'}}>Present</Text>
+              <Text style={{color: '#212a35'}}>Present </Text>
               <MaterialCommunityIcons
                   name="arrow-top-right"
-                  size={33}
-                  color="#0089c8"
+                  size={26}
+                  color="#647381"
                 />
-            </View>
-            <View
-              style={{
-                width: 100,
-                height: 70,
-                backgroundColor: 'blue',
-                margin: 5,
-                borderRadius: 10,
-              }}>
-              <Text style={{color: '#212a35'}}>Present</Text>
-              <MaterialCommunityIcons
-                  name="arrow-top-right"
-                  size={33}
-                  color="#0089c8"
-                />                          
             </View>
           </View>
         </View>
