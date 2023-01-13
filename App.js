@@ -1,5 +1,5 @@
 import React from 'react';
-import ScrollIndicator from "react-native-custom-scroll-indicator";
+import ScrollIndicator from 'react-native-custom-scroll-indicator';
 
 import {
   SafeAreaView,
@@ -30,7 +30,6 @@ import {
 } from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-
 
 const LeftContent = props => <Avatar.Icon {...props} icon="folder" />;
 const teamMembers = [
@@ -77,55 +76,54 @@ const teamMembers = [
     state: 'Present',
   },
 ];
-const celebrations=[
+const celebrations = [
   {
-    profile:'',
-    name:'',
+    profile: '',
+    name: '',
     color: '#dad0fa',
-    celebratetype:''
-  }, {
-    profile:'',
-    name:'',
+    celebratetype: '',
+  },
+  {
+    profile: '',
+    name: '',
     color: '#fdb8b3',
-    celebratetype:''
-  }
-  ,
+    celebratetype: '',
+  },
   {
-    profile:'',
-    name:'',
+    profile: '',
+    name: '',
     color: '#79927b',
-    celebratetype:''
-  }
-  ,
+    celebratetype: '',
+  },
   {
-    profile:'',
-    name:'',
+    profile: '',
+    name: '',
     color: '##bff0c9',
-    celebratetype:''
-  }
-]
-const myTask=[
+    celebratetype: '',
+  },
+];
+const myTask = [
   {
-    task:'',
-    numberOf:13,
+    task: '',
+    numberOf: 13,
     color: '##bff0c9',
   },
   {
-    task:'',
-    numberOf:'',
+    task: '',
+    numberOf: '',
     color: '#dad0fa',
   },
   {
-    task:'',
+    task: '',
     color: '#79927b',
-    numberOf:1
+    numberOf: 1,
   },
   {
-    task:'',
-    numberOf:12,
+    task: '',
+    numberOf: 12,
     color: '#dad0fa',
   },
-]
+];
 const MyTeam = [1, 2, 3, 4];
 const App = () => {
   const [searchQuery, setSearchQuery] = React.useState('');
@@ -151,6 +149,10 @@ const App = () => {
             <Searchbar
               placeholder="Search"
               style={styles.search}
+              inputStyle={{
+             
+              padding:0
+              }}
               onChangeText={onChangeSearch}
               value={searchQuery}
             />
@@ -168,87 +170,88 @@ const App = () => {
               marginLeft: 10,
               marginRight: 10,
             }}>
-            <Text style={{color: '#212a35',fontFamily:'MoonDance-Regular.tff'}}>Announcements fd</Text>
+            <Text
+              style={{color: '#212a35', fontFamily: 'MoonDance-Regular.tff'}}>
+              Announcements 
+            </Text>
             <Text style={{color: '#139f5a', textDecorationLine: 'underline'}}>
               View All{' '}
             </Text>
           </View>
           <View>
-          <ScrollView horizontal={true} >
- <View style={{flexDirection: 'row'}}>
-            <View style={{marginLeft: 10}}>
-              <Card.Title
-                title="Employees expected to cloack"
-                subtitle="1 hour ago"
-                titleStyle={{fontSize: 16}}
-                style={{
-                  backgroundColor: '#e0c8ae',
-                  width:300,
-                  height: 58,
-                  borderRadius: 20,
-                  alignSelf: 'center',
-                  paddingRight: 5,
-                }}
-                left={props => (
-                  <Avatar.Icon
-                    {...props}
-                    style={{backgroundColor: '#fede68'}}
-                    icon="clock"
-                    color="#ef9c21"
+            <ScrollView horizontal={true}>
+              <View style={{flexDirection: 'row'}}>
+                <View style={{marginLeft: 10}}>
+                  <Card.Title
+                    title="Employees expected to cloack"
+                    subtitle="1 hour ago"
+                    titleStyle={{fontSize: 16}}
+                    style={{
+                      backgroundColor: '#e0c8ae',
+                      width: 300,
+                      height: 58,
+                      borderRadius: 20,
+                      alignSelf: 'center',
+                      paddingRight: 5,
+                    }}
+                    left={props => (
+                      <Avatar.Icon
+                        {...props}
+                        style={{backgroundColor: '#fede68'}}
+                        icon="clock"
+                        color="#ef9c21"
+                      />
+                    )}
                   />
-                )}
-              />
-            </View>
-            <View style={{marginLeft: 10}}>
-              <Card.Title
-                title="Employees expected to cloack"
-                subtitle="1 hour ago"
-                titleStyle={{fontSize: 16}}
-                style={{
-                  backgroundColor: '#e0c8ae',
-                  width:300,
-                  height: 58,
-                  borderRadius: 20,
-                  alignSelf: 'center',
-                  paddingRight: 5,
-                }}
-                left={props => (
-                  <Avatar.Icon
-                    {...props}
-                    style={{backgroundColor: '#fede68'}}
-                    icon="clock"
-                    color="#ef9c21"
+                </View>
+                <View style={{marginLeft: 10}}>
+                  <Card.Title
+                    title="Employees expected to cloack"
+                    subtitle="1 hour ago"
+                    titleStyle={{fontSize: 16}}
+                    style={{
+                      backgroundColor: '#e0c8ae',
+                      width: 300,
+                      height: 58,
+                      borderRadius: 20,
+                      alignSelf: 'center',
+                      paddingRight: 5,
+                    }}
+                    left={props => (
+                      <Avatar.Icon
+                        {...props}
+                        style={{backgroundColor: '#fede68'}}
+                        icon="clock"
+                        color="#ef9c21"
+                      />
+                    )}
                   />
-                )}
-              />
-            </View>
-            
-            <View>
-              <Card.Title
-                title="Card Title"
-                subtitle="1 hour ago"
-                style={{
-                  backgroundColor: '#e0c8ae',
-                  width: '60%',
-                  height: 60,
-                  borderRadius: 20,
-                  alignSelf: 'center',
-                }}
-                left={props => (
-                  <Avatar.Icon
-                    {...props}
-                    style={{backgroundColor: '#fede68'}}
-                    icon="clock"
-                    color="#ef9c21"
+                </View>
+
+                <View>
+                  <Card.Title
+                    title="Card Title"
+                    subtitle="1 hour ago"
+                    style={{
+                      backgroundColor: '#e0c8ae',
+                      width: '60%',
+                      height: 60,
+                      borderRadius: 20,
+                      alignSelf: 'center',
+                    }}
+                    left={props => (
+                      <Avatar.Icon
+                        {...props}
+                        style={{backgroundColor: '#fede68'}}
+                        icon="clock"
+                        color="#ef9c21"
+                      />
+                    )}
                   />
-                )}
-              />
-            </View>
+                </View>
+              </View>
+            </ScrollView>
           </View>
- </ScrollView>
-          </View>
- 
-         
         </View>
 
         <View style={styles.bottom}>
@@ -258,133 +261,130 @@ const App = () => {
               fontFamily: 'MoonDance-Regular',
               color: '#f4bd94',
               fontWeight: 'bold',
-              marginTop:15
+              marginTop: 15,
             }}>
             WELCOME
           </Text>
-        
-          <ScrollIndicator horizontal={true} indicatorStyle={{
-        height: 2,
-        width: 40,
-        borderRadius: 4
-    }}
-    scrollViewBoxStyle={{
-       
-        width: '100%',
-       
-    }}
-    viewBoxStyle={{
-      alignItems: "center",
-      // marginTop: 60
-  }} >
-            <View  style={{flexDirection:'row'}}>
 
-           
-          <Card
-            style={{
-              width: 130,
-              height: 150,
-              margin:10,
-              borderRadius: 12,
-              backgroundColor: '#e9f8ff',
-              borderWidth: 1,
-              borderColor: '#b8e7f9',
+          <ScrollIndicator
+            horizontal={true}
+            indicatorStyle={{
+              height: 2,
+              width: 40,
+              borderRadius: 4,
+            }}
+            scrollViewBoxStyle={{
+              width: '100%',
+            }}
+            viewBoxStyle={{
+              alignItems: 'center',
+              // marginTop: 60
             }}>
-            <Card.Content>
-              <Badge
-                style={{alignSelf: 'center', backgroundColor: '#c2e9fc'}}
-                size={63}>
-                v
-              </Badge>
-
-              <Text
-                variant="titleLarge"
+            <View style={{flexDirection: 'row'}}>
+              <Card
                 style={{
-                  color: '#4495bb',
-                  alignSelf: 'center',
-                  fontWeight: 'bold',
-                  fontSize: 20,
+                  width: 130,
+                  height: 150,
+                  margin: 10,
+                  borderRadius: 12,
+                  backgroundColor: '#e9f8ff',
+                  borderWidth: 1,
+                  borderColor: '#b8e7f9',
                 }}>
-                Megha
-              </Text>
-              <Text
-                variant="bodyMedium"
-                style={{color: '#657582', alignSelf: 'center'}}>
-                Ux Designer Join today
-              </Text>
-            </Card.Content>
-          </Card>
-          <Card
-            style={{
-              width: 130,
-              height: 150,
-              margin:10,
-              borderRadius: 12,
-              backgroundColor: '#e9f8ff',
-              borderWidth: 1,
-              borderColor: '#b8e7f9',
-            }}>
-            <Card.Content>
-              <Badge
-                style={{alignSelf: 'center', backgroundColor: '#c2e9fc'}}
-                size={63}>
-                v
-              </Badge>
+                <Card.Content>
+                  <Badge
+                    style={{alignSelf: 'center', backgroundColor: '#c2e9fc'}}
+                    size={63}>
+                    v
+                  </Badge>
 
-              <Text
-                variant="titleLarge"
+                  <Text
+                    variant="titleLarge"
+                    style={{
+                      color: '#4495bb',
+                      alignSelf: 'center',
+                      fontWeight: 'bold',
+                      fontSize: 20,
+                    }}>
+                    Megha
+                  </Text>
+                  <Text
+                    variant="bodyMedium"
+                    style={{color: '#657582', alignSelf: 'center'}}>
+                    Ux Designer Join today
+                  </Text>
+                </Card.Content>
+              </Card>
+              <Card
                 style={{
-                  color: '#4495bb',
-                  alignSelf: 'center',
-                  fontWeight: 'bold',
-                  fontSize: 20,
+                  width: 130,
+                  height: 150,
+                  margin: 10,
+                  borderRadius: 12,
+                  backgroundColor: '#e9f8ff',
+                  borderWidth: 1,
+                  borderColor: '#b8e7f9',
                 }}>
-                Megha
-              </Text>
-              <Text
-                variant="bodyMedium"
-                style={{color: '#657582', alignSelf: 'center'}}>
-                Ux Designer Join today
-              </Text>
-            </Card.Content>
-          </Card>
-          <Card
-            style={{
-              width: 130,
-              height: 150,
-              margin:10,
-              borderRadius: 12,
-              backgroundColor: '#e9f8ff',
-              borderWidth: 1,
-              borderColor: '#b8e7f9',
-            }}>
-            <Card.Content>
-              <Badge
-                style={{alignSelf: 'center', backgroundColor: '#c2e9fc'}}
-                size={63}>
-                v
-              </Badge>
+                <Card.Content>
+                  <Badge
+                    style={{alignSelf: 'center', backgroundColor: '#c2e9fc'}}
+                    size={63}>
+                    v
+                  </Badge>
 
-              <Text
-                variant="titleLarge"
+                  <Text
+                    variant="titleLarge"
+                    style={{
+                      color: '#4495bb',
+                      alignSelf: 'center',
+                      fontWeight: 'bold',
+                      fontSize: 20,
+                    }}>
+                    Megha
+                  </Text>
+                  <Text
+                    variant="bodyMedium"
+                    style={{color: '#657582', alignSelf: 'center'}}>
+                    Ux Designer Join today
+                  </Text>
+                </Card.Content>
+              </Card>
+              <Card
                 style={{
-                  color: '#4495bb',
-                  alignSelf: 'center',
-                  fontWeight: 'bold',
-                  fontSize: 20,
+                  width: 130,
+                  height: 150,
+                  margin: 10,
+                  borderRadius: 12,
+                  backgroundColor: '#e9f8ff',
+                  borderWidth: 1,
+                  borderColor: '#b8e7f9',
                 }}>
-                Megha
-              </Text>
-              <Text
-                variant="bodyMedium"
-                style={{color: '#657582', alignSelf: 'center'}}>
-                Ux Designer Join today
-              </Text>
-            </Card.Content>
-          </Card>
-          </View>
+                <Card.Content>
+                  <Badge
+                    style={{alignSelf: 'center', backgroundColor: '#c2e9fc'}}
+                    size={63}>
+                    v
+                  </Badge>
+
+                  <Text
+                    variant="titleLarge"
+                    style={{
+                      color: '#4495bb',
+                      alignSelf: 'center',
+                      fontWeight: 'bold',
+                      fontSize: 20,
+                    }}>
+                    Megha
+                  </Text>
+                  <Text
+                    variant="bodyMedium"
+                    style={{color: '#657582', alignSelf: 'center'}}>
+                    Ux Designer Join today
+                  </Text>
+                </Card.Content>
+              </Card>
+            </View>
           </ScrollIndicator>
-        
         </View>
 
         <View
@@ -489,24 +489,23 @@ const App = () => {
                 <View style={{width: 65}}>
                   <Avatar.Image
                     size={50}
-                    style={{backgroundColor:member.color}}
-                    
+                    style={{backgroundColor: member.color}}
                     source={require('../sample1/src/Images/hospital.png')}
                   />
                 </View>
                 <Text style={{color: '#212a35', width: 65}}>{member.name}</Text>
-                <Text style={{color: '#212a35', width: 65}}>{member.posion}</Text>
+                <Text style={{color: '#212a35', width: 65}}>
+                  {member.posion}
+                </Text>
                 <View style={{flexDirection: 'row', width: 68}}>
                   <Badge
                     style={{
                       marginBottom: 'auto',
                       marginTop: 'auto',
                       marginRight: 6,
-                     
                     }}
                     size={16}
-                    color='green'
-                    ></Badge>
+                    color="green"></Badge>
                   <Text style={{color: '#212a35'}}>{member.state}</Text>
                 </View>
               </View>
@@ -531,16 +530,17 @@ const App = () => {
                 backgroundColor: '#def5fa',
                 margin: 5,
                 borderRadius: 10,
-                flexDirection:'row'
-             
+                flexDirection: 'row',
+                justifyContent:'space-between'
               }}>
-              <Text style={{color: '#212a35',alignSelf:'center'}}>Present </Text>
+              <Text style={{color: '#212a35', alignSelf: 'center'}}>
+                Present{' '}
+              </Text>
               <MaterialCommunityIcons
-              
-                  name="arrow-top-right"
-                  size={23}
-                  color="#0089c8"
-                />
+                name="arrow-top-right"
+                size={23}
+                color="#0089c8"
+              />
             </View>
             <View
               style={{
@@ -549,16 +549,17 @@ const App = () => {
                 backgroundColor: '#def5fa',
                 margin: 5,
                 borderRadius: 10,
-                flexDirection:'row'
-             
+                flexDirection: 'row',
+                justifyContent:'space-between'
               }}>
-              <Text style={{color: '#212a35',alignSelf:'center'}}>Present </Text>
+              <Text style={{color: '#212a35', alignSelf: 'center'}}>
+                Present{' '}
+              </Text>
               <MaterialCommunityIcons
-              
-                  name="arrow-top-right"
-                  size={23}
-                  color="#0089c8"
-                />
+                name="arrow-top-right"
+                size={23}
+                color="#0089c8"
+              />
             </View>
             <View
               style={{
@@ -567,16 +568,17 @@ const App = () => {
                 backgroundColor: '#def5fa',
                 margin: 5,
                 borderRadius: 10,
-                flexDirection:'row'
-             
+                flexDirection: 'row',
+                justifyContent:'space-between'
               }}>
-              <Text style={{color: '#212a35',alignSelf:'center'}}>Present </Text>
+              <Text style={{color: '#212a35', alignSelf: 'center'}}>
+                Present{' '}
+              </Text>
               <MaterialCommunityIcons
-              
-                  name="arrow-top-right"
-                  size={23}
-                  color="#0089c8"
-                />
+                name="arrow-top-right"
+                size={23}
+                color="#0089c8"
+              />
             </View>
           </View>
         </View>
@@ -611,42 +613,42 @@ const App = () => {
           })}
         </View>
         <View style={[styles.MyTeam]}>
-        <Text
+          <Text
             style={{
               color: 'red',
               margin: 10,
               fontSize: 20,
               fontWeight: 'bold',
             }}>
-          My tasks
+            My tasks
           </Text>
-          <View style={{justifyContent:'center',alignItems:'center'}}>
-          {MyTeam.map(()=>{
-            return(
-              <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-evenly',
-              alignItems:'center',
-            width:'80%',
-           marginBottom:20,
-             height:49,
-             borderWidth:1,
-           
-             borderRadius:10
-            }}>
-            <Text style={{color: '#212a35'}}>Attendance</Text>
-            <Text style={{color: '#212a35'}}>17</Text>
-            <Text style={{color: '#139f5a', textDecorationLine: 'underline'}}>
-              View All
-            </Text>
-          </View> 
-            )
-          })}
+          <View style={{justifyContent: 'center', alignItems: 'center'}}>
+            {MyTeam.map(() => {
+              return (
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-evenly',
+                    alignItems: 'center',
+                    width: '80%',
+                    marginBottom: 20,
+                    height: 49,
+                    borderWidth: 1,
+
+                    borderRadius: 10,
+                  }}>
+                  <Text style={{color: '#212a35'}}>Attendance</Text>
+                  <Text style={{color: '#212a35'}}>17</Text>
+                  <Text
+                    style={{color: '#139f5a', textDecorationLine: 'underline'}}>
+                    View All
+                  </Text>
+                </View>
+              );
+            })}
           </View>
         </View>
       </ScrollView>
-    
 
       <View style={styles.footerSection}>
         <View>
@@ -726,7 +728,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    flexDirection:'column',
+    flexDirection: 'column',
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
   },
