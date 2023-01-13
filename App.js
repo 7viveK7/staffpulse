@@ -593,12 +593,13 @@ const App = () => {
             }}>
             Quick Links
           </Text>
-          {MyTeam.map(() => {
+          {celebrations.map((celebrate) => {
             return (
-              <View style={styles.quickLinks}>
+              <View style={[styles.quickLinks,{ backgroundColor: celebrate.color,}]}>
                 <Text style={{color: '#212a35'}}>Trainee</Text>
                 <Avatar.Image
                   size={90}
+                  style={{backgroundColor: celebrate.color}}
                   source={require('../sample1/src/Images/hospital.png')}
                 />
 
@@ -692,7 +693,7 @@ const styles = StyleSheet.create({
   quickLinks: {
     width: '90%',
     height: 60,
-    backgroundColor: 'blue',
+   
     borderRadius: 20,
     alignSelf: 'center',
     flexDirection: 'row',
