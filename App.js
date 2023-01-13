@@ -171,7 +171,7 @@ const App = () => {
               marginRight: 10,
             }}>
             <Text
-              style={{color: '#212a35', fontFamily: 'MoonDance-Regular.tff'}}>
+              style={{color: '#212a35', fontFamily: 'SofiaSansSemiCondensed-Bold'}}>
               Announcements
             </Text>
             <Text style={{color: '#139f5a', textDecorationLine: 'underline'}}>
@@ -621,7 +621,8 @@ const App = () => {
               color: 'red',
               margin: 10,
               fontSize: 20,
-              fontWeight: 'bold',
+           fontFamily:'SofiaSansSemiCondensed-Bold',
+           fontWeight:'bold'
             }}>
             My tasks
           </Text>
@@ -660,7 +661,7 @@ const App = () => {
             size={34}
             color="#00ab55"
           />
-          <Text style={{color: '#00ab55'}}>Home</Text>
+          <Text style={{color: '#00ab55',  fontFamily:'SofiaSansSemiCondensed-Bold',}}>Home</Text>
         </View>
         <View>
           <Avatar.Icon
@@ -755,7 +756,7 @@ const styles = StyleSheet.create({
     borderRadius: 18,
   },
   footerSection: {
-    width: '100%',
+    width: '100%',  fontFamily:'SofiaSansSemiCondensed-Bold',
     paddingLeft: 25,
     paddingRight: 25,
     height: 72,
