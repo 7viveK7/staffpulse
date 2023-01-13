@@ -104,22 +104,22 @@ const celebrations = [
 ];
 const myTask = [
   {
-    task: '',
+    task: 'train',
     numberOf: 13,
     color: '##bff0c9',
   },
   {
-    task: '',
+    task: 'wait',
     numberOf: '',
     color: '#dad0fa',
   },
   {
-    task: '',
+    task: 'do',
     color: '#79927b',
     numberOf: 1,
   },
   {
-    task: '',
+    task: 'made',
     numberOf: 12,
     color: '#dad0fa',
   },
@@ -150,8 +150,7 @@ const App = () => {
               placeholder="Search"
               style={styles.search}
               inputStyle={{
-             
-              padding:0
+                padding: 0,
               }}
               onChangeText={onChangeSearch}
               value={searchQuery}
@@ -172,7 +171,7 @@ const App = () => {
             }}>
             <Text
               style={{color: '#212a35', fontFamily: 'MoonDance-Regular.tff'}}>
-              Announcements 
+              Announcements
             </Text>
             <Text style={{color: '#139f5a', textDecorationLine: 'underline'}}>
               View All{' '}
@@ -531,7 +530,7 @@ const App = () => {
                 margin: 5,
                 borderRadius: 10,
                 flexDirection: 'row',
-                justifyContent:'space-between'
+                justifyContent: 'space-between',
               }}>
               <Text style={{color: '#212a35', alignSelf: 'center'}}>
                 Present{' '}
@@ -550,7 +549,7 @@ const App = () => {
                 margin: 5,
                 borderRadius: 10,
                 flexDirection: 'row',
-                justifyContent:'space-between'
+                justifyContent: 'space-between',
               }}>
               <Text style={{color: '#212a35', alignSelf: 'center'}}>
                 Present{' '}
@@ -569,7 +568,7 @@ const App = () => {
                 margin: 5,
                 borderRadius: 10,
                 flexDirection: 'row',
-                justifyContent:'space-between'
+                justifyContent: 'space-between',
               }}>
               <Text style={{color: '#212a35', alignSelf: 'center'}}>
                 Present{' '}
@@ -593,9 +592,10 @@ const App = () => {
             }}>
             Quick Links
           </Text>
-          {celebrations.map((celebrate) => {
+          {celebrations.map(celebrate => {
             return (
-              <View style={[styles.quickLinks,{ backgroundColor: celebrate.color,}]}>
+              <View
+                style={[styles.quickLinks, {backgroundColor: celebrate.color}]}>
                 <Text style={{color: '#212a35'}}>Trainee</Text>
                 <Avatar.Image
                   size={90}
@@ -624,7 +624,7 @@ const App = () => {
             My tasks
           </Text>
           <View style={{justifyContent: 'center', alignItems: 'center'}}>
-            {MyTeam.map(() => {
+            {myTask.map(each => {
               return (
                 <View
                   style={{
@@ -635,11 +635,11 @@ const App = () => {
                     marginBottom: 20,
                     height: 49,
                     borderWidth: 1,
-
+                    borderColor: each.color,
                     borderRadius: 10,
                   }}>
-                  <Text style={{color: '#212a35'}}>Attendance</Text>
-                  <Text style={{color: '#212a35'}}>17</Text>
+                  <Text style={{color: '#212a35'}}>{each.task}</Text>
+                  <Text style={{color: '#212a35'}}>{each.numberOf}</Text>
                   <Text
                     style={{color: '#139f5a', textDecorationLine: 'underline'}}>
                     View All
@@ -693,7 +693,7 @@ const styles = StyleSheet.create({
   quickLinks: {
     width: '90%',
     height: 60,
-   
+
     borderRadius: 20,
     alignSelf: 'center',
     flexDirection: 'row',
