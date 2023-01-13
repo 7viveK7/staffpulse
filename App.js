@@ -30,6 +30,7 @@ import {
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
+
 const LeftContent = props => <Avatar.Icon {...props} icon="folder" />;
 const teamMembers = [
   {
@@ -122,8 +123,9 @@ const App = () => {
               View All{' '}
             </Text>
           </View>
-
-          <View style={{flexDirection: 'row'}}>
+          <View>
+          <ScrollView horizontal={true} >
+ <View style={{flexDirection: 'row'}}>
             <View style={{marginLeft: 10}}>
               <Card.Title
                 title="Employees expected to cloack"
@@ -131,8 +133,8 @@ const App = () => {
                 titleStyle={{fontSize: 16}}
                 style={{
                   backgroundColor: '#e0c8ae',
-                  width: '70%',
-                  height: 60,
+                  width:300,
+                  height: 58,
                   borderRadius: 20,
                   alignSelf: 'center',
                   paddingRight: 5,
@@ -147,6 +149,30 @@ const App = () => {
                 )}
               />
             </View>
+            <View style={{marginLeft: 10}}>
+              <Card.Title
+                title="Employees expected to cloack"
+                subtitle="1 hour ago"
+                titleStyle={{fontSize: 16}}
+                style={{
+                  backgroundColor: '#e0c8ae',
+                  width:300,
+                  height: 58,
+                  borderRadius: 20,
+                  alignSelf: 'center',
+                  paddingRight: 5,
+                }}
+                left={props => (
+                  <Avatar.Icon
+                    {...props}
+                    style={{backgroundColor: '#fede68'}}
+                    icon="clock"
+                    color="#ef9c21"
+                  />
+                )}
+              />
+            </View>
+            
             <View>
               <Card.Title
                 title="Card Title"
@@ -169,6 +195,10 @@ const App = () => {
               />
             </View>
           </View>
+ </ScrollView>
+          </View>
+ 
+         
         </View>
 
         <View style={styles.bottom}>
@@ -178,13 +208,20 @@ const App = () => {
               fontFamily: 'MoonDance-Regular',
               color: '#f4bd94',
               fontWeight: 'bold',
+              marginTop:15
             }}>
             WELCOME
           </Text>
+        
+          <ScrollView horizontal={true}  >
+            <View  style={{flexDirection:'row'}}>
+
+           
           <Card
             style={{
               width: 130,
               height: 150,
+              margin:10,
               borderRadius: 12,
               backgroundColor: '#e9f8ff',
               borderWidth: 1,
@@ -214,6 +251,79 @@ const App = () => {
               </Text>
             </Card.Content>
           </Card>
+          <Card
+            style={{
+              width: 130,
+              height: 150,
+              margin:10,
+              borderRadius: 12,
+              backgroundColor: '#e9f8ff',
+              borderWidth: 1,
+              borderColor: '#b8e7f9',
+            }}>
+            <Card.Content>
+              <Badge
+                style={{alignSelf: 'center', backgroundColor: '#c2e9fc'}}
+                size={63}>
+                v
+              </Badge>
+
+              <Text
+                variant="titleLarge"
+                style={{
+                  color: '#4495bb',
+                  alignSelf: 'center',
+                  fontWeight: 'bold',
+                  fontSize: 20,
+                }}>
+                Megha
+              </Text>
+              <Text
+                variant="bodyMedium"
+                style={{color: '#657582', alignSelf: 'center'}}>
+                Ux Designer Join today
+              </Text>
+            </Card.Content>
+          </Card>
+          <Card
+            style={{
+              width: 130,
+              height: 150,
+              margin:10,
+              borderRadius: 12,
+              backgroundColor: '#e9f8ff',
+              borderWidth: 1,
+              borderColor: '#b8e7f9',
+            }}>
+            <Card.Content>
+              <Badge
+                style={{alignSelf: 'center', backgroundColor: '#c2e9fc'}}
+                size={63}>
+                v
+              </Badge>
+
+              <Text
+                variant="titleLarge"
+                style={{
+                  color: '#4495bb',
+                  alignSelf: 'center',
+                  fontWeight: 'bold',
+                  fontSize: 20,
+                }}>
+                Megha
+              </Text>
+              <Text
+                variant="bodyMedium"
+                style={{color: '#657582', alignSelf: 'center'}}>
+                Ux Designer Join today
+              </Text>
+            </Card.Content>
+          </Card>
+          </View>
+          </ScrollView>
+        
+         
+         
         </View>
 
         <View
@@ -358,7 +468,12 @@ const App = () => {
                 margin: 5,
                 borderRadius: 10,
               }}>
-              <Text style={{color: '#212a35'}}>Present</Text>
+              <Text style={{color: '#212a35'}}>Present </Text>
+              <MaterialCommunityIcons
+                  name="arrow-top-right"
+                  size={33}
+                  color="#0089c8"
+                />
             </View>
             <View
               style={{
@@ -369,6 +484,11 @@ const App = () => {
                 borderRadius: 10,
               }}>
               <Text style={{color: '#212a35'}}>Present</Text>
+              <MaterialCommunityIcons
+                  name="arrow-top-right"
+                  size={33}
+                  color="#0089c8"
+                />
             </View>
             <View
               style={{
@@ -379,6 +499,11 @@ const App = () => {
                 borderRadius: 10,
               }}>
               <Text style={{color: '#212a35'}}>Present</Text>
+              <MaterialCommunityIcons
+                  name="arrow-top-right"
+                  size={33}
+                  color="#0089c8"
+                />                          
             </View>
           </View>
         </View>
@@ -403,8 +528,8 @@ const App = () => {
                 />
 
                 <Text style={{color: '#212a35'}}>neeraja</Text>
-                <MaterialCommunityIcons
-                  name="clock"
+                <MaterialIcons
+                  name="arrow-forward-ios"
                   size={33}
                   color="#0089c8"
                 />
@@ -528,6 +653,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    flexDirection:'column',
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
   },
