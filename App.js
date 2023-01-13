@@ -1,5 +1,6 @@
 import React from 'react';
 import ScrollIndicator from 'react-native-custom-scroll-indicator';
+import DropShadow from 'react-native-drop-shadow';
 
 import {
   SafeAreaView,
@@ -511,6 +512,7 @@ const App = () => {
             );
           })}
         </View>
+        <DropShadow style={styles.shadowProp}>
         <View style={[styles.MyTeam, {height: 200}]}>
           <Text
             style={{
@@ -581,7 +583,7 @@ const App = () => {
             </View>
           </View>
         </View>
-
+        </DropShadow>
         <View style={[styles.MyTeam]}>
           <Text
             style={{
@@ -681,6 +683,12 @@ const styles = StyleSheet.create({
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
+  },
+  shadowProp: {
+    shadowOffset: {width: 0, height: 0.5},
+    shadowColor: '#171717',
+    shadowOpacity: 0.3,
+    shadowRadius: 1,
   },
   sectionTitle: {
     fontSize: 24,
