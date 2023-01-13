@@ -1,0 +1,17 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/MoonDance-Regular.ttf",
+      "sha1": "fdbead9667784f7f3f304ca11d5712ea79d7f177"
+    },
+    {
+      "path": "assets/fonts/RobotoMono-Bold.ttf",
+      "sha1": "0c75d7b11dacfede72053e40b71849c43c22a454"
+    },
+    {
+      "path": "assets/fonts/SofiaSansSemiCondensed-Bold.ttf",
+      "sha1": "f6ae6b5dafa37b4c4a603613a2495c3b07883f46"
+    }
+  ]
+}

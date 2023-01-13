@@ -661,7 +661,7 @@ const App = () => {
             size={34}
             color="#00ab55"
           />
-          <Text style={{color: '#00ab55',  fontFamily:'SofiaSansSemiCondensed-Bold',}}>Home</Text>
+          <Text style={{color: '#00ab55',  fontFamily:'MoonDance-Regular',}}>Home</Text>
         </View>
         <View>
           <Avatar.Icon
