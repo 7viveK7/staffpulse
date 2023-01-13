@@ -1,4 +1,6 @@
 import React from 'react';
+import ScrollIndicator from "react-native-custom-scroll-indicator";
+
 import {
   SafeAreaView,
   ScrollView,
@@ -10,7 +12,6 @@ import {
   View,
   Image,
 } from 'react-native';
-
 import {
   Colors,
   DebugInstructions,
@@ -80,45 +81,49 @@ const celebrations=[
   {
     profile:'',
     name:'',
-    color:'',
+    color: '#dad0fa',
     celebratetype:''
   }, {
     profile:'',
     name:'',
-    color:'',
+    color: '#fdb8b3',
     celebratetype:''
   }
   ,
   {
     profile:'',
     name:'',
-    color:'',
+    color: '#79927b',
     celebratetype:''
   }
   ,
   {
     profile:'',
     name:'',
-    color:'',
+    color: '##bff0c9',
     celebratetype:''
   }
 ]
 const myTask=[
   {
     task:'',
-    numberOf:''
+    numberOf:13,
+    color: '##bff0c9',
   },
   {
     task:'',
-    numberOf:''
+    numberOf:'',
+    color: '#dad0fa',
   },
   {
     task:'',
-    numberOf:''
+    color: '#79927b',
+    numberOf:1
   },
   {
     task:'',
-    numberOf:''
+    numberOf:12,
+    color: '#dad0fa',
   },
 ]
 const MyTeam = [1, 2, 3, 4];
@@ -163,7 +168,7 @@ const App = () => {
               marginLeft: 10,
               marginRight: 10,
             }}>
-            <Text style={{color: '#212a35'}}>Announcements</Text>
+            <Text style={{color: '#212a35',fontFamily:'MoonDance-Regular.tff'}}>Announcements fd</Text>
             <Text style={{color: '#139f5a', textDecorationLine: 'underline'}}>
               View All{' '}
             </Text>
@@ -258,7 +263,20 @@ const App = () => {
             WELCOME
           </Text>
         
-          <ScrollView horizontal={true}  >
+          <ScrollIndicator horizontal={true} indicatorStyle={{
+        height: 2,
+        width: 40,
+        borderRadius: 4
+    }}
+    scrollViewBoxStyle={{
+       
+        width: '100%',
+       
+    }}
+    viewBoxStyle={{
+      alignItems: "center",
+      // marginTop: 60
+  }} >
             <View  style={{flexDirection:'row'}}>
 
            
@@ -365,7 +383,7 @@ const App = () => {
             </Card.Content>
           </Card>
           </View>
-          </ScrollView>
+          </ScrollIndicator>
         
         </View>
 
@@ -513,27 +531,14 @@ const App = () => {
                 backgroundColor: '#def5fa',
                 margin: 5,
                 borderRadius: 10,
+                flexDirection:'row'
+             
               }}>
-              <Text style={{color: '#212a35'}}>Present </Text>
+              <Text style={{color: '#212a35',alignSelf:'center'}}>Present </Text>
               <MaterialCommunityIcons
+              
                   name="arrow-top-right"
-                  size={33}
-                  color="#0089c8"
-                />
-            </View>
-           
-            <View
-              style={{
-                width: 100,
-                height: 70,
-                backgroundColor: '#def5fa',
-                margin: 5,
-                borderRadius: 10,
-              }}>
-              <Text style={{color: '#212a35'}}>Present </Text>
-              <MaterialCommunityIcons
-                  name="arrow-top-right"
-                  size={33}
+                  size={23}
                   color="#0089c8"
                 />
             </View>
@@ -544,12 +549,33 @@ const App = () => {
                 backgroundColor: '#def5fa',
                 margin: 5,
                 borderRadius: 10,
+                flexDirection:'row'
+             
               }}>
-              <Text style={{color: '#212a35'}}>Present </Text>
+              <Text style={{color: '#212a35',alignSelf:'center'}}>Present </Text>
               <MaterialCommunityIcons
+              
                   name="arrow-top-right"
-                  size={26}
-                  color="#647381"
+                  size={23}
+                  color="#0089c8"
+                />
+            </View>
+            <View
+              style={{
+                width: 100,
+                height: 70,
+                backgroundColor: '#def5fa',
+                margin: 5,
+                borderRadius: 10,
+                flexDirection:'row'
+             
+              }}>
+              <Text style={{color: '#212a35',alignSelf:'center'}}>Present </Text>
+              <MaterialCommunityIcons
+              
+                  name="arrow-top-right"
+                  size={23}
+                  color="#0089c8"
                 />
             </View>
           </View>

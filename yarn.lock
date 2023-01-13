@@ -1358,6 +1358,11 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
+"@mdi/font@^7.1.96":
+  version "7.1.96"
+  resolved "https://registry.npmjs.org/@mdi/font/-/font-7.1.96.tgz"
+  integrity sha512-Imag6npmfkBDi2Ze2jiZVAPTDIKLxhz2Sx82xJ2zctyAU5LYJejLI5ChnDwiD9bMkQfVuzEsI98Q8toHyC+HCg==
+
 "@react-native-community/cli-clean@^9.2.1":
   version "9.2.1"
   resolved "https://registry.npmjs.org/@react-native-community/cli-clean/-/cli-clean-9.2.1.tgz"
@@ -5936,6 +5941,11 @@ react-native-codegen@^0.70.6:
     flow-parser "^0.121.0"
     jscodeshift "^0.13.1"
     nullthrows "^1.1.1"
+
+react-native-custom-scroll-indicator@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.npmjs.org/react-native-custom-scroll-indicator/-/react-native-custom-scroll-indicator-1.0.8.tgz"
+  integrity sha512-YILG3cHNmkvepcTB6rjYS51dev5kwmluTi55oSE0AUMscqNqFFWjINcWOijCQ39ZSVKMahc3gOCUBWz51+cmDQ==
 
 react-native-drop-shadow@^0.0.6:
   version "0.0.6"
