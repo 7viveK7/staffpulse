@@ -2,12 +2,24 @@
   "migIndex": 1,
   "data": [
     {
+      "path": "assets/fonts/DancingScript-Bold.ttf",
+      "sha1": "42858229a137c5188a859df102afff145200114d"
+    },
+    {
+      "path": "assets/fonts/GreatVibes-Regular.ttf",
+      "sha1": "4dd3bad8fb151d31eedee2676488f94f831bf515"
+    },
+    {
       "path": "assets/fonts/MoonDance-Regular.ttf",
       "sha1": "fdbead9667784f7f3f304ca11d5712ea79d7f177"
     },
     {
       "path": "assets/fonts/RobotoMono-Bold.ttf",
       "sha1": "0c75d7b11dacfede72053e40b71849c43c22a454"
+    },
+    {
+      "path": "assets/fonts/Rochester-Regular.ttf",
+      "sha1": "9e87ae4024af5d7b8e2a7514657aba9c1e00f1f1"
     },
     {
       "path": "assets/fonts/SofiaSansSemiCondensed-Bold.ttf",

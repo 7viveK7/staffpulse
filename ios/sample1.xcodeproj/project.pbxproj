@@ -17,6 +17,9 @@
 		90A2ADF5917345E49A5B2C74 /* MoonDance-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6FF7B0CDAB094DF7B1A457EC /* MoonDance-Regular.ttf */; };
 		C9FA94B7D3C5492FAED7BC34 /* RobotoMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34323CB5AF6443038202BC99 /* RobotoMono-Bold.ttf */; };
 		FFF781702BFB4F4D9A8943C8 /* SofiaSansSemiCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74428C03D9A64E6C8509B992 /* SofiaSansSemiCondensed-Bold.ttf */; };
+		9CEC3A4C5F7F4A7289CE62BF /* DancingScript-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28DA016A22F34D65A67EFC5F /* DancingScript-Bold.ttf */; };
+		98588E7E7724413CB5674F52 /* GreatVibes-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A4A82D66757643A38BBDC6F8 /* GreatVibes-Regular.ttf */; };
+		EF048F84C190420FAF02DFBE /* Rochester-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8E25F0601E34B38B6FC7293 /* Rochester-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,9 @@
 		6FF7B0CDAB094DF7B1A457EC /* MoonDance-Regular.ttf */ = {isa = PBXFileReference; name = "MoonDance-Regular.ttf"; path = "../assets/fonts/MoonDance-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		34323CB5AF6443038202BC99 /* RobotoMono-Bold.ttf */ = {isa = PBXFileReference; name = "RobotoMono-Bold.ttf"; path = "../assets/fonts/RobotoMono-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		74428C03D9A64E6C8509B992 /* SofiaSansSemiCondensed-Bold.ttf */ = {isa = PBXFileReference; name = "SofiaSansSemiCondensed-Bold.ttf"; path = "../assets/fonts/SofiaSansSemiCondensed-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		28DA016A22F34D65A67EFC5F /* DancingScript-Bold.ttf */ = {isa = PBXFileReference; name = "DancingScript-Bold.ttf"; path = "../assets/fonts/DancingScript-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A4A82D66757643A38BBDC6F8 /* GreatVibes-Regular.ttf */ = {isa = PBXFileReference; name = "GreatVibes-Regular.ttf"; path = "../assets/fonts/GreatVibes-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D8E25F0601E34B38B6FC7293 /* Rochester-Regular.ttf */ = {isa = PBXFileReference; name = "Rochester-Regular.ttf"; path = "../assets/fonts/Rochester-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +167,9 @@
 				6FF7B0CDAB094DF7B1A457EC /* MoonDance-Regular.ttf */,
 				34323CB5AF6443038202BC99 /* RobotoMono-Bold.ttf */,
 				74428C03D9A64E6C8509B992 /* SofiaSansSemiCondensed-Bold.ttf */,
+				28DA016A22F34D65A67EFC5F /* DancingScript-Bold.ttf */,
+				A4A82D66757643A38BBDC6F8 /* GreatVibes-Regular.ttf */,
+				D8E25F0601E34B38B6FC7293 /* Rochester-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -265,6 +274,9 @@
 				90A2ADF5917345E49A5B2C74 /* MoonDance-Regular.ttf in Resources */,
 				C9FA94B7D3C5492FAED7BC34 /* RobotoMono-Bold.ttf in Resources */,
 				FFF781702BFB4F4D9A8943C8 /* SofiaSansSemiCondensed-Bold.ttf in Resources */,
+				9CEC3A4C5F7F4A7289CE62BF /* DancingScript-Bold.ttf in Resources */,
+				98588E7E7724413CB5674F52 /* GreatVibes-Regular.ttf in Resources */,
+				EF048F84C190420FAF02DFBE /* Rochester-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
