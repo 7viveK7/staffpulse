@@ -688,8 +688,8 @@ const App = () => {
             );
           })}
         </View>
-        <DropShadow style={styles.card}>
-          <View style={[styles.MyTeam, {height: 200}]}>
+        <DropShadow style={styles.shadowProp}>
+          <View style={[styles.card, {height: 200}]}>
             <Text
               style={{
                 color: '#202b35',
@@ -738,8 +738,8 @@ const App = () => {
                   width: 100,
                   height: 70,
                   backgroundColor: '#def5fa',
-                  margin: 5,
-                  padding: 8,
+                
+                  padding: 6,
                   borderRadius: 10,
                   flexDirection: 'row',
                   justifyContent: 'space-between',
@@ -764,11 +764,11 @@ const App = () => {
                   width: 100,
                   height: 70,
                   backgroundColor: '#def5fa',
-                  margin: 5,
+             
                   borderRadius: 10,
                   flexDirection: 'row',
                   justifyContent: 'space-between',
-                  padding: 8,
+                  padding: 6,
                 }}>
                 <Text
                   style={{
@@ -971,7 +971,7 @@ const styles = StyleSheet.create({
   },
   shadowProp: {
     shadowOffset: {width: 0, height: 0.5},
-    shadowColor: '#171717',
+    shadowColor: '#c4c4c4',
     shadowOpacity: 0.3,
     shadowRadius: 1,
   },
