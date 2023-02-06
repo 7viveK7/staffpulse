@@ -1,22 +1,181 @@
 import {useState} from 'react';
-import {View, StyleSheet, SafeAreaView, StatusBar} from 'react-native';
-import {Searchbar} from 'react-native-paper';
-
-export default Search = () => {
+import {
+  View,
+  StyleSheet,
+  Text,
+  ScrollView,
+  SafeAreaView,
+  Image,
+  StatusBar,
+} from 'react-native';
+import {Avatar, Card, Badge, Searchbar} from 'react-native-paper';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+export default Search = ({navigation}) => {
   const [searchStr, setSearchStr] = useState(null);
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar translucent backgroundColor="transparent" />
-      <View>
+      <View style={styles.header}>
         <Searchbar
           placeholder="Search"
           style={styles.search}
+          autoFocus={true}
           inputStyle={{
             padding: 0,
           }}
+          icon={() => (
+            <MaterialIcons
+              name="keyboard-arrow-left"
+              size={33}
+              color="grey"
+              onPress={() => {
+                navigation.navigate('Home');
+              }}
+            />
+          )}
           onChangeText={e => setSearchStr(e)}
           value={searchStr}
         />
+      </View>
+
+      <View style={{marginTop: 10}}>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            marginLeft: 15,
+            marginRight: 15,
+          }}>
+          <Text
+            style={{
+              color: '#212a35',
+              fontFamily: 'SofiaSansSemiCondensed-Bold',
+            }}>
+            Recent
+          </Text>
+          <Text
+            style={{
+              color: '#212a35',
+              fontFamily: 'SofiaSansSemiCondensed-Bold',
+            }}>
+            clear
+          </Text>
+        </View>
+        <ScrollView horizontal={true}>
+          <View style={{flexDirection: 'row'}}>
+            <Card
+              style={{
+                margin: 0,
+                variont: 0,
+                elevation: 0,
+                padding: 0,
+              }}>
+              <Card.Content>
+                <Image
+                  style={styles.megha}
+                  source={require('../Images/1.jpeg')}
+                />
+
+                <Text
+                  style={{
+                    color: '#657582',
+                    width: 70,
+                    alignSelf: 'center',
+                    textAlign: 'center',
+                  }}>
+                  Designer Join today
+                </Text>
+              </Card.Content>
+            </Card>
+            <Card
+              style={{
+                margin: 0,
+                variont: 0,
+                elevation: 0,
+                padding: 0,
+              }}>
+              <Card.Content>
+                <Image
+                  style={styles.megha}
+                  source={require('../Images/1.jpeg')}
+                />
+
+                <Text
+                  style={{
+                    color: '#657582',
+                    width: 70,
+                    alignSelf: 'center',
+                    textAlign: 'center',
+                  }}>
+                  Designer Join today
+                </Text>
+              </Card.Content>
+            </Card>
+            <Card
+              style={{
+                margin: 0,
+                variont: 0,
+                elevation: 0,
+                padding: 0,
+              }}>
+              <Card.Content>
+                <Image
+                  style={styles.megha}
+                  source={require('../Images/1.jpeg')}
+                />
+
+                <Text
+                  style={{
+                    color: '#657582',
+                    width: 70,
+                    alignSelf: 'center',
+                    textAlign: 'center',
+                  }}>
+                  Designer Join today
+                </Text>
+              </Card.Content>
+            </Card>
+            <Card
+              style={{
+                margin: 0,
+                variont: 0,
+                elevation: 0,
+                padding: 0,
+              }}>
+              <Card.Content>
+                <Image
+                  style={styles.megha}
+                  source={require('../Images/1.jpeg')}
+                />
+
+                <Text
+                  style={{
+                    color: '#657582',
+                    width: 70,
+                    alignSelf: 'center',
+                    textAlign: 'center',
+                  }}>
+                  Designer Join today
+                </Text>
+              </Card.Content>
+            </Card>
+          </View>
+        </ScrollView>
+      </View>
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          marginLeft: 15,
+          marginRight: 15,
+        }}>
+        <Text
+          style={{
+            color: '#212a35',
+            fontFamily: 'SofiaSansSemiCondensed-Bold',
+          }}>
+          Suggitions
+        </Text>
       </View>
     </SafeAreaView>
   );
@@ -24,13 +183,31 @@ export default Search = () => {
 const styles = StyleSheet.create({
   container: {
     height: '100%',
+    paddingTop: 36,
+
+    backgroundColor: 'white',
+  },
+  megha: {
+    width: 26,
+    height: 26,
+    borderRadius: 50,
+    alignSelf: 'center',
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    paddingBottom: 7,
+    borderBottomWidth: 0.5,
+    width: '100%',
+    borderColor: ' grey',
   },
   search: {
-    width: 250,
-    marginTop: 40,
-    alignSelf: 'center',
+    width: '100%',
+    borderColor: 'none',
     height: 35,
     backgroundColor: '#ffffff',
     color: '#1a1b1b',
+    elevation: 0,
   },
 });
