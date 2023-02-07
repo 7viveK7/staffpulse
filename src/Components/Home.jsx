@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ScrollIndicator from 'react-native-custom-scroll-indicator';
 import DropShadow from 'react-native-drop-shadow';
 import {
@@ -10,12 +10,15 @@ import {
   View,
   Image,
   Pressable,
+  Touchable,
 } from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {Avatar, Card, Badge, Searchbar} from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Search from './Search';
+import Footer from './Footer';
+
 const LeftContent = props => <Avatar.Icon {...props} icon="folder" />;
 const teamMembers = [
   {
@@ -115,6 +118,7 @@ const myTask = [
 ];
 const MyTeam = [1, 2, 3, 4];
 const Home = ({navigation}) => {
+  const [pressedIcon, setPressedIcon] = useState('Home');
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
@@ -867,55 +871,7 @@ const Home = ({navigation}) => {
           </View>
         </View>
       </ScrollView>
-      <View style={styles.footerSection}>
-        <View>
-          <MaterialCommunityIcons
-            name="home-variant"
-            size={34}
-            color="#00ab55"
-          />
-          <Text
-            style={{
-              color: '#00ab55',
-              fontFamily: 'SofiaSansSemiCondensed-Bold',
-            }}>
-            Home
-          </Text>
-        </View>
-        <View>
-          <View
-            style={{
-              alignSelf: 'center',
-              backgroundColor: '#dad2fb',
-              borderColor: '#ceceeb',
-              borderWidth: 2,
-              padding: 5,
-              borderRadius: 100,
-            }}>
-            <Image
-              style={styles.mySpace}
-              source={require('../Images/2.jpeg')}
-            />
-          </View>
-          <Text
-            style={{
-              color: '#637382',
-              fontFamily: 'SofiaSansSemiCondensed-Bold',
-            }}>
-            My Space
-          </Text>
-        </View>
-        <View style={{justifyContent: 'center', alignItems: 'center'}}>
-          <MaterialIcons name="notifications" size={34} color="#637382" />
-          <Text
-            style={{
-              color: '#637382',
-              fontFamily: 'SofiaSansSemiCondensed-Bold',
-            }}>
-            Notifications
-          </Text>
-        </View>
-      </View>
+      <Footer navigation={navigation} />
     </SafeAreaView>
   );
 };

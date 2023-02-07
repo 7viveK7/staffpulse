@@ -63,102 +63,91 @@ export default Search = ({navigation}) => {
         </View>
         <ScrollView horizontal={true}>
           <View style={{flexDirection: 'row'}}>
-            <Card
-              style={{
-                margin: 0,
-                variont: 0,
-                elevation: 0,
-                padding: 0,
-              }}>
-              <Card.Content>
-                <Image
-                  style={styles.megha}
-                  source={require('../Images/1.jpeg')}
-                />
+            <View style={{height: 65, padding: 3}}>
+              <Image
+                style={styles.megha}
+                source={require('../Images/1.jpeg')}
+              />
 
-                <Text
-                  style={{
-                    color: '#657582',
-                    width: 70,
-                    alignSelf: 'center',
-                    textAlign: 'center',
-                  }}>
-                  Designer Join today
-                </Text>
-              </Card.Content>
-            </Card>
-            <Card
-              style={{
-                margin: 0,
-                variont: 0,
-                elevation: 0,
-                padding: 0,
-              }}>
-              <Card.Content>
-                <Image
-                  style={styles.megha}
-                  source={require('../Images/1.jpeg')}
-                />
+              <Text
+                style={{
+                  color: '#657582',
+                  width: 70,
+                  alignSelf: 'center',
+                  textAlign: 'center',
+                }}
+                numberOfLines={2}>
+                Designer Join today
+              </Text>
+            </View>
+            <View style={{height: 65, padding: 3}}>
+              <Image
+                style={styles.megha}
+                source={require('../Images/1.jpeg')}
+              />
 
-                <Text
-                  style={{
-                    color: '#657582',
-                    width: 70,
-                    alignSelf: 'center',
-                    textAlign: 'center',
-                  }}>
-                  Designer Join today
-                </Text>
-              </Card.Content>
-            </Card>
-            <Card
-              style={{
-                margin: 0,
-                variont: 0,
-                elevation: 0,
-                padding: 0,
-              }}>
-              <Card.Content>
-                <Image
-                  style={styles.megha}
-                  source={require('../Images/1.jpeg')}
-                />
+              <Text
+                style={{
+                  color: '#657582',
+                  width: 70,
+                  alignSelf: 'center',
+                  textAlign: 'center',
+                }}
+                numberOfLines={2}>
+                Designer Join today
+              </Text>
+            </View>
+            <View style={{height: 65, padding: 3}}>
+              <Image
+                style={styles.megha}
+                source={require('../Images/1.jpeg')}
+              />
 
-                <Text
-                  style={{
-                    color: '#657582',
-                    width: 70,
-                    alignSelf: 'center',
-                    textAlign: 'center',
-                  }}>
-                  Designer Join today
-                </Text>
-              </Card.Content>
-            </Card>
-            <Card
-              style={{
-                margin: 0,
-                variont: 0,
-                elevation: 0,
-                padding: 0,
-              }}>
-              <Card.Content>
-                <Image
-                  style={styles.megha}
-                  source={require('../Images/1.jpeg')}
-                />
+              <Text
+                style={{
+                  color: '#657582',
+                  width: 70,
+                  alignSelf: 'center',
+                  textAlign: 'center',
+                }}
+                numberOfLines={2}>
+                Designer Join today
+              </Text>
+            </View>
+            <View style={{height: 65, padding: 3}}>
+              <Image
+                style={styles.megha}
+                source={require('../Images/1.jpeg')}
+              />
 
-                <Text
-                  style={{
-                    color: '#657582',
-                    width: 70,
-                    alignSelf: 'center',
-                    textAlign: 'center',
-                  }}>
-                  Designer Join today
-                </Text>
-              </Card.Content>
-            </Card>
+              <Text
+                style={{
+                  color: '#657582',
+                  width: 70,
+                  alignSelf: 'center',
+                  textAlign: 'center',
+                }}
+                numberOfLines={2}>
+                Designer Join today
+              </Text>
+            </View>
+            <View style={{height: 65, padding: 3}}>
+              <Image
+                style={styles.megha}
+                source={require('../Images/1.jpeg')}
+              />
+
+              <Text
+                style={{
+                  color: '#657582',
+                  width: 70,
+                  alignSelf: 'center',
+                  textAlign: 'center',
+                }}
+                numberOfLines={2}>
+                Designer Join today
+              </Text>
+            </View>
           </View>
         </ScrollView>
       </View>
@@ -184,12 +173,12 @@ const styles = StyleSheet.create({
   container: {
     height: '100%',
     paddingTop: 36,
-
     backgroundColor: 'white',
   },
   megha: {
     width: 26,
     height: 26,
+
     borderRadius: 50,
     alignSelf: 'center',
   },
