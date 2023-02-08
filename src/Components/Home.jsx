@@ -126,7 +126,6 @@ const Home = ({navigation}) => {
         backgroundColor="transparent"
         barStyle={false ? 'light-content' : 'dark-content'}
       />
-
       <ScrollView contentInsetAdjustmentBehavior="automatic">
         <View style={styles.headerPart}>
           <View style={styles.searchContainer}>
@@ -145,13 +144,7 @@ const Home = ({navigation}) => {
               color="#00ab55"
             />
           </View>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              marginLeft: 10,
-              marginRight: 10,
-            }}>
+          <View style={styles.cardsHeading}>
             <Text
               style={{
                 color: '#212a35',
@@ -159,14 +152,7 @@ const Home = ({navigation}) => {
               }}>
               Announcements
             </Text>
-            <Text
-              style={{
-                color: '#139f5a',
-                textDecorationLine: 'underline',
-                fontWeight: 'bold',
-              }}>
-              View All{' '}
-            </Text>
+            <Text style={styles.viewAll}>View All </Text>
           </View>
           <View>
             <ScrollView horizontal={true}>
@@ -176,24 +162,11 @@ const Home = ({navigation}) => {
                     title="Employees expected to cloack"
                     subtitle="1 hour ago"
                     titleStyle={{fontSize: 16, fontWeight: '100'}}
-                    style={{
-                      backgroundColor: '#e0c8ae',
-                      width: 300,
-                      height: 58,
-                      borderRadius: 20,
-                      alignSelf: 'center',
-                      paddingRight: 7,
-                      padding: 5,
-                    }}
+                    style={styles.announcementCard}
                     left={props => (
                       <Avatar.Icon
                         {...props}
-                        style={{
-                          backgroundColor: '#fede68',
-                          width: 33,
-                          height: 33,
-                          borderRadius: 5,
-                        }}
+                        style={styles.announcementCardIcon}
                         icon="clock"
                         color="#ef9c21"
                       />
@@ -261,7 +234,6 @@ const Home = ({navigation}) => {
             style={{
               fontSize: 30,
               fontFamily: 'Rochester-Regular',
-
               color: '#f4bd94',
             }}>
             Welcome
@@ -427,77 +399,49 @@ const Home = ({navigation}) => {
             </View>
           </ScrollIndicator>
         </View>
-        <View
-          style={{
-            backgroundColor: Colors.white,
-            width: '85%',
-            marginTop: 20,
-            marginBottom: 20,
-            backgroundColor: '#e9f8ff',
-            borderRadius: 10,
-            alignSelf: 'center',
-          }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              padding: 5,
-            }}>
-            <MaterialCommunityIcons
-              name="clock"
-              size={37}
-              style={{paddingLeft: 7}}
-              color="#0089c8"
-            />
-            <View>
-              <Text
-                style={{
-                  color: '#2d3842',
-                  fontFamily: 'SofiaSansSemiCondensed',
-                  fontSize: 15,
-                }}>
-                03/01/22
-              </Text>
-              <Text
-                style={{
-                  color: '#2d3842',
-                  fontFamily: 'SofiaSansSemiCondensed',
-                  fontSize: 14,
-                }}>
-                Clock In-hh:mm AM
-              </Text>
-              <Text
-                style={{
-                  color: '#2d3842',
-                  fontFamily: 'SofiaSansSemiCondensed',
-                  fontSize: 14,
-                }}>
-                Clock Out-hh:mm PM{' '}
-              </Text>
-            </View>
-            <Pressable
-              style={[
-                {
-                  justifyContent: 'center',
-                  backgroundColor: '#0089c8',
-                  width: 75,
-                  height: 30,
-                  borderRadius: 10,
-                  paddingLeft: 10,
-                  paddingRight: 10,
-                  alignItems: 'center',
-                },
-              ]}
-              onPress={() => console.warn('pressed')}>
-              <Text>Clock In </Text>
-            </Pressable>
-            <MaterialIcons
-              name="keyboard-arrow-right"
-              size={33}
-              color="#637382"
-            />
+        <View style={[styles.checkInCard]}>
+          <MaterialCommunityIcons
+            name="clock"
+            size={37}
+            style={{paddingLeft: 7}}
+            color="#0089c8"
+          />
+          <View>
+            <Text
+              style={{
+                color: '#2d3842',
+                fontFamily: 'SofiaSansSemiCondensed',
+                fontSize: 15,
+              }}>
+              03/01/22
+            </Text>
+            <Text
+              style={{
+                color: '#2d3842',
+                fontFamily: 'SofiaSansSemiCondensed',
+                fontSize: 14,
+              }}>
+              Clock In-hh:mm AM
+            </Text>
+            <Text
+              style={{
+                color: '#2d3842',
+                fontFamily: 'SofiaSansSemiCondensed',
+                fontSize: 14,
+              }}>
+              Clock Out-hh:mm PM{' '}
+            </Text>
           </View>
+          <Pressable
+            style={styles.CheckInButton}
+            onPress={() => console.warn('pressed')}>
+            <Text>Clock In </Text>
+          </Pressable>
+          <MaterialIcons
+            name="keyboard-arrow-right"
+            size={33}
+            color="#637382"
+          />
         </View>
         <View style={styles.card}>
           <View
@@ -515,14 +459,7 @@ const Home = ({navigation}) => {
               }}>
               My Team
             </Text>
-            <Text
-              style={{
-                color: '#05a856',
-                textDecorationLine: 'underline',
-                fontFamily: 'SofiaSansSemiCondensed-Bold',
-              }}>
-              View All{' '}
-            </Text>
+            <Text style={styles.viewAll}>View All </Text>
           </View>
           <View
             style={{
@@ -532,18 +469,7 @@ const Home = ({navigation}) => {
 
               marginBottom: 7,
             }}>
-            <View
-              style={{
-                width: 65,
-                height: 60,
-                backgroundColor: 'gray',
-                justifyContent: 'center',
-                alignItems: 'center',
-                borderRadius: 9,
-                backgroundColor: '#e6f5ee',
-                borderWidth: 2,
-                borderColor: '#00ab55',
-              }}>
+            <View style={styles.teamTableHead}>
               <Text
                 style={{
                   color: '#00ab55',
@@ -555,12 +481,8 @@ const Home = ({navigation}) => {
             </View>
             <View
               style={{
-                width: 65,
-                height: 60,
-                backgroundColor: 'gray',
-                justifyContent: 'center',
-                alignItems: 'center',
-                borderRadius: 9,
+                ...styles.teamTableHead,
+                borderWidth: 0,
                 backgroundColor: '#f9e7e7',
               }}>
               <Text
@@ -574,12 +496,8 @@ const Home = ({navigation}) => {
             </View>
             <View
               style={{
-                width: 65,
-                height: 60,
-                backgroundColor: 'gray',
-                justifyContent: 'center',
-                alignItems: 'center',
-                borderRadius: 9,
+                ...styles.teamTableHead,
+                borderWidth: 0,
                 backgroundColor: '#feeaf1',
               }}>
               <Text
@@ -593,12 +511,8 @@ const Home = ({navigation}) => {
             </View>
             <View
               style={{
-                width: 65,
-                height: 60,
-                backgroundColor: 'gray',
-                justifyContent: 'center',
-                alignItems: 'center',
-                borderRadius: 9,
+                ...styles.teamTableHead,
+                borderWidth: 0,
                 backgroundColor: '#e7f0f5',
               }}>
               <Text
@@ -886,6 +800,21 @@ const styles = StyleSheet.create({
     height: 43,
     borderRadius: 100,
   },
+  announcementCard: {
+    backgroundColor: '#e0c8ae',
+    width: 300,
+    height: 58,
+    borderRadius: 20,
+    alignSelf: 'center',
+    paddingRight: 7,
+    padding: 5,
+  },
+  announcementCardIcon: {
+    backgroundColor: '#fede68',
+    width: 33,
+    height: 33,
+    borderRadius: 5,
+  },
   celebrations: {
     width: 48,
     height: 48,
@@ -896,6 +825,7 @@ const styles = StyleSheet.create({
     height: 26,
     borderRadius: 100,
   },
+
   shadowProp: {
     shadowOffset: {width: 0, height: 0.5},
     shadowColor: '#c4c4c4',
@@ -910,6 +840,17 @@ const styles = StyleSheet.create({
     height: '100%',
     backgroundColor: 'white',
   },
+  teamTableHead: {
+    width: 65,
+    height: 60,
+    backgroundColor: 'gray',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 9,
+    backgroundColor: '#e6f5ee',
+    borderWidth: 2,
+    borderColor: '#00ab55',
+  },
   quickLinks: {
     width: '90%',
     height: 60,
@@ -921,6 +862,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 3,
     marginBottom: 50,
+  },
+  checkInCard: {
+    width: '85%',
+    marginTop: 20,
+    marginBottom: 20,
+    backgroundColor: '#e9f8ff',
+    borderRadius: 10,
+    alignSelf: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 5,
   },
   celebrationCard: {
     width: '90%',
@@ -943,7 +896,16 @@ const styles = StyleSheet.create({
   highlight: {
     fontWeight: '700',
   },
-
+  CheckInButton: {
+    justifyContent: 'center',
+    backgroundColor: '#0089c8',
+    width: 75,
+    height: 30,
+    borderRadius: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
+    alignItems: 'center',
+  },
   headerPart: {
     backgroundColor: '#d9d9d9',
     height: 230,
@@ -956,6 +918,12 @@ const styles = StyleSheet.create({
     height: 35,
     backgroundColor: '#ffffff',
     color: '#1a1b1b',
+  },
+  cardsHeading: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginLeft: 10,
+    marginRight: 10,
   },
   welcomeCard: {
     height: 250,
@@ -973,25 +941,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 30,
   },
+  viewAll: {
+    color: '#139f5a',
+    textDecorationLine: 'underline',
+    fontWeight: 'bold',
+  },
   card: {
     backgroundColor: 'white',
     borderWidth: 1,
     borderColor: '#e5e5e5',
     margin: 10,
     borderRadius: 18,
-  },
-  footerSection: {
-    width: '100%',
-    fontFamily: 'SofiaSansSemiCondensed-Bold',
-    paddingLeft: 25,
-    paddingRight: 25,
-    height: 72,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    backgroundColor: '#ffffff',
-    borderWidth: 1,
-    borderTopColor: '#e5e5e5',
   },
 });
 

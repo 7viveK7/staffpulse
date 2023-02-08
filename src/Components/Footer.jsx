@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {Text, View, Image, Pressable, StyleSheet} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -20,13 +20,17 @@ export default Footer = ({navigation}) => {
             color={'Home' === pressedIcon ? '#00ab55' : '#637382'}
           />
         </Pressable>
-        <Text
-          style={{
-            color: 'Home' === pressedIcon ? '#00ab55' : '#637382',
-            fontFamily: 'SofiaSansSemiCondensed-Bold',
-          }}>
-          Home
-        </Text>
+        {'Home' === pressedIcon ? (
+          <Text
+            style={{
+              color: 'Home' === pressedIcon ? '#00ab55' : '#637382',
+              fontFamily: 'SofiaSansSemiCondensed-Bold',
+            }}>
+            Home
+          </Text>
+        ) : (
+          ''
+        )}
       </View>
       <View>
         <Pressable
@@ -51,13 +55,17 @@ export default Footer = ({navigation}) => {
           </View>
         </Pressable>
 
-        <Text
-          style={{
-            color: 'MySpace' === pressedIcon ? '#00ab55' : '#637382',
-            fontFamily: 'SofiaSansSemiCondensed-Bold',
-          }}>
-          My Space
-        </Text>
+        {'MySpace' === pressedIcon ? (
+          <Text
+            style={{
+              color: 'MySpace' === pressedIcon ? '#00ab55' : '#637382',
+              fontFamily: 'SofiaSansSemiCondensed-Bold',
+            }}>
+            My Space
+          </Text>
+        ) : (
+          ''
+        )}
       </View>
       <View style={{justifyContent: 'center', alignItems: 'center'}}>
         <Pressable
@@ -71,13 +79,17 @@ export default Footer = ({navigation}) => {
             color={'Notification' === pressedIcon ? '#00ab55' : '#637382'}
           />
         </Pressable>
-        <Text
-          style={{
-            color: 'Notification' === pressedIcon ? '#00ab55' : '#637382',
-            fontFamily: 'SofiaSansSemiCondensed-Bold',
-          }}>
-          Notifications
-        </Text>
+        {'Notification' === pressedIcon ? (
+          <Text
+            style={{
+              color: 'Notification' === pressedIcon ? '#00ab55' : '#637382',
+              fontFamily: 'SofiaSansSemiCondensed-Bold',
+            }}>
+            Notifications
+          </Text>
+        ) : (
+          ''
+        )}
       </View>
     </View>
   );
