@@ -3,11 +3,12 @@ import {Text, View, Image, Pressable, StyleSheet} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MySpace from './MySpace/mySpace';
+import {Box} from 'native-base';
 export default Footer = ({navigation}) => {
   const [pressedIcon, setPressedIcon] = useState('Home');
 
   return (
-    <View style={styles.footerSection}>
+    <Box style={styles.footerSection} w="100%" bg="gray.200" shadow={3}>
       <View>
         <Pressable
           onPress={() => {
@@ -91,7 +92,7 @@ export default Footer = ({navigation}) => {
           ''
         )}
       </View>
-    </View>
+    </Box>
   );
 };
 const styles = StyleSheet.create({
@@ -203,12 +204,11 @@ const styles = StyleSheet.create({
     fontFamily: 'SofiaSansSemiCondensed-Bold',
     paddingLeft: 25,
     paddingRight: 25,
-    height: 72,
+    height: 62,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#ffffff',
-    borderWidth: 1,
+
     borderTopColor: '#e5e5e5',
   },
 });
