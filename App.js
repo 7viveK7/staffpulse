@@ -5,12 +5,19 @@ import {NavigationContainer} from '@react-navigation/native';
 import Search from './src/Components/Search';
 import Notification from './src/Components/Notification/Notification';
 import mySpace from './src/Components/MySpace/mySpace';
+import Login from './src/Components/Login';
 
 const Stack = createNativeStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          visible={false}
+          options={{headerShown: false}}
+        />
         <Stack.Screen
           name="Home"
           component={Home}
