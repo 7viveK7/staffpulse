@@ -8,18 +8,26 @@ import Search from './src/Components/Search';
 import Notification from './src/Components/Notification/Notification';
 import mySpace from './src/Components/MySpace/mySpace';
 import Login from './src/Components/Login';
+import LoginScreen from './src/Components/LoginScreen/LoginScreen';
 
 const Stack = createNativeStackNavigator();
 const App = () => {
   return (
     <GestureHandlerRootView style={{flex: 1}}>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Login">
+        <Stack.Navigator initialRouteName="LoginScreen">
           <Stack.Screen
-            name="Login"
-            component={Login}
+            name="LoginScreen"
+            component={LoginScreen}
             visible={false}
             options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="VISFY"
+            component={Login}
+            visible={false}
+            options={{title: 'VISFY Login'}}
+            // options={{headerShown: false}}
           />
           <Stack.Screen
             name="Home"

@@ -1,76 +1,127 @@
-import React from 'react';
-import {TextInput, Button} from 'react-native-paper';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {View, StyleSheet, SafeAreaView, StatusBar} from 'react-native';
-import {Box, KeyboardAvoidingView, Center, Text} from 'native-base';
-export default Login = ({navigation}) => {
-  const [text, setText] = React.useState('');
-  return (
-    <>
-      <KeyboardAvoidingView
-        h={{
-          base: '400px',
-          lg: 'auto',
-        }}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-        <SafeAreaView style={styles.container}>
-          <StatusBar translucent backgroundColor="transparent" />
-          <Box style={styles.header} w="100%" bg="gray.200" shadow={3}>
-            <Text
-              fontSize="md"
-              style={{
-                color: '#212a35',
+import React, {useState} from 'react';
 
-                fontFamily: 'SofiaSansSemiCondensed-Bold',
-              }}>
-              Home
-            </Text>
-            <Text>Space</Text>
-          </Box>
-          <Box
-            style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-            <TextInput
-              mode="outlined"
-              label="User Name"
-              placeholder="Type something"
-              style={{width: 250, height: 35, marginBottom: 10}}
+import Entypo from 'react-native-vector-icons/Entypo';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {
+  View,
+  StyleSheet,
+  ScrollView,
+  SafeAreaView,
+  StatusBar,
+} from 'react-native';
+import {
+  Input,
+  Icon,
+  Stack,
+  Pressable,
+  Center,
+  NativeBaseProvider,
+  Button,
+  FormControl,
+  Box,
+  WarningOutlineIcon,
+} from 'native-base';
+
+export default Login = ({navigation}) => {
+  const [show, setShow] = useState(false);
+
+  const [user, setUser] = useState({email: '', password: ''});
+  const [validate, setValidate] = useState(null);
+  function onSubmit() {
+    if (user.email === 'vivek@visfy.com' && user.password === 'vivek@1') {
+      navigation.navigate('Home');
+      setValidate(false);
+    } else {
+      setValidate(true);
+    }
+  }
+
+  return (
+    <Stack space={4} w="100%" paddingTop={10} alignItems="center">
+      <Input
+        w={{
+          base: '75%',
+          md: '25%',
+        }}
+        value={user.email}
+        InputRightElement={
+          validate && (
+            <Icon
+              as={<Entypo name="cross" />}
+              size={5}
+              mr="2"
+              color="danger.600"
             />
-            <TextInput
-              mode="outlined"
-              label="Password"
-              secureTextEntry
-              placeholder="Type something"
-              style={{width: 250, height: 35, marginBottom: 10}}
+          )
+        }
+        InputLeftElement={
+          <Icon
+            as={<MaterialIcons name="person" />}
+            size={5}
+            ml="2"
+            color="muted.400"
+          />
+        }
+        placeholder="Email/Phone"
+        onChangeText={e => {
+          setUser({...user, email: e});
+        }}
+      />
+      <Input
+        w={{
+          base: '75%',
+          md: '25%',
+        }}
+        type={show ? 'text' : 'password'}
+        value={user.password}
+        InputRightElement={
+          !validate ? (
+            <Pressable onPress={() => setShow(!show)}>
+              <Icon
+                as={
+                  <MaterialIcons
+                    name={show ? 'visibility' : 'visibility-off'}
+                  />
+                }
+                size={5}
+                mr="2"
+                color="muted.400"
+              />
+            </Pressable>
+          ) : (
+            <Icon
+              as={<Entypo name="cross" />}
+              size={5}
+              mr="2"
+              color="danger.600"
             />
-            <Button
-              mode="contained"
-              onPress={() => navigation.navigate('Home')}>
-              {' '}
-              {/* can add icon  */}
-              Press me
-            </Button>
-          </Box>
-        </SafeAreaView>
-      </KeyboardAvoidingView>
-    </>
+          )
+        }
+        onChangeText={e => {
+          setUser({...user, password: e});
+        }}
+        placeholder="Password"
+      />
+
+      <Box alignItems="center" w="100%">
+        <Button
+          onPress={onSubmit}
+          w={{
+            base: '75%',
+            md: '25%',
+          }}>
+          Login
+        </Button>
+      </Box>
+    </Stack>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
   section: {
-    flex: 1,
-    padding: 5,
-  },
-  header: {
-    paddingBottom: 7,
-
-    height: 70,
-    flexDirection: 'row',
-    alignItems: 'flex-end',
-    padding: 10,
-    justifyContent: 'space-between',
+    height: '100%',
   },
 });
