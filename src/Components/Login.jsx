@@ -28,8 +28,9 @@ export default Login = ({navigation}) => {
   const [user, setUser] = useState({email: '', password: ''});
   const [validate, setValidate] = useState(null);
   function onSubmit() {
+    navigation.navigate('HomeScreen');
     if (user.email === 'vivek@visfy.com' && user.password === 'vivek@1') {
-      navigation.navigate('Home');
+      navigation.navigate('HomeScreen');
       setValidate(false);
     } else {
       setValidate(true);

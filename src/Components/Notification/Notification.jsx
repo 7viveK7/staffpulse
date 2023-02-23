@@ -1,27 +1,5 @@
-import Footer from '../Footer';
-import {
-  View,
-  StyleSheet,
-  ScrollView,
-  SafeAreaView,
-  Image,
-  StatusBar,
-} from 'react-native';
-import {Card, Badge, Searchbar} from 'react-native-paper';
-import {DataTable} from 'react-native-paper';
-import {useEffect, useState} from 'react';
-import {
-  Box,
-  FlatList,
-  Heading,
-  Avatar,
-  Text,
-  HStack,
-  VStack,
-  Spacer,
-  Center,
-  NativeBaseProvider,
-} from 'native-base';
+import {View, StyleSheet, SafeAreaView, StatusBar} from 'react-native';
+import {Box, FlatList, Avatar, Text, HStack, VStack, Spacer} from 'native-base';
 const data = [
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -186,7 +164,6 @@ export default Notification = ({Navigation}) => {
         <NoticationItems />
       </View>
       {/* section ui */}
-      <Footer Navigation={Navigation} />
     </SafeAreaView>
   );
 };

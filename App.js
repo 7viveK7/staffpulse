@@ -9,6 +9,7 @@ import Notification from './src/Components/Notification/Notification';
 import mySpace from './src/Components/MySpace/mySpace';
 import Login from './src/Components/Login';
 import LoginScreen from './src/Components/LoginScreen/LoginScreen';
+import HomeScreen from './src/Components/Home/HomeScreen';
 
 const Stack = createNativeStackNavigator();
 const App = () => {
@@ -30,26 +31,14 @@ const App = () => {
             // options={{headerShown: false}}
           />
           <Stack.Screen
-            name="Home"
-            component={Home}
+            name="HomeScreen"
+            component={HomeScreen}
             visible={false}
             options={{headerShown: false}}
           />
           <Stack.Screen
             name="Search"
             component={Search}
-            visible={false}
-            options={{headerShown: false}}
-          />
-          <Stack.Screen
-            name="Notification"
-            component={Notification}
-            visible={false}
-            options={{headerShown: false}}
-          />
-          <Stack.Screen
-            name="MySpace"
-            component={mySpace}
             visible={false}
             options={{headerShown: false}}
           />

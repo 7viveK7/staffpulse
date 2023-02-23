@@ -211,6 +211,7 @@
 //   },
 // });
 import React from 'react';
+import Icon from 'react-native-vector-icons/Ionicons';
 import {Button, View} from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {NavigationContainer} from '@react-navigation/native';
@@ -236,7 +237,7 @@ function NotificationsScreen({navigation}) {
 
 const Drawer = createDrawerNavigator();
 
-export default function App() {
+export default function MySpace() {
   return (
     <Drawer.Navigator initialRouteName="Home">
       <Drawer.Screen name="Home" component={HomeScreen} />

@@ -10,14 +10,11 @@ import {
   View,
   Image,
   Pressable,
-  Touchable,
 } from 'react-native';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+
 import {Avatar, Card, Badge, Searchbar} from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import Search from './Search';
-import Footer from './Footer';
 
 const LeftContent = props => <Avatar.Icon {...props} icon="folder" />;
 const teamMembers = [
@@ -785,7 +782,6 @@ const Home = ({navigation}) => {
           </View>
         </View>
       </ScrollView>
-      <Footer navigation={navigation} />
     </SafeAreaView>
   );
 };
