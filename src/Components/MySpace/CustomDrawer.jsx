@@ -18,13 +18,16 @@ const CustomDrawer = props => {
     <DrawerContentScrollView {...props}>
       <View>
         <Card.Title
-          title="VisiFy  pvt ltd"
+          title="Vivek"
           titleStyle={{color: 'green', fontSize: 20, fontWeight: '900'}}
           // subtitle="Card Subtitle"
           left={props => (
             <Image
               width={20}
               height={10}
+              borderWidth={2}
+              borderColor="amber.700"
+              padding={19}
               source={require('../../Images/1.jpeg')}
             />
           )}

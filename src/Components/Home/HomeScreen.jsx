@@ -8,6 +8,7 @@ import {useNavigation} from '@react-navigation/native';
 import CustomTabBar from '../CustomTabBar';
 import CustomTabBarButton from '../CustomTabBarButton';
 import COLORS from '../defaultStyles';
+import EmployeeDashboard from '../MySpace/Dashboards/EmployeeDashboard';
 const Tab = createBottomTabNavigator();
 
 export default function HomeScreen() {
@@ -16,7 +17,6 @@ export default function HomeScreen() {
     <Tab.Navigator
       initialRouteName="LoginScreen"
       screenOptions={({route}) => ({
-        headerShown: false,
         tabBarStyle: {
           height: 60,
         },
@@ -29,19 +29,30 @@ export default function HomeScreen() {
             iconName = focused ? 'ios-home-sharp' : 'ios-home-outline';
           } else if (route.name === 'Notification') {
             iconName = focused ? 'notifications' : 'notifications-outline';
-          } else if (route.name === 'MySpace') {
+          } else if (route.name === 'Dashboard') {
             iconName = focused ? 'ios-add-circle' : 'ios-add-circle-outline';
           }
 
           return <Icon name={iconName} size={22} color={color} />;
         },
       })}>
-      <Tab.Screen name="Home" component={MySpace} visible={false} />
-      <Tab.Screen name="MySpace" component={Home} visible={false} />
+      <Tab.Screen
+        name="Home"
+        component={MySpace}
+        visible={false}
+        options={{headerShown: false}}
+      />
+      <Tab.Screen
+        name="Dashboard"
+        options={{title: 'My Space'}}
+        component={EmployeeDashboard}
+        visible={false}
+      />
       <Tab.Screen
         name="Notification"
         component={Notification}
         visible={false}
+        options={{headerShown: false}}
       />
     </Tab.Navigator>
   );

@@ -158,7 +158,6 @@ export default Notification = ({Navigation}) => {
           }}>
           Notifications
         </Text>
-        <Text>leaves:{data.length}</Text>
       </Box>
       <View style={styles.section}>
         <NoticationItems />

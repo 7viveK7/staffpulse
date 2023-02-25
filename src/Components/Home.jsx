@@ -127,10 +127,10 @@ const Home = ({navigation}) => {
       <ScrollView contentInsetAdjustmentBehavior="automatic">
         <View style={styles.headerPart}>
           <View style={styles.searchContainer}>
-            <MaterialCommunityIcons
-              name="menu"
+            <MaterialIcons
+              name="keyboard-arrow-right"
               size={33}
-              style={{position: 'absolute', left: 10, top: 0}}
+              style={{position: 'absolute', left: -10, top: 0}}
               color="#00ab55"
               onPress={() => {
                 navigation.dispatch(DrawerActions.openDrawer());
@@ -143,6 +143,12 @@ const Home = ({navigation}) => {
                 padding: 0,
               }}
               onFocus={() => navigation.navigate('Search')}
+            />
+            <MaterialCommunityIcons
+              name="chat"
+              size={33}
+              style={{marginLeft: 20}}
+              color="#00ab55"
             />
           </View>
           <View style={styles.cardsHeading}>

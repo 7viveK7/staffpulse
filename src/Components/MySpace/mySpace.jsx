@@ -1,5 +1,8 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {Button, View} from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {NavigationContainer} from '@react-navigation/native';
@@ -45,7 +48,11 @@ export default function MySpace() {
           title: 'Dashboard',
           headerShown: false,
           drawerIcon: ({focused, color, size}) => (
-            <Icon name="home-sharp" size={18} color={color} />
+            <MaterialCommunityIcons
+              name="monitor-dashboard"
+              size={18}
+              color={color}
+            />
           ),
         }}
       />
@@ -65,7 +72,7 @@ export default function MySpace() {
         options={{
           title: 'Company Profile',
           drawerIcon: ({focused, color, size}) => (
-            <Icon name="notifications" size={18} color={color} />
+            <FontAwesome name="vimeo" size={18} color={color} />
           ),
         }}
       />
@@ -75,37 +82,32 @@ export default function MySpace() {
         options={{
           title: 'My Profile',
           drawerIcon: ({focused, color, size}) => (
-            <Icon name="notifications" size={18} color={color} />
+            <FontAwesome name="user" size={18} color={color} />
           ),
         }}
       />
-      <Drawer.Screen
-        name="hmsdfdga"
-        component={NotificationsScreen}
-        options={{
-          title: 'Notifications',
-          drawerIcon: ({focused, color, size}) => (
-            <Icon name="notifications" size={18} color={color} />
-          ),
-        }}
-      />
+
       <Drawer.Screen
         name="hdfxvsfgm"
         component={NotificationsScreen}
         options={{
           title: 'Directory',
           drawerIcon: ({focused, color, size}) => (
-            <Icon name="notifications" size={18} color={color} />
+            <FontAwesome name="users" size={18} color={color} />
           ),
         }}
       />
       <Drawer.Screen
-        name="hmgcxvxsd"
+        name="MaterialCommunityIcons"
         component={NotificationsScreen}
         options={{
           title: 'Attendance',
           drawerIcon: ({focused, color, size}) => (
-            <Icon name="notifications" size={18} color={color} />
+            <MaterialCommunityIcons
+              name="passport-biometric"
+              size={18}
+              color={color}
+            />
           ),
         }}
       />
@@ -115,7 +117,11 @@ export default function MySpace() {
         options={{
           title: 'Leave',
           drawerIcon: ({focused, color, size}) => (
-            <Icon name="notifications" size={18} color={color} />
+            <MaterialCommunityIcons
+              name="bag-suitcase"
+              size={18}
+              color={color}
+            />
           ),
         }}
       />
@@ -125,7 +131,7 @@ export default function MySpace() {
         options={{
           title: 'Payroll',
           drawerIcon: ({focused, color, size}) => (
-            <Icon name="notifications" size={18} color={color} />
+            <MaterialIcons name="monetization-on" size={18} color={color} />
           ),
         }}
       />
@@ -135,7 +141,7 @@ export default function MySpace() {
         options={{
           title: 'Organization Chart',
           drawerIcon: ({focused, color, size}) => (
-            <Icon name="notifications" size={18} color={color} />
+            <Icon name="git-network-sharp" size={18} color={color} />
           ),
         }}
       />
@@ -145,7 +151,7 @@ export default function MySpace() {
         options={{
           title: 'Calender',
           drawerIcon: ({focused, color, size}) => (
-            <Icon name="notifications" size={18} color={color} />
+            <Icon name="md-calendar" size={18} color={color} />
           ),
         }}
       />
