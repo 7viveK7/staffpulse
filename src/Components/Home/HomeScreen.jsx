@@ -36,8 +36,8 @@ export default function HomeScreen() {
           return <Icon name={iconName} size={22} color={color} />;
         },
       })}>
-      <Tab.Screen name="Home" component={Home} visible={false} />
-      <Tab.Screen name="MySpace" component={MySpace} visible={false} />
+      <Tab.Screen name="Home" component={MySpace} visible={false} />
+      <Tab.Screen name="MySpace" component={Home} visible={false} />
       <Tab.Screen
         name="Notification"
         component={Notification}

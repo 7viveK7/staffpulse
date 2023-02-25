@@ -15,6 +15,7 @@ import {
 import {Avatar, Card, Badge, Searchbar} from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {DrawerActions} from '@react-navigation/native';
 
 const LeftContent = props => <Avatar.Icon {...props} icon="folder" />;
 const teamMembers = [
@@ -126,6 +127,15 @@ const Home = ({navigation}) => {
       <ScrollView contentInsetAdjustmentBehavior="automatic">
         <View style={styles.headerPart}>
           <View style={styles.searchContainer}>
+            <MaterialCommunityIcons
+              name="menu"
+              size={33}
+              style={{position: 'absolute', left: 10, top: 0}}
+              color="#00ab55"
+              onPress={() => {
+                navigation.dispatch(DrawerActions.openDrawer());
+              }}
+            />
             <Searchbar
               placeholder="Search"
               style={styles.search}
@@ -133,12 +143,6 @@ const Home = ({navigation}) => {
                 padding: 0,
               }}
               onFocus={() => navigation.navigate('Search')}
-            />
-            <MaterialCommunityIcons
-              name="chat"
-              size={33}
-              style={{marginLeft: 20}}
-              color="#00ab55"
             />
           </View>
           <View style={styles.cardsHeading}>
@@ -799,11 +803,10 @@ const styles = StyleSheet.create({
   announcementCard: {
     backgroundColor: '#e0c8ae',
     width: 300,
-    height: 58,
+    height: 76,
     borderRadius: 20,
     alignSelf: 'center',
     paddingRight: 7,
-    padding: 5,
   },
   announcementCardIcon: {
     backgroundColor: '#fede68',
