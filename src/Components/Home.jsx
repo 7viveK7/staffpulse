@@ -6,6 +6,7 @@ import {
   ScrollView,
   StatusBar,
   StyleSheet,
+  FlatList,
   Text,
   View,
   Image,
@@ -16,7 +17,30 @@ import {Avatar, Card, Badge, Searchbar} from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {DrawerActions} from '@react-navigation/native';
-
+const DATA = [
+  {key: 'Android'},
+  {key: 'iOS'},
+  {key: 'Java'},
+  {key: 'Swift'},
+  {key: 'Php'},
+  {key: 'Hadoop'},
+  {key: 'Sap'},
+  {key: 'Python'},
+  {key: 'Ajax'},
+  {key: 'C++'},
+  {key: 'Ruby'},
+  {key: 'Rails'},
+  {key: '.Net'},
+  {key: 'Perl'},
+  {key: 'Sap'},
+  {key: 'Python'},
+  {key: 'Ajax'},
+  {key: 'C++'},
+  {key: 'Ruby'},
+  {key: 'Rails'},
+  {key: '.Net'},
+  {key: 'Perl'},
+];
 const LeftContent = props => <Avatar.Icon {...props} icon="folder" />;
 const teamMembers = [
   {
@@ -115,6 +139,26 @@ const myTask = [
   },
 ];
 const MyTeam = [1, 2, 3, 4];
+const Annoncements = ({item}) => {
+  return (
+    <View style={{marginLeft: 10}} id={item}>
+      <Card.Title
+        title="Employees expected to cloack"
+        subtitle="1 hour ago"
+        titleStyle={{fontSize: 16, fontWeight: '100'}}
+        style={styles.announcementCard}
+        left={props => (
+          <Avatar.Icon
+            {...props}
+            style={styles.announcementCardIcon}
+            icon="clock"
+            color="#ef9c21"
+          />
+        )}
+      />
+    </View>
+  );
+};
 const Home = ({navigation}) => {
   const [pressedIcon, setPressedIcon] = useState('Home');
   return (
@@ -159,10 +203,12 @@ const Home = ({navigation}) => {
               }}>
               Announcements
             </Text>
-            <Text style={styles.viewAll}>View All </Text>
+            <Pressable onPress={() => navigation.navigate('AttendanceAll')}>
+              <Text style={styles.viewAll}>View All </Text>
+            </Pressable>
           </View>
           <View>
-            <ScrollView horizontal={true}>
+            {/* <ScrollView horizontal={true}>
               <View style={{flexDirection: 'row'}}>
                 <View style={{marginLeft: 10}}>
                   <Card.Title
@@ -232,7 +278,14 @@ const Home = ({navigation}) => {
                   />
                 </View>
               </View>
-            </ScrollView>
+            </ScrollView> */}
+            <FlatList
+              horizontal={true}
+              data={DATA}
+              initialNumToRender={true}
+              renderItem={Annoncements}
+              keyExtractor={item => <Annoncements key={item.id} />}
+            />
           </View>
         </View>
         {/* welecome card */}

@@ -10,6 +10,7 @@ import mySpace from './src/Components/MySpace/mySpace';
 import Login from './src/Components/Login';
 import LoginScreen from './src/Components/LoginScreen/LoginScreen';
 import HomeScreen from './src/Components/Home/HomeScreen';
+import Attendance from './src/Components/MySpace/Dashboards/Attendance';
 
 const Stack = createNativeStackNavigator();
 const App = () => {
@@ -39,6 +40,12 @@ const App = () => {
           <Stack.Screen
             name="Search"
             component={Search}
+            visible={false}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="AttendanceAll"
+            component={Attendance}
             visible={false}
             options={{headerShown: false}}
           />

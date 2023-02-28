@@ -4,12 +4,10 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {VStack, Box, Divider} from 'native-base';
 import {Avatar, Card, IconButton} from 'react-native-paper';
+import Attendance from './Attendance';
 function HomeScreen() {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <View styles={{borderColor: 'grey', borderWidth: 1}}>
-        <Text styles={{color: 'red'}}>sterDay... 2/02/2023</Text>
-      </View>
       <View
         style={{
           flexDirection: 'row',
@@ -67,7 +65,51 @@ function HomeScreen() {
 function SettingsScreen() {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text styles={{color: 'red'}}>loading...</Text>
+      <View style={[styles.card]}>
+        <Text
+          style={{
+            color: '#202b35',
+            margin: 20,
+            paddingBottom: 10,
+            fontSize: 20,
+            fontWeight: 'bold',
+            fontFamily: 'SofiaSansSemiCondensed-Bold',
+          }}>
+          Pending Requests
+        </Text>
+        <View style={{justifyContent: 'center', alignItems: 'center'}}>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-evenly',
+              alignItems: 'center',
+              width: '98%',
+              marginBottom: 20,
+              height: 49,
+              borderWidth: 1,
+              borderColor: 'green',
+              borderRadius: 10,
+            }}>
+            <Text
+              style={{
+                color: '#212a35',
+                width: 120,
+                fontFamily: 'SofiaSansSemiCondensed-Bold',
+              }}>
+              jhgfgcvhbjnk
+            </Text>
+            <Text style={{color: '#65737f'}}>67667</Text>
+            <Text
+              style={{
+                color: '#139f5a',
+                textDecorationLine: 'underline',
+                fontFamily: 'SofiaSansSemiCondensed-Bold',
+              }}>
+              View All
+            </Text>
+          </View>
+        </View>
+      </View>
     </View>
   );
 }
@@ -83,7 +125,7 @@ export default function EmployeeDashboard() {
         tabBarActiveTintColor: 'green',
         tabBarStyle: {backgroundColor: '#c0f1ca'},
       }}>
-      <Tab.Screen name="Attendance" component={HomeScreen} />
+      <Tab.Screen name="Attendance" component={Attendance} />
       <Tab.Screen name="Payroll" component={SettingsScreen} />
       <Tab.Screen name="Tax" component={SettingsScreen} />
     </Tab.Navigator>
@@ -103,5 +145,12 @@ const styles = StyleSheet.create({
     width: 33,
     height: 33,
     borderRadius: 5,
+  },
+  card: {
+    backgroundColor: 'white',
+    borderWidth: 1,
+    borderColor: '#e5e5e5',
+    margin: 10,
+    borderRadius: 18,
   },
 });
