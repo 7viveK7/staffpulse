@@ -138,7 +138,6 @@ const myTask = [
     numberOf: 8,
   },
 ];
-const MyTeam = [1, 2, 3, 4];
 const Annoncements = ({item}) => {
   return (
     <View style={{marginLeft: 10}} id={item}>
@@ -203,7 +202,8 @@ const Home = ({navigation}) => {
               }}>
               Announcements
             </Text>
-            <Pressable onPress={() => navigation.navigate('AttendanceAll')}>
+            <Pressable
+              onPress={() => navigation.navigate('AnnouncementsCard', {DATA})}>
               <Text style={styles.viewAll}>View All </Text>
             </Pressable>
           </View>
@@ -831,14 +831,19 @@ const Home = ({navigation}) => {
                     {each.task}
                   </Text>
                   <Text style={{color: '#65737f'}}>{each.numberOf}</Text>
-                  <Text
-                    style={{
-                      color: '#139f5a',
-                      textDecorationLine: 'underline',
-                      fontFamily: 'SofiaSansSemiCondensed-Bold',
-                    }}>
-                    View All
-                  </Text>
+                  <Pressable
+                    onPress={() =>
+                      navigation.navigate('Attendance', {navigation})
+                    }>
+                    <Text
+                      style={{
+                        color: '#139f5a',
+                        textDecorationLine: 'underline',
+                        fontFamily: 'SofiaSansSemiCondensed-Bold',
+                      }}>
+                      View All
+                    </Text>
+                  </Pressable>
                 </View>
               );
             })}

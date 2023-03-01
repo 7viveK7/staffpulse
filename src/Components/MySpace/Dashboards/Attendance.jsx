@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, StyleSheet, ScrollView, View} from 'react-native';
+import {Text, StyleSheet, ScrollView, View, Pressable} from 'react-native';
 import {Avatar, Card, IconButton} from 'react-native-paper';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 const myTask = [
@@ -24,7 +24,7 @@ const myTask = [
     numberOf: 8,
   },
 ];
-export default function Attendance() {
+export default function Attendance({route}) {
   return (
     <ScrollView>
       <View style={styles.Container}>
@@ -109,7 +109,7 @@ export default function Attendance() {
               fontWeight: 'bold',
               fontFamily: 'SofiaSansSemiCondensed-Bold',
             }}>
-            Pending Request
+            Present attended
           </Text>
           <View style={{justifyContent: 'center', alignItems: 'center'}}>
             {myTask.map(each => {
@@ -119,7 +119,7 @@ export default function Attendance() {
                     flexDirection: 'row',
                     justifyContent: 'space-evenly',
                     alignItems: 'center',
-                    width: '80%',
+                    width: '95%',
                     marginBottom: 20,
                     height: 49,
                     borderWidth: 1,
@@ -135,14 +135,19 @@ export default function Attendance() {
                     {each.task}
                   </Text>
                   <Text style={{color: '#65737f'}}>{each.numberOf}</Text>
-                  <Text
-                    style={{
-                      color: '#139f5a',
-                      textDecorationLine: 'underline',
-                      fontFamily: 'SofiaSansSemiCondensed-Bold',
+                  <Pressable
+                    onPress={() => {
+                      route.params.navigation.navigate('Notify');
                     }}>
-                    View All
-                  </Text>
+                    <Text
+                      style={{
+                        color: '#139f5a',
+                        textDecorationLine: 'underline',
+                        fontFamily: 'SofiaSansSemiCondensed-Bold',
+                      }}>
+                      View All
+                    </Text>
+                  </Pressable>
                 </View>
               );
             })}

@@ -11,6 +11,7 @@ import Login from './src/Components/Login';
 import LoginScreen from './src/Components/LoginScreen/LoginScreen';
 import HomeScreen from './src/Components/Home/HomeScreen';
 import Attendance from './src/Components/MySpace/Dashboards/Attendance';
+import AnnouncementsCard from './src/Components/QuickInformationDashboard/Announcements';
 
 const Stack = createNativeStackNavigator();
 const App = () => {
@@ -44,10 +45,19 @@ const App = () => {
             options={{headerShown: false}}
           />
           <Stack.Screen
-            name="AttendanceAll"
+            name="AnnouncementsCard"
+            component={AnnouncementsCard}
+            options={{title: 'Announcements'}}
+          />
+          <Stack.Screen
+            name="Attendance"
             component={Attendance}
-            visible={false}
-            options={{headerShown: false}}
+            options={{title: 'Attendance'}}
+          />
+          <Stack.Screen
+            name="Notify"
+            component={Notification}
+            options={{title: 'Notify'}}
           />
         </Stack.Navigator>
       </NavigationContainer>
