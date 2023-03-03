@@ -189,11 +189,11 @@ const styles = StyleSheet.create({
     paddingBottom: 7,
     borderBottomWidth: 0.5,
     width: '100%',
-    borderColor: ' grey',
   },
   search: {
     width: '100%',
     borderColor: 'none',
+
     height: 35,
     backgroundColor: '#ffffff',
     color: '#1a1b1b',

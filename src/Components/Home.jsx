@@ -12,11 +12,21 @@ import {
   Image,
   Pressable,
 } from 'react-native';
-
 import {Avatar, Card, Badge, Searchbar} from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {DrawerActions} from '@react-navigation/native';
+import {
+  Button,
+  Modal,
+  Stack,
+  FormControl,
+  Input,
+  Center,
+  NativeBaseProvider,
+} from 'native-base';
+import NotificationItem from './Notification/NotificationItem';
+
 const DATA = [
   {key: 'Android'},
   {key: 'iOS'},
@@ -138,6 +148,22 @@ const myTask = [
     numberOf: 8,
   },
 ];
+const AttendanceMl = ({open, openModal, title}) => {
+  return (
+    <>
+      <Modal isOpen={open} onClose={() => openModal(false)} safeAreaTop={true}>
+        <Modal.Content maxWidth="350" {...styles['AttendanceModal']}>
+          <Modal.CloseButton />
+          <Modal.Header>{title}</Modal.Header>
+          <Modal.Body>
+            <NotificationItem />
+          </Modal.Body>
+        </Modal.Content>
+      </Modal>
+    </>
+  );
+};
+
 const Annoncements = ({item}) => {
   return (
     <View style={{marginLeft: 10}} id={item}>
@@ -160,6 +186,13 @@ const Annoncements = ({item}) => {
 };
 const Home = ({navigation}) => {
   const [pressedIcon, setPressedIcon] = useState('Home');
+
+  const [open, setOpen] = useState(false);
+
+  const openModal = opened => {
+    setOpen(opened);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
@@ -208,77 +241,6 @@ const Home = ({navigation}) => {
             </Pressable>
           </View>
           <View>
-            {/* <ScrollView horizontal={true}>
-              <View style={{flexDirection: 'row'}}>
-                <View style={{marginLeft: 10}}>
-                  <Card.Title
-                    title="Employees expected to cloack"
-                    subtitle="1 hour ago"
-                    titleStyle={{fontSize: 16, fontWeight: '100'}}
-                    style={styles.announcementCard}
-                    left={props => (
-                      <Avatar.Icon
-                        {...props}
-                        style={styles.announcementCardIcon}
-                        icon="clock"
-                        color="#ef9c21"
-                      />
-                    )}
-                  />
-                </View>
-                <View style={{marginLeft: 10}}>
-                  <Card.Title
-                    title="Employees expected to cloack"
-                    subtitle="1 hour ago"
-                    titleStyle={{fontSize: 16, fontWeight: '100'}}
-                    style={{
-                      backgroundColor: '#dfadac',
-                      width: 300,
-                      height: 58,
-                      borderRadius: 20,
-                      alignSelf: 'center',
-                      paddingRight: 7,
-                      padding: 5,
-                    }}
-                    left={props => (
-                      <Avatar.Icon
-                        {...props}
-                        style={{
-                          backgroundColor: '#ffa58a',
-                          width: 33,
-                          height: 33,
-                          borderRadius: 5,
-                        }}
-                        icon="tree"
-                        color="#fe0000"
-                      />
-                    )}
-                  />
-                </View>
-
-                <View>
-                  <Card.Title
-                    title="Card Title"
-                    subtitle="1 hour ago"
-                    style={{
-                      backgroundColor: '#e0c8ae',
-                      width: '60%',
-                      height: 60,
-                      borderRadius: 20,
-                      alignSelf: 'center',
-                    }}
-                    left={props => (
-                      <Avatar.Icon
-                        {...props}
-                        style={{backgroundColor: '#fede68'}}
-                        icon="clock"
-                        color="#ef9c21"
-                      />
-                    )}
-                  />
-                </View>
-              </View>
-            </ScrollView> */}
             <FlatList
               horizontal={true}
               data={DATA}
@@ -344,6 +306,7 @@ const Home = ({navigation}) => {
                     <Image
                       style={styles.megha}
                       source={require('../Images/3.jpeg')}
+                      alt="not found"
                     />
                   </View>
 
@@ -389,6 +352,7 @@ const Home = ({navigation}) => {
                     <Image
                       style={styles.megha}
                       source={require('../Images/1.jpeg')}
+                      alt="error"
                     />
                   </View>
                   <Text
@@ -433,6 +397,7 @@ const Home = ({navigation}) => {
                     <Image
                       style={styles.megha}
                       source={require('../Images/2.jpeg')}
+                      alt="loading.."
                     />
                   </View>
                   <Text
@@ -831,10 +796,7 @@ const Home = ({navigation}) => {
                     {each.task}
                   </Text>
                   <Text style={{color: '#65737f'}}>{each.numberOf}</Text>
-                  <Pressable
-                    onPress={() =>
-                      navigation.navigate('Attendance', {navigation})
-                    }>
+                  <Pressable onPress={() => openModal(true)}>
                     <Text
                       style={{
                         color: '#139f5a',
@@ -843,6 +805,11 @@ const Home = ({navigation}) => {
                       }}>
                       View All
                     </Text>
+                    <AttendanceMl
+                      openModal={openModal}
+                      open={open}
+                      title={each.task}
+                    />
                   </Pressable>
                 </View>
               );
@@ -903,6 +870,14 @@ const styles = StyleSheet.create({
     height: '100%',
     backgroundColor: 'white',
   },
+  AttendanceModal: {
+    marginBottom: 0,
+    marginTop: 'auto',
+    width: '100%',
+
+    height: '90%',
+  },
+
   teamTableHead: {
     width: 65,
     height: 60,

@@ -56,16 +56,7 @@ export default function MySpace() {
           ),
         }}
       />
-      <Drawer.Screen
-        name="Notifications"
-        component={NotificationsScreen}
-        options={{
-          title: 'Notifications',
-          drawerIcon: ({focused, color, size}) => (
-            <Icon name="notifications" size={18} color={color} />
-          ),
-        }}
-      />
+
       <Drawer.Screen
         name="hh"
         component={NotificationsScreen}

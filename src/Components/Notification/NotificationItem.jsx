@@ -1,6 +1,5 @@
 import {View, StyleSheet, SafeAreaView, StatusBar} from 'react-native';
 import {Box, FlatList, Avatar, Text, HStack, VStack, Spacer} from 'native-base';
-import NotificationItem from './NotificationItem';
 const data = [
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -90,27 +89,58 @@ const data = [
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBwgu1A5zgPSvfE83nurkuzNEoXs9DMNr8Ww&usqp=CAU',
   },
 ];
-
-export default Notification = ({Navigation}) => {
+export default NotificationItem = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar translucent backgroundColor="transparent" />
-      <Box style={styles.header} w="100%" bg="gray.200" shadow={3}>
-        <Text
-          fontSize="md"
-          style={{
-            color: '#212a35',
-
-            fontFamily: 'SofiaSansSemiCondensed-Bold',
-          }}>
-          Notifications
-        </Text>
-      </Box>
-      <View style={styles.section}>
-        <NotificationItem />
-      </View>
-      {/* section ui */}
-    </SafeAreaView>
+    <Box>
+      <FlatList
+        data={data}
+        renderItem={({item}) => (
+          <Box
+            borderBottomWidth="1"
+            borderColor="muted.200"
+            pl={['0', '4']}
+            pr={['0', '5']}
+            py="2">
+            <HStack space={[2, 3]} justifyContent="space-between">
+              <Avatar
+                size="48px"
+                source={{
+                  uri: item.avatarUrl,
+                }}
+              />
+              <VStack>
+                <Text
+                  _dark={{
+                    color: 'warmGray.50',
+                  }}
+                  color="coolGray.800"
+                  bold>
+                  {item.fullName}
+                </Text>
+                <Text
+                  color="coolGray.600"
+                  _dark={{
+                    color: 'warmGray.200',
+                  }}>
+                  {item.recentText}
+                </Text>
+              </VStack>
+              <Spacer />
+              <Text
+                fontSize="xs"
+                _dark={{
+                  color: 'warmGray.50',
+                }}
+                color="coolGray.800"
+                alignSelf="flex-start">
+                {item.timeStamp}
+              </Text>
+            </HStack>
+          </Box>
+        )}
+        keyExtractor={item => item.id}
+      />
+    </Box>
   );
 };
 const styles = StyleSheet.create({
