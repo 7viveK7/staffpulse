@@ -29,7 +29,7 @@ const App = () => {
             name="VISFY"
             component={Login}
             visible={false}
-            options={{title: 'VISFY Login'}}
+            options={{title: 'VISFY LOGIN'}}
             // options={{headerShown: false}}
           />
           <Stack.Screen

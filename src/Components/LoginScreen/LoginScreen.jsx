@@ -1,6 +1,13 @@
 import React from 'react';
 
-import {View, StyleSheet, SafeAreaView, StatusBar} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  SafeAreaView,
+  ImageBackground,
+  StatusBar,
+} from 'react-native';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import {
   Box,
@@ -20,16 +27,6 @@ const SectionCard = ({navigation}) => {
   return (
     <Box alignItems="flex-start">
       <Box width={300} overflow="hidden">
-        {/* <Box>
-          <AspectRatio w="100%" ratio={16 / 9}>
-            <Image
-              source={{
-                uri: 'https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg',
-              }}
-              alt="image"
-            />
-          </AspectRatio>
-        </Box> */}
         <Stack p="4" space={2}>
           <Heading size="md" ml="-1" fontSize={25}>
             VISFY
@@ -42,7 +39,15 @@ const SectionCard = ({navigation}) => {
               key={'sm'}
               size={'sm'}
               onPress={() => navigation.navigate('VISFY')}>
-              Login
+              <View
+                style={{
+                  flexDirection: 'row',
+                }}>
+                <Text style={{fontWeight: '900', color: '#fff'}}>
+                  Get Started{' '}
+                </Text>
+                <MaterialIcons name="arrow-right-alt" size={20} color="#fff" />
+              </View>
             </Button>
           </VStack>
         </Stack>
@@ -60,15 +65,14 @@ export default LoginScreen = ({navigation}) => {
           backgroundColor="transparent"
           barStyle="dark-content"
         />
+        <Image
+          source={require('../../Images/landingpage.png')}
+          style={styles.image}
+          alt="not found"
+        />
         <Box style={styles.section}>
           <SectionCard navigation={navigation} />
         </Box>
-        <View style={styles.footer}>
-          <Text style={{textAlign: 'center'}}>
-            By contuining you are engineering to the following Terms of Service
-            & User Policies
-          </Text>
-        </View>
       </SafeAreaView>
     </>
   );
@@ -76,11 +80,12 @@ export default LoginScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  section: {
-    flex: 1,
     justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    paddingBottom: 100,
   },
+
   header: {
     paddingBottom: 7,
 
@@ -92,5 +97,10 @@ const styles = StyleSheet.create({
   },
   footer: {
     padding: 10,
+  },
+  image: {
+    width: 300,
+    height: 300,
+    justifyContent: 'center',
   },
 });

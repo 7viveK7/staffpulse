@@ -192,7 +192,6 @@ const Home = ({navigation}) => {
   const openModal = opened => {
     setOpen(opened);
   };
-
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
