@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, StyleSheet, View} from 'react-native';
+import {Text, StyleSheet, Image, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {VStack, Box, Divider} from 'native-base';
@@ -64,51 +64,24 @@ function HomeScreen() {
 
 function SettingsScreen() {
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+    <View style={{flex: 1}}>
       <View style={[styles.card]}>
+        <Image
+          source={require('../../../Images/4o4.png')}
+          style={{width: 300, height: 200}}
+        />
         <Text
           style={{
             color: '#202b35',
             margin: 20,
             paddingBottom: 10,
+            textAlign: 'center',
             fontSize: 20,
             fontWeight: 'bold',
             fontFamily: 'SofiaSansSemiCondensed-Bold',
           }}>
-          Pending Requests
+          Under construction
         </Text>
-        <View style={{justifyContent: 'center', alignItems: 'center'}}>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-evenly',
-              alignItems: 'center',
-              width: '98%',
-              marginBottom: 20,
-              height: 49,
-              borderWidth: 1,
-              borderColor: 'green',
-              borderRadius: 10,
-            }}>
-            <Text
-              style={{
-                color: '#212a35',
-                width: 120,
-                fontFamily: 'SofiaSansSemiCondensed-Bold',
-              }}>
-              jhgfgcvhbjnk
-            </Text>
-            <Text style={{color: '#65737f'}}>67667</Text>
-            <Text
-              style={{
-                color: '#139f5a',
-                textDecorationLine: 'underline',
-                fontFamily: 'SofiaSansSemiCondensed-Bold',
-              }}>
-              View All
-            </Text>
-          </View>
-        </View>
       </View>
     </View>
   );
@@ -120,10 +93,11 @@ export default function EmployeeDashboard() {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarLabelStyle: {fontSize: 12},
+        tabBarLabelStyle: {fontSize: 12, fontWeight: '900'},
         tabBarItemStyle: {width: 120},
         tabBarActiveTintColor: 'green',
-        tabBarStyle: {backgroundColor: '#c0f1ca'},
+
+        tabBarStyle: {backgroundColor: '#fff'},
       }}>
       <Tab.Screen name="Attendance" component={Attendance} />
       <Tab.Screen name="Payroll" component={SettingsScreen} />
@@ -148,9 +122,10 @@ const styles = StyleSheet.create({
   },
   card: {
     backgroundColor: 'white',
-    borderWidth: 1,
-    borderColor: '#e5e5e5',
-    margin: 10,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
     borderRadius: 18,
   },
 });

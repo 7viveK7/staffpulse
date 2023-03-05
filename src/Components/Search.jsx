@@ -189,6 +189,7 @@ const styles = StyleSheet.create({
     paddingBottom: 7,
     borderBottomWidth: 0.5,
     width: '100%',
+    elevation: 0,
   },
   search: {
     width: '100%',

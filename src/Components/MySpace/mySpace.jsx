@@ -3,7 +3,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {Button, View} from 'react-native';
+import {Button, Image, View} from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {NavigationContainer} from '@react-navigation/native';
 import CustomDrawer from './CustomDrawer';
@@ -22,7 +22,17 @@ function HomeScreen({navigation}) {
 
 function NotificationsScreen({navigation}) {
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+    <View
+      style={{
+        flex: 1,
+        alignItems: 'center',
+        backgroundColor: '#fff',
+        justifyContent: 'center',
+      }}>
+      <Image
+        source={require('../../Images/checkConnection.png')}
+        style={{width: 300, height: 200}}
+      />
       <Button onPress={() => navigation.goBack()} title="Go back home" />
     </View>
   );

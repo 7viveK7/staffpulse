@@ -32,8 +32,6 @@ export default Login = ({navigation}) => {
   const [auorthontication, setauorthontication] = useState(null);
 
   function onSubmit() {
-    navigation.push('HomeScreen');
-
     if (user.email === 'vivek' && user.password === 'vivek@1') {
       navigation.push('HomeScreen');
       setUser({email: '', password: ''});
