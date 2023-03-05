@@ -12,6 +12,9 @@ import LoginScreen from './src/Components/LoginScreen/LoginScreen';
 import HomeScreen from './src/Components/Home/HomeScreen';
 import Attendance from './src/Components/MySpace/Dashboards/Attendance';
 import AnnouncementsCard from './src/Components/QuickInformationDashboard/Announcements';
+import {LogBox} from 'react-native';
+LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+LogBox.ignoreAllLogs();
 
 const Stack = createNativeStackNavigator();
 const App = () => {

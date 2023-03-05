@@ -1,6 +1,16 @@
 import React from 'react';
-import {Text, StyleSheet, ScrollView, View, Pressable} from 'react-native';
+import {StyleSheet, ScrollView, View, Pressable} from 'react-native';
 import {Avatar, Card, IconButton} from 'react-native-paper';
+import {
+  Icon,
+  useBreakpointValue,
+  Text,
+  VStack,
+  Heading,
+  Center,
+  NativeBaseProvider,
+} from 'native-base';
+
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 const myTask = [
   {
@@ -24,6 +34,76 @@ const myTask = [
     numberOf: 8,
   },
 ];
+const MyAttendance = () => {
+  return (
+    <ScrollView showsVerticalScrollIndicator={false}>
+      <VStack py="8" space={8} alignItems="center" justifyContent="center">
+        <View
+          style={{
+            flexDirection: 'row',
+          }}>
+          <VStack
+            m="3"
+            id={'1WD'}
+            w="140"
+            borderRadius="xl"
+            p="3"
+            bg="cyan.200"
+            space={2}
+            alignItems="center"
+            justifyContent="center">
+            <Text
+              fontSize="lg"
+              textAlign="center"
+              _dark={{
+                color: 'coolGray.800',
+              }}>
+              Un approved leaves:2/30
+            </Text>
+          </VStack>
+          <VStack
+            id={'2WD'}
+            m="3"
+            w="140"
+            borderRadius="xl"
+            p="3"
+            bg="cyan.200"
+            space={2}
+            alignItems="center"
+            justifyContent="center">
+            <Text
+              fontSize="lg"
+              textAlign="center"
+              _dark={{
+                color: 'coolGray.800',
+              }}>
+              Present :25/30
+            </Text>
+          </VStack>
+          <VStack
+            id={'3WD'}
+            m="3"
+            w="140"
+            borderRadius="xl"
+            p="3"
+            bg="cyan.200"
+            space={2}
+            alignItems="center"
+            justifyContent="center">
+            <Text
+              fontSize="lg"
+              textAlign="center"
+              _dark={{
+                color: 'coolGray.800',
+              }}>
+              leaves :3/30
+            </Text>
+          </VStack>
+        </View>
+      </VStack>
+    </ScrollView>
+  );
+};
 export default function Attendance({route}) {
   return (
     <ScrollView>
@@ -98,61 +178,9 @@ export default function Attendance({route}) {
             />
           </View>
         </View>
-
-        <View style={[styles.card]}>
-          <Text
-            style={{
-              color: '#202b35',
-              margin: 20,
-              paddingBottom: 10,
-              fontSize: 20,
-              fontWeight: 'bold',
-              fontFamily: 'SofiaSansSemiCondensed-Bold',
-            }}>
-            Present attended
-          </Text>
-          <View style={{justifyContent: 'center', alignItems: 'center'}}>
-            {myTask.map(each => {
-              return (
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-evenly',
-                    alignItems: 'center',
-                    width: '95%',
-                    marginBottom: 20,
-                    height: 49,
-                    borderWidth: 1,
-                    borderColor: each.color,
-                    borderRadius: 10,
-                  }}>
-                  <Text
-                    style={{
-                      color: '#212a35',
-                      width: 120,
-                      fontFamily: 'SofiaSansSemiCondensed-Bold',
-                    }}>
-                    {each.task}
-                  </Text>
-                  <Text style={{color: '#65737f'}}>{each.numberOf}</Text>
-                  <Pressable
-                    onPress={() => {
-                      route.params.navigation.navigate('Notify');
-                    }}>
-                    <Text
-                      style={{
-                        color: '#139f5a',
-                        textDecorationLine: 'underline',
-                        fontFamily: 'SofiaSansSemiCondensed-Bold',
-                      }}>
-                      View All
-                    </Text>
-                  </Pressable>
-                </View>
-              );
-            })}
-          </View>
-        </View>
+        <Center flex={1} px="3">
+          <MyAttendance />
+        </Center>
       </View>
     </ScrollView>
   );

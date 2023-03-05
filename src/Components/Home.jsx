@@ -42,14 +42,8 @@ const DATA = [
   {key: 'Rails'},
   {key: '.Net'},
   {key: 'Perl'},
-  {key: 'Sap'},
-  {key: 'Python'},
-  {key: 'Ajax'},
-  {key: 'C++'},
-  {key: 'Ruby'},
-  {key: 'Rails'},
-  {key: '.Net'},
-  {key: 'Perl'},
+  {key: '1ap2'},
+  {key: 'thon2'},
 ];
 const LeftContent = props => <Avatar.Icon {...props} icon="folder" />;
 const teamMembers = [
@@ -79,7 +73,7 @@ const teamMembers = [
   },
   {
     color: '#79927b',
-    name: 'Rashmi',
+    name: 'RaAshmi',
     posion: 'Trainee',
     state: 'Present',
   },
@@ -91,7 +85,7 @@ const teamMembers = [
   },
   {
     color: '#fdb8b3',
-    name: 'Rashmi',
+    name: 'Rashmii',
     posion: 'Trainee',
     state: 'Present',
   },
@@ -148,6 +142,7 @@ const myTask = [
     numberOf: 8,
   },
 ];
+
 const AttendanceMl = ({open, openModal, title}) => {
   return (
     <>
@@ -199,623 +194,632 @@ const Home = ({navigation}) => {
         backgroundColor="transparent"
         barStyle={false ? 'light-content' : 'dark-content'}
       />
-      <ScrollView contentInsetAdjustmentBehavior="automatic">
-        <View style={styles.headerPart}>
-          <View style={styles.searchContainer}>
-            <MaterialIcons
-              name="keyboard-arrow-right"
-              size={33}
-              style={{position: 'absolute', left: -10, top: 0}}
-              color="#00ab55"
-              onPress={() => {
-                navigation.dispatch(DrawerActions.openDrawer());
-              }}
-            />
-            <Searchbar
-              placeholder="Search"
-              style={styles.search}
-              inputStyle={{
-                padding: 0,
-              }}
-              onFocus={() => navigation.navigate('Search')}
-            />
-            <MaterialCommunityIcons
-              name="chat"
-              size={33}
-              style={{marginLeft: 20}}
-              color="#00ab55"
-            />
-          </View>
-          <View style={styles.cardsHeading}>
-            <Text
-              style={{
-                color: '#212a35',
-                fontFamily: 'SofiaSansSemiCondensed-Bold',
-              }}>
-              Announcements
-            </Text>
-            <Pressable
-              onPress={() => navigation.navigate('AnnouncementsCard', {DATA})}>
-              <Text style={styles.viewAll}>View All </Text>
-            </Pressable>
-          </View>
+      <FlatList
+        data={[1]}
+        renderItem={props => (
           <View>
-            <FlatList
-              horizontal={true}
-              data={DATA}
-              initialNumToRender={true}
-              renderItem={Annoncements}
-              keyExtractor={item => <Annoncements key={item.id} />}
-            />
-          </View>
-        </View>
-        {/* welecome card */}
-        <View style={styles.welcomeCard}>
-          <Text
-            style={{
-              fontSize: 30,
-              fontFamily: 'Rochester-Regular',
-              color: '#f4bd94',
-            }}>
-            Welcome
-          </Text>
-
-          <ScrollIndicator
-            horizontal={true}
-            indicatorStyle={{
-              height: 8,
-              width: 40,
-
-              backgroundColor: '#00ab55',
-              borderRadius: 5,
-            }}
-            scrollViewBoxStyle={{
-              width: '100%',
-            }}
-            indicatorBackgroundStyle={{
-              height: 8,
-              width: 120,
-              borderRadius: 5,
-              backgroundColor: '#add0bf',
-            }}
-            viewBoxStyle={{
-              alignItems: 'center',
-
-              // marginTop: 60
-            }}>
-            <View style={{flexDirection: 'row'}}>
-              <Card
-                style={{
-                  width: 130,
-                  height: 150,
-                  margin: 10,
-                  borderRadius: 12,
-                  backgroundColor: '#fffae7',
-                  borderWidth: 1,
-                  borderColor: '#feeaad',
-                }}>
-                <Card.Content>
-                  <View
-                    style={{
-                      alignSelf: 'center',
-                      backgroundColor: '#fee9a8',
-                      padding: 10,
-                      borderRadius: 50,
-                    }}>
-                    <Image
-                      style={styles.megha}
-                      source={require('../Images/3.jpeg')}
-                      alt="not found"
-                    />
-                  </View>
-
-                  <Text
-                    variant="titleLarge"
-                    style={{
-                      color: '#caa846',
-                      alignSelf: 'center',
-                      fontWeight: 'bold',
-                      fontSize: 20,
-                    }}>
-                    Megha
-                  </Text>
-                  <Text
-                    variant="bodyMedium"
-                    style={{
-                      color: '#657582',
-                      alignSelf: 'center',
-                      textAlign: 'center',
-                    }}>
-                    Ux Designer Join today
-                  </Text>
-                </Card.Content>
-              </Card>
-              <Card
-                style={{
-                  width: 130,
-                  height: 150,
-                  margin: 10,
-                  borderRadius: 12,
-                  backgroundColor: '#e9f8ff',
-                  borderWidth: 1,
-                  borderColor: '#b8e7f9',
-                }}>
-                <Card.Content>
-                  <View
-                    style={{
-                      alignSelf: 'center',
-                      backgroundColor: '#c2e9fc',
-                      padding: 10,
-                      borderRadius: 50,
-                    }}>
-                    <Image
-                      style={styles.megha}
-                      source={require('../Images/1.jpeg')}
-                      alt="error"
-                    />
-                  </View>
-                  <Text
-                    variant="titleLarge"
-                    style={{
-                      color: '#095c85',
-                      alignSelf: 'center',
-                      fontWeight: 'bold',
-                      fontSize: 20,
-                    }}>
-                    Megha
-                  </Text>
-                  <Text
-                    variant="bodyMedium"
-                    style={{
-                      color: '#657582',
-                      alignSelf: 'center',
-                      textAlign: 'center',
-                    }}>
-                    Ux Designer Join today
-                  </Text>
-                </Card.Content>
-              </Card>
-              <Card
-                style={{
-                  width: 130,
-                  height: 150,
-                  margin: 10,
-                  borderRadius: 12,
-                  backgroundColor: '#ffeaef',
-                  borderWidth: 1,
-                  borderColor: '#fecad6',
-                }}>
-                <Card.Content>
-                  <View
-                    style={{
-                      alignSelf: 'center',
-                      backgroundColor: '#fecad6',
-                      padding: 10,
-                      borderRadius: 50,
-                    }}>
-                    <Image
-                      style={styles.megha}
-                      source={require('../Images/2.jpeg')}
-                      alt="loading.."
-                    />
-                  </View>
-                  <Text
-                    variant="titleLarge"
-                    style={{
-                      color: '#cc4964',
-                      alignSelf: 'center',
-                      fontWeight: 'bold',
-                      fontSize: 20,
-                    }}>
-                    Megha
-                  </Text>
-                  <Text
-                    variant="bodyMedium"
-                    style={{
-                      color: '#657582',
-                      alignSelf: 'center',
-                      textAlign: 'center',
-                    }}>
-                    Ux Designer Join today
-                  </Text>
-                </Card.Content>
-              </Card>
+            <View style={styles.headerPart}>
+              <View style={styles.searchContainer}>
+                <MaterialIcons
+                  name="keyboard-arrow-right"
+                  size={33}
+                  style={{position: 'absolute', left: -10, top: 0}}
+                  color="#00ab55"
+                  onPress={() => {
+                    navigation.dispatch(DrawerActions.openDrawer());
+                  }}
+                />
+                <Searchbar
+                  placeholder="Search"
+                  style={styles.search}
+                  inputStyle={{
+                    padding: 0,
+                  }}
+                  onFocus={() => navigation.navigate('Search')}
+                />
+                <MaterialCommunityIcons
+                  name="chat"
+                  size={33}
+                  style={{marginLeft: 20}}
+                  color="#00ab55"
+                />
+              </View>
+              <View style={styles.cardsHeading}>
+                <Text
+                  style={{
+                    color: '#212a35',
+                    fontFamily: 'SofiaSansSemiCondensed-Bold',
+                  }}>
+                  Announcements
+                </Text>
+                <Pressable
+                  onPress={() =>
+                    navigation.navigate('AnnouncementsCard', {DATA})
+                  }>
+                  <Text style={styles.viewAll}>View All </Text>
+                </Pressable>
+              </View>
+              <View>
+                <FlatList
+                  horizontal={true}
+                  data={DATA}
+                  initialNumToRender={true}
+                  renderItem={Annoncements}
+                  keyExtractor={item => <Annoncements key={item.id} />}
+                />
+              </View>
             </View>
-          </ScrollIndicator>
-        </View>
-        <View style={[styles.checkInCard]}>
-          <MaterialCommunityIcons
-            name="clock"
-            size={37}
-            style={{paddingLeft: 7}}
-            color="#0089c8"
-          />
-          <View>
-            <Text
-              style={{
-                color: '#2d3842',
-                fontFamily: 'SofiaSansSemiCondensed',
-                fontSize: 15,
-              }}>
-              03/01/22
-            </Text>
-            <Text
-              style={{
-                color: '#2d3842',
-                fontFamily: 'SofiaSansSemiCondensed',
-                fontSize: 14,
-              }}>
-              Clock In-hh:mm AM
-            </Text>
-            <Text
-              style={{
-                color: '#2d3842',
-                fontFamily: 'SofiaSansSemiCondensed',
-                fontSize: 14,
-              }}>
-              Clock Out-hh:mm PM{' '}
-            </Text>
-          </View>
-          <Pressable
-            style={styles.CheckInButton}
-            onPress={() => console.warn('pressed')}>
-            <Text>Clock In </Text>
-          </Pressable>
-          <MaterialIcons
-            name="keyboard-arrow-right"
-            size={33}
-            color="#637382"
-          />
-        </View>
-        <View style={styles.card}>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              margin: 20,
-            }}>
-            <Text
-              style={{
-                color: '#212a35',
-                fontFamily: 'SofiaSansSemiCondensed-Bold',
-                fontWeight: 'bold',
-                fontSize: 18,
-              }}>
-              My Team
-            </Text>
-            <Text style={styles.viewAll}>View All </Text>
-          </View>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-evenly',
-              alignItems: 'center',
-
-              marginBottom: 7,
-            }}>
-            <View style={styles.teamTableHead}>
+            {/* welecome card */}
+            <View style={styles.welcomeCard}>
               <Text
                 style={{
-                  color: '#00ab55',
-                  fontFamily: 'SofiaSansSemiCondensed-Bold',
-                  fontWeight: 'bold',
+                  fontSize: 30,
+                  fontFamily: 'Rochester-Regular',
+                  color: '#f4bd94',
                 }}>
-                Profile
+                Welcome
               </Text>
-            </View>
-            <View
-              style={{
-                ...styles.teamTableHead,
-                borderWidth: 0,
-                backgroundColor: '#f9e7e7',
-              }}>
-              <Text
-                style={{
-                  color: '#b40614',
-                  fontFamily: 'SofiaSansSemiCondensed-Bold',
-                  fontWeight: 'bold',
-                }}>
-                Name
-              </Text>
-            </View>
-            <View
-              style={{
-                ...styles.teamTableHead,
-                borderWidth: 0,
-                backgroundColor: '#feeaf1',
-              }}>
-              <Text
-                style={{
-                  color: '#f33f7e',
-                  fontFamily: 'SofiaSansSemiCondensed-Bold',
-                  fontWeight: 'bold',
-                }}>
-                Dis
-              </Text>
-            </View>
-            <View
-              style={{
-                ...styles.teamTableHead,
-                borderWidth: 0,
-                backgroundColor: '#e7f0f5',
-              }}>
-              <Text
-                style={{
-                  color: '#096993',
-                  fontFamily: 'SofiaSansSemiCondensed-Bold',
-                  fontWeight: 'bold',
-                }}>
-                Status
-              </Text>
-            </View>
-          </View>
 
-          {teamMembers.map(member => {
-            return (
+              <ScrollIndicator
+                horizontal={true}
+                indicatorStyle={{
+                  height: 8,
+                  width: 40,
+
+                  backgroundColor: '#00ab55',
+                  borderRadius: 5,
+                }}
+                scrollViewBoxStyle={{
+                  width: '100%',
+                }}
+                indicatorBackgroundStyle={{
+                  height: 8,
+                  width: 120,
+                  borderRadius: 5,
+                  backgroundColor: '#add0bf',
+                }}
+                viewBoxStyle={{
+                  alignItems: 'center',
+
+                  // marginTop: 60
+                }}>
+                <View style={{flexDirection: 'row'}}>
+                  <Card
+                    style={{
+                      width: 130,
+                      height: 150,
+                      margin: 10,
+                      borderRadius: 12,
+                      backgroundColor: '#fffae7',
+                      borderWidth: 1,
+                      borderColor: '#feeaad',
+                    }}>
+                    <Card.Content>
+                      <View
+                        style={{
+                          alignSelf: 'center',
+                          backgroundColor: '#fee9a8',
+                          padding: 10,
+                          borderRadius: 50,
+                        }}>
+                        <Image
+                          style={styles.megha}
+                          source={require('../Images/3.jpeg')}
+                          alt="not found"
+                        />
+                      </View>
+
+                      <Text
+                        variant="titleLarge"
+                        style={{
+                          color: '#caa846',
+                          alignSelf: 'center',
+                          fontWeight: 'bold',
+                          fontSize: 20,
+                        }}>
+                        Megha
+                      </Text>
+                      <Text
+                        variant="bodyMedium"
+                        style={{
+                          color: '#657582',
+                          alignSelf: 'center',
+                          textAlign: 'center',
+                        }}>
+                        Ux Designer Join today
+                      </Text>
+                    </Card.Content>
+                  </Card>
+                  <Card
+                    style={{
+                      width: 130,
+                      height: 150,
+                      margin: 10,
+                      borderRadius: 12,
+                      backgroundColor: '#e9f8ff',
+                      borderWidth: 1,
+                      borderColor: '#b8e7f9',
+                    }}>
+                    <Card.Content>
+                      <View
+                        style={{
+                          alignSelf: 'center',
+                          backgroundColor: '#c2e9fc',
+                          padding: 10,
+                          borderRadius: 50,
+                        }}>
+                        <Image
+                          style={styles.megha}
+                          source={require('../Images/1.jpeg')}
+                          alt="error"
+                        />
+                      </View>
+                      <Text
+                        variant="titleLarge"
+                        style={{
+                          color: '#095c85',
+                          alignSelf: 'center',
+                          fontWeight: 'bold',
+                          fontSize: 20,
+                        }}>
+                        Megha
+                      </Text>
+                      <Text
+                        variant="bodyMedium"
+                        style={{
+                          color: '#657582',
+                          alignSelf: 'center',
+                          textAlign: 'center',
+                        }}>
+                        Ux Designer Join today
+                      </Text>
+                    </Card.Content>
+                  </Card>
+                  <Card
+                    style={{
+                      width: 130,
+                      height: 150,
+                      margin: 10,
+                      borderRadius: 12,
+                      backgroundColor: '#ffeaef',
+                      borderWidth: 1,
+                      borderColor: '#fecad6',
+                    }}>
+                    <Card.Content>
+                      <View
+                        style={{
+                          alignSelf: 'center',
+                          backgroundColor: '#fecad6',
+                          padding: 10,
+                          borderRadius: 50,
+                        }}>
+                        <Image
+                          style={styles.megha}
+                          source={require('../Images/2.jpeg')}
+                          alt="loading.."
+                        />
+                      </View>
+                      <Text
+                        variant="titleLarge"
+                        style={{
+                          color: '#cc4964',
+                          alignSelf: 'center',
+                          fontWeight: 'bold',
+                          fontSize: 20,
+                        }}>
+                        Megha
+                      </Text>
+                      <Text
+                        variant="bodyMedium"
+                        style={{
+                          color: '#657582',
+                          alignSelf: 'center',
+                          textAlign: 'center',
+                        }}>
+                        Ux Designer Join today
+                      </Text>
+                    </Card.Content>
+                  </Card>
+                </View>
+              </ScrollIndicator>
+            </View>
+            <View style={[styles.checkInCard]}>
+              <MaterialCommunityIcons
+                name="clock"
+                size={37}
+                style={{paddingLeft: 7}}
+                color="#0089c8"
+              />
+              <View>
+                <Text
+                  style={{
+                    color: '#2d3842',
+                    fontFamily: 'SofiaSansSemiCondensed',
+                    fontSize: 15,
+                  }}>
+                  03/01/22
+                </Text>
+                <Text
+                  style={{
+                    color: '#2d3842',
+                    fontFamily: 'SofiaSansSemiCondensed',
+                    fontSize: 14,
+                  }}>
+                  Clock In-hh:mm AM
+                </Text>
+                <Text
+                  style={{
+                    color: '#2d3842',
+                    fontFamily: 'SofiaSansSemiCondensed',
+                    fontSize: 14,
+                  }}>
+                  Clock Out-hh:mm PM{' '}
+                </Text>
+              </View>
+              <Pressable
+                style={styles.CheckInButton}
+                onPress={() => console.warn('pressed')}>
+                <Text>Clock In </Text>
+              </Pressable>
+              <MaterialIcons
+                name="keyboard-arrow-right"
+                size={33}
+                color="#637382"
+              />
+            </View>
+            <View style={styles.card}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  margin: 20,
+                }}>
+                <Text
+                  style={{
+                    color: '#212a35',
+                    fontFamily: 'SofiaSansSemiCondensed-Bold',
+                    fontWeight: 'bold',
+                    fontSize: 18,
+                  }}>
+                  My Team
+                </Text>
+                <Text style={styles.viewAll}>View All </Text>
+              </View>
               <View
                 style={{
                   flexDirection: 'row',
                   justifyContent: 'space-evenly',
                   alignItems: 'center',
-                  width: '100%',
-                  marginBottom: 10,
+
+                  marginBottom: 7,
                 }}>
-                <View style={{width: 65}}>
-                  <View
+                <View style={styles.teamTableHead}>
+                  <Text
                     style={{
-                      alignSelf: 'center',
-                      backgroundColor: '#fee9a8',
-                      padding: 6,
-                      borderRadius: 50,
+                      color: '#00ab55',
+                      fontFamily: 'SofiaSansSemiCondensed-Bold',
+                      fontWeight: 'bold',
                     }}>
-                    <Image
-                      style={styles.megha}
-                      source={require('../Images/1.jpeg')}
-                    />
-                  </View>
+                    Profile
+                  </Text>
                 </View>
-                <Text
-                  style={{
-                    color: '#212a35',
-                    fontFamily: 'SofiaSansSemiCondensed-Bold',
-                    fontSize: 16,
-                    width: 65,
-                  }}>
-                  {member.name}
-                </Text>
-                <Text style={{color: '#727d89', width: 65}}>
-                  {member.posion}
-                </Text>
-                <View style={{flexDirection: 'row', width: 68}}>
-                  <Badge
-                    style={{
-                      marginBottom: 'auto',
-                      marginTop: 'auto',
-                      marginRight: 6,
-                      backgroundColor: '#36a970',
-                    }}
-                    size={16}></Badge>
-                  <Text style={{color: '#727d89'}}>{member.state}</Text>
-                </View>
-              </View>
-            );
-          })}
-        </View>
-        <DropShadow style={styles.shadowProp}>
-          <View style={[styles.card, {height: 200}]}>
-            <Text
-              style={{
-                color: '#202b35',
-                margin: 20,
-                paddingBottom: 10,
-                fontSize: 20,
-                fontWeight: 'bold',
-                fontFamily: 'SofiaSansSemiCondensed-Bold',
-              }}>
-              Quick Links
-            </Text>
-            <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-evenly',
-                width: '100%',
-              }}>
-              <View
-                style={{
-                  width: 100,
-                  height: 70,
-                  backgroundColor: '#def5fa',
-                  padding: 6,
-
-                  borderRadius: 10,
-                  flexDirection: 'row',
-                  justifyContent: 'space-between',
-                }}>
-                <Text
-                  style={{
-                    color: '#212a35',
-                    alignSelf: 'center',
-                    fontFamily: 'SofiaSansSemiCondensed-Bold',
-                    fontSize: 17,
-                  }}>
-                  Holiday Calender
-                </Text>
-                <MaterialCommunityIcons
-                  name="arrow-top-right"
-                  size={23}
-                  color="#0089c8"
-                />
-              </View>
-              <View
-                style={{
-                  width: 100,
-                  height: 70,
-                  backgroundColor: '#def5fa',
-
-                  padding: 6,
-                  borderRadius: 10,
-                  flexDirection: 'row',
-                  justifyContent: 'space-between',
-                }}>
-                <Text
-                  style={{
-                    color: '#212a35',
-                    alignSelf: 'center',
-                    fontFamily: 'SofiaSansSemiCondensed-Bold',
-                    fontSize: 17,
-                  }}>
-                  Leave Polacy
-                </Text>
-                <MaterialCommunityIcons
-                  name="arrow-top-right"
-                  size={23}
-                  color="#0089c8"
-                />
-              </View>
-              <View
-                style={{
-                  width: 100,
-                  height: 70,
-                  backgroundColor: '#def5fa',
-
-                  borderRadius: 10,
-                  flexDirection: 'row',
-                  justifyContent: 'space-between',
-                  padding: 6,
-                }}>
-                <Text
-                  style={{
-                    color: '#212a35',
-                    alignSelf: 'center',
-                    fontFamily: 'SofiaSansSemiCondensed-Bold',
-                    fontSize: 17,
-                  }}>
-                  Payroll Manual
-                </Text>
-                <MaterialCommunityIcons
-                  name="arrow-top-right"
-                  size={23}
-                  color="#0089c8"
-                />
-              </View>
-            </View>
-          </View>
-        </DropShadow>
-        <View style={[styles.card]}>
-          <Text
-            style={{
-              color: '#202b35',
-              margin: 20,
-              paddingBottom: 10,
-              fontSize: 20,
-              fontWeight: 'bold',
-              fontFamily: 'SofiaSansSemiCondensed-Bold',
-            }}>
-            Celebrations
-          </Text>
-          {celebrations.map(celebrate => {
-            return (
-              <View
-                style={[
-                  styles.celebrationCard,
-                  {backgroundColor: celebrate.color},
-                ]}>
-                <Text
-                  style={{
-                    color: '#1e2c38',
-                    fontFamily: 'SofiaSansSemiCondensed-Bold',
-                    width: 80,
-                    fontWeight: 'bold',
-                  }}>
-                  {celebrate.celebratetype}
-                </Text>
-
                 <View
                   style={{
-                    alignSelf: 'center',
-                    backgroundColor: celebrate.color,
-                    padding: 10,
-                    borderRadius: 50,
+                    ...styles.teamTableHead,
+                    borderWidth: 0,
+                    backgroundColor: '#f9e7e7',
                   }}>
-                  <Image
-                    style={styles.celebrations}
-                    source={require('../Images/3.jpeg')}
-                  />
+                  <Text
+                    style={{
+                      color: '#b40614',
+                      fontFamily: 'SofiaSansSemiCondensed-Bold',
+                      fontWeight: 'bold',
+                    }}>
+                    Name
+                  </Text>
                 </View>
+                <View
+                  style={{
+                    ...styles.teamTableHead,
+                    borderWidth: 0,
+                    backgroundColor: '#feeaf1',
+                  }}>
+                  <Text
+                    style={{
+                      color: '#f33f7e',
+                      fontFamily: 'SofiaSansSemiCondensed-Bold',
+                      fontWeight: 'bold',
+                    }}>
+                    Dis
+                  </Text>
+                </View>
+                <View
+                  style={{
+                    ...styles.teamTableHead,
+                    borderWidth: 0,
+                    backgroundColor: '#e7f0f5',
+                  }}>
+                  <Text
+                    style={{
+                      color: '#096993',
+                      fontFamily: 'SofiaSansSemiCondensed-Bold',
+                      fontWeight: 'bold',
+                    }}>
+                    Status
+                  </Text>
+                </View>
+              </View>
 
+              {teamMembers.map(member => {
+                return (
+                  <View
+                    id={member.name}
+                    style={{
+                      flexDirection: 'row',
+                      justifyContent: 'space-evenly',
+                      alignItems: 'center',
+                      width: '100%',
+                      marginBottom: 10,
+                    }}>
+                    <View style={{width: 65}}>
+                      <View
+                        style={{
+                          alignSelf: 'center',
+                          backgroundColor: '#fee9a8',
+                          padding: 6,
+                          borderRadius: 50,
+                        }}>
+                        <Image
+                          style={styles.megha}
+                          source={require('../Images/1.jpeg')}
+                        />
+                      </View>
+                    </View>
+                    <Text
+                      style={{
+                        color: '#212a35',
+                        fontFamily: 'SofiaSansSemiCondensed-Bold',
+                        fontSize: 16,
+                        width: 65,
+                      }}>
+                      {member.name}
+                    </Text>
+                    <Text style={{color: '#727d89', width: 65}}>
+                      {member.posion}
+                    </Text>
+                    <View style={{flexDirection: 'row', width: 68}}>
+                      <Badge
+                        style={{
+                          marginBottom: 'auto',
+                          marginTop: 'auto',
+                          marginRight: 6,
+                          backgroundColor: '#36a970',
+                        }}
+                        size={16}></Badge>
+                      <Text style={{color: '#727d89'}}>{member.state}</Text>
+                    </View>
+                  </View>
+                );
+              })}
+            </View>
+            <DropShadow style={styles.shadowProp}>
+              <View style={[styles.card, {height: 200}]}>
                 <Text
                   style={{
-                    color: celebrate.textColor,
+                    color: '#202b35',
+                    margin: 20,
+                    paddingBottom: 10,
+                    fontSize: 20,
+                    fontWeight: 'bold',
                     fontFamily: 'SofiaSansSemiCondensed-Bold',
                   }}>
-                  {celebrate.name}
+                  Quick Links
                 </Text>
-                <MaterialIcons
-                  name="arrow-forward-ios"
-                  size={22}
-                  color="#637382"
-                />
-              </View>
-            );
-          })}
-        </View>
-        <View style={[styles.card]}>
-          <Text
-            style={{
-              color: '#202b35',
-              margin: 20,
-              paddingBottom: 10,
-              fontSize: 20,
-              fontWeight: 'bold',
-              fontFamily: 'SofiaSansSemiCondensed-Bold',
-            }}>
-            My Tasks
-          </Text>
-          <View style={{justifyContent: 'center', alignItems: 'center'}}>
-            {myTask.map(each => {
-              return (
                 <View
                   style={{
                     flexDirection: 'row',
                     justifyContent: 'space-evenly',
-                    alignItems: 'center',
-                    width: '80%',
-                    marginBottom: 20,
-                    height: 49,
-                    borderWidth: 1,
-                    borderColor: each.color,
-                    borderRadius: 10,
+                    width: '100%',
                   }}>
-                  <Text
+                  <View
                     style={{
-                      color: '#212a35',
-                      width: 120,
-                      fontFamily: 'SofiaSansSemiCondensed-Bold',
+                      width: 100,
+                      height: 70,
+                      backgroundColor: '#def5fa',
+                      padding: 6,
+
+                      borderRadius: 10,
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
                     }}>
-                    {each.task}
-                  </Text>
-                  <Text style={{color: '#65737f'}}>{each.numberOf}</Text>
-                  <Pressable onPress={() => openModal(true)}>
                     <Text
                       style={{
-                        color: '#139f5a',
-                        textDecorationLine: 'underline',
+                        color: '#212a35',
+                        alignSelf: 'center',
+                        fontFamily: 'SofiaSansSemiCondensed-Bold',
+                        fontSize: 17,
+                      }}>
+                      Holiday Calender
+                    </Text>
+                    <MaterialCommunityIcons
+                      name="arrow-top-right"
+                      size={23}
+                      color="#0089c8"
+                    />
+                  </View>
+                  <View
+                    style={{
+                      width: 100,
+                      height: 70,
+                      backgroundColor: '#def5fa',
+                      padding: 6,
+                      borderRadius: 10,
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                    }}>
+                    <Text
+                      style={{
+                        color: '#212a35',
+                        alignSelf: 'center',
+                        fontFamily: 'SofiaSansSemiCondensed-Bold',
+                        fontSize: 17,
+                      }}>
+                      Leave Polacy
+                    </Text>
+                    <MaterialCommunityIcons
+                      name="arrow-top-right"
+                      size={23}
+                      color="#0089c8"
+                    />
+                  </View>
+                  <View
+                    style={{
+                      width: 100,
+                      height: 70,
+                      backgroundColor: '#def5fa',
+
+                      borderRadius: 10,
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                      padding: 6,
+                    }}>
+                    <Text
+                      style={{
+                        color: '#212a35',
+                        alignSelf: 'center',
+                        fontFamily: 'SofiaSansSemiCondensed-Bold',
+                        fontSize: 17,
+                      }}>
+                      Payroll Manual
+                    </Text>
+                    <MaterialCommunityIcons
+                      name="arrow-top-right"
+                      size={23}
+                      color="#0089c8"
+                    />
+                  </View>
+                </View>
+              </View>
+            </DropShadow>
+            <View style={[styles.card]}>
+              <Text
+                style={{
+                  color: '#202b35',
+                  margin: 20,
+                  paddingBottom: 10,
+                  fontSize: 20,
+                  fontWeight: 'bold',
+                  fontFamily: 'SofiaSansSemiCondensed-Bold',
+                }}>
+                Celebrations
+              </Text>
+              {celebrations.map(celebrate => {
+                return (
+                  <View
+                    id={celebrate.celebratetype}
+                    style={[
+                      styles.celebrationCard,
+                      {backgroundColor: celebrate.color},
+                    ]}>
+                    <Text
+                      style={{
+                        color: '#1e2c38',
+                        fontFamily: 'SofiaSansSemiCondensed-Bold',
+                        width: 80,
+                        fontWeight: 'bold',
+                      }}>
+                      {celebrate.celebratetype}
+                    </Text>
+
+                    <View
+                      style={{
+                        alignSelf: 'center',
+                        backgroundColor: celebrate.color,
+                        padding: 10,
+                        borderRadius: 50,
+                      }}>
+                      <Image
+                        style={styles.celebrations}
+                        source={require('../Images/3.jpeg')}
+                      />
+                    </View>
+
+                    <Text
+                      style={{
+                        color: celebrate.textColor,
                         fontFamily: 'SofiaSansSemiCondensed-Bold',
                       }}>
-                      View All
+                      {celebrate.name}
                     </Text>
-                    <AttendanceMl
-                      openModal={openModal}
-                      open={open}
-                      title={each.task}
+                    <MaterialIcons
+                      name="arrow-forward-ios"
+                      size={22}
+                      color="#637382"
                     />
-                  </Pressable>
-                </View>
-              );
-            })}
+                  </View>
+                );
+              })}
+            </View>
+            <View style={[styles.card]}>
+              <Text
+                style={{
+                  color: '#202b35',
+                  margin: 20,
+                  paddingBottom: 10,
+                  fontSize: 20,
+                  fontWeight: 'bold',
+                  fontFamily: 'SofiaSansSemiCondensed-Bold',
+                }}>
+                My Tasks
+              </Text>
+              <View style={{justifyContent: 'center', alignItems: 'center'}}>
+                {myTask.map(each => {
+                  return (
+                    <View
+                      id={each.task}
+                      style={{
+                        flexDirection: 'row',
+                        justifyContent: 'space-evenly',
+                        alignItems: 'center',
+                        width: '80%',
+                        marginBottom: 20,
+                        height: 49,
+                        borderWidth: 1,
+                        borderColor: each.color,
+                        borderRadius: 10,
+                      }}>
+                      <Text
+                        style={{
+                          color: '#212a35',
+                          width: 120,
+                          fontFamily: 'SofiaSansSemiCondensed-Bold',
+                        }}>
+                        {each.task}
+                      </Text>
+                      <Text style={{color: '#65737f'}}>{each.numberOf}</Text>
+                      <Pressable onPress={() => openModal(true)}>
+                        <Text
+                          style={{
+                            color: '#139f5a',
+                            textDecorationLine: 'underline',
+                            fontFamily: 'SofiaSansSemiCondensed-Bold',
+                          }}>
+                          View All
+                        </Text>
+                        <AttendanceMl
+                          openModal={openModal}
+                          open={open}
+                          title={each.task}
+                        />
+                      </Pressable>
+                    </View>
+                  );
+                })}
+              </View>
+            </View>
           </View>
-        </View>
-      </ScrollView>
+        )}
+      />
     </SafeAreaView>
   );
 };
