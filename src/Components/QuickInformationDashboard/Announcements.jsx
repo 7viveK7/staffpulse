@@ -1,5 +1,17 @@
 import React from 'react';
-import {Text, StyleSheet, FlatList, ScrollView, View} from 'react-native';
+import {StyleSheet, FlatList, ScrollView, View} from 'react-native';
+import {
+  Pressable,
+  Text,
+  Box,
+  HStack,
+  Spacer,
+  Flex,
+  Badge,
+  Center,
+  NativeBaseProvider,
+} from 'native-base';
+
 import {Avatar, Card, IconButton} from 'react-native-paper';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 const myTask = [
@@ -26,39 +38,40 @@ const myTask = [
 ];
 function Announcementss({item}) {
   return (
-    <View style={[styles.card]} id={item}>
-      <View
-        style={{
-          width: 0,
-          height: 0,
-          borderLeftWidth: 30,
-          borderRightWidth: 30,
-          borderBottomWidth: 30,
-          borderStyle: 'solid',
-          backgroundColor: 'transparent',
-          borderLeftColor: 'transparent',
-          borderRightColor: 'transparent',
-          borderBottomColor: '#00BCD4',
-          transform: [{rotate: '-45deg'}],
-          position: 'absolute',
-          top: -6,
-          left: -26,
-        }}></View>
-      <Text style={{color: 'red', marginBottom: 20}}>
-        React Native Paper is a high-quality, standard-compliant Material Design
-        library that has you covered in all major use-cases.
-      </Text>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-evenly',
-          alignItems: 'center',
-        }}>
-        <Text style={{color: 'red'}}>24-Apr-2001</Text>
-        <Text style={{color: 'red'}}>Image</Text>
-        <Text style={{color: 'red'}}>Vikash Sharma</Text>
-      </View>
-    </View>
+    <Box alignItems="center" mb={2} id={item}>
+      <Pressable
+        onPress={() => console.log("I'm Pressed")}
+        rounded="8"
+        overflow="hidden"
+        borderWidth="1"
+        borderColor="coolGray.300"
+        maxW="96"
+        shadow="3"
+        bg="coolGray.100"
+        p="5">
+        <Box>
+          <HStack alignItems="center">
+            <Text color="coolGray.800" fontWeight="medium" fontSize="xl">
+              Marketing License
+            </Text>
+            <Spacer />
+            <Text fontSize={10} color="coolGray.800">
+              1 month ago
+            </Text>
+          </HStack>
+
+          <Text mt="2" fontSize="sm" color="coolGray.700">
+            From onboarding to performance & learning we've got it covered. Make
+            informed decisions with insights
+          </Text>
+          <Flex>
+            <Text mt="2" fontSize={12} fontWeight="medium" color="darkBlue.600">
+              Read More
+            </Text>
+          </Flex>
+        </Box>
+      </Pressable>
+    </Box>
   );
 }
 export default function AnnouncementsCard({route}) {

@@ -32,7 +32,7 @@ export default Login = ({navigation}) => {
   const [auorthontication, setauorthontication] = useState(null);
 
   function onSubmit() {
-    if (user.email === 'vivek' && user.password === 'vivek@1') {
+    if (user.email === 'vivek' && user.password === '1') {
       navigation.push('HomeScreen');
       setUser({email: '', password: ''});
 
@@ -49,7 +49,6 @@ export default Login = ({navigation}) => {
       style={{
         backgroundColor: '#fff',
         flex: 1,
-
         alignItems: 'center',
       }}>
       <Image

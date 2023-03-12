@@ -8,35 +8,42 @@ import {
   Image,
   StatusBar,
 } from 'react-native';
-import {Avatar, Card, Badge, Searchbar} from 'react-native-paper';
+import {Avatar, Card, Searchbar, Badge} from 'react-native-paper';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 export default Search = ({navigation}) => {
   const [searchStr, setSearchStr] = useState(null);
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar translucent backgroundColor="transparent" />
-      <View style={styles.header}>
-        <Searchbar
-          placeholder="Search"
-          style={styles.search}
-          autoFocus={true}
-          inputStyle={{
-            padding: 0,
-          }}
-          icon={() => (
-            <MaterialIcons
-              name="keyboard-arrow-left"
-              size={33}
-              color="grey"
-              onPress={() => {
-                navigation.navigate('Home');
-              }}
-            />
-          )}
-          onChangeText={e => setSearchStr(e)}
-          value={searchStr}
-        />
-      </View>
+
+      <Searchbar
+        style={{
+          width: '100%',
+          borderColor: 'none',
+          marginTop: 3,
+          height: 35,
+          backgroundColor: '#ffffff',
+          color: '#1a1b1b',
+        }}
+        elevation={0}
+        placeholder="Search"
+        icon={() => (
+          <MaterialIcons
+            name="keyboard-arrow-left"
+            size={33}
+            color="grey"
+            onPress={() => {
+              navigation.navigate('Home');
+            }}
+          />
+        )}
+        autoFocus={true}
+        inputStyle={{
+          padding: 0,
+        }}
+        onChangeText={e => setSearchStr(e)}
+        value={searchStr}
+      />
 
       <View style={{marginTop: 10}}>
         <View
@@ -182,22 +189,13 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     alignSelf: 'center',
   },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    paddingBottom: 7,
-    borderBottomWidth: 0.5,
-    width: '100%',
-    elevation: 0,
-  },
+
   search: {
     width: '100%',
     borderColor: 'none',
-
+    marginTop: 3,
     height: 35,
     backgroundColor: '#ffffff',
     color: '#1a1b1b',
-    elevation: 0,
   },
 });

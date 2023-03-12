@@ -13,6 +13,7 @@ import HomeScreen from './src/Components/Home/HomeScreen';
 import Attendance from './src/Components/MySpace/Dashboards/Attendance';
 import AnnouncementsCard from './src/Components/QuickInformationDashboard/Announcements';
 import {LogBox} from 'react-native';
+import ChartBoxScreen from './src/Components/ChartBox/ChartBox';
 LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
 LogBox.ignoreAllLogs();
 
@@ -61,6 +62,11 @@ const App = () => {
             name="Notify"
             component={Notification}
             options={{title: 'Notify'}}
+          />
+          <Stack.Screen
+            name="chatbox"
+            component={ChartBoxScreen}
+            options={{title: 'ChartBox'}}
           />
         </Stack.Navigator>
       </NavigationContainer>

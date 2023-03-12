@@ -14,6 +14,8 @@ import {
 } from 'react-native';
 import {Avatar, Card, Badge, Searchbar} from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {DrawerActions} from '@react-navigation/native';
 import {
@@ -200,15 +202,23 @@ const Home = ({navigation}) => {
           <View>
             <View style={styles.headerPart}>
               <View style={styles.searchContainer}>
-                <MaterialIcons
-                  name="keyboard-arrow-right"
-                  size={33}
-                  style={{position: 'absolute', left: -10, top: 0}}
-                  color="#00ab55"
-                  onPress={() => {
-                    navigation.dispatch(DrawerActions.openDrawer());
-                  }}
-                />
+                <View
+                  style={{
+                    backgroundColor: 'green',
+                    borderRadius: 5,
+                    marginRight: 5,
+                  }}>
+                  <Pressable
+                    onPress={() => {
+                      navigation.dispatch(DrawerActions.openDrawer());
+                    }}>
+                    <Image
+                      style={{height: 35, width: 35}}
+                      source={require('../Images/1.jpeg')}
+                      alt="not found"
+                    />
+                  </Pressable>
+                </View>
                 <Searchbar
                   placeholder="Search"
                   style={styles.search}
@@ -222,6 +232,9 @@ const Home = ({navigation}) => {
                   size={33}
                   style={{marginLeft: 20}}
                   color="#00ab55"
+                  onPress={() => {
+                    navigation.navigate('chatbox');
+                  }}
                 />
               </View>
               <View style={styles.cardsHeading}>
