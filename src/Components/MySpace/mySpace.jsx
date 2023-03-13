@@ -7,7 +7,7 @@ import {Button, Image, View} from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {NavigationContainer} from '@react-navigation/native';
 import CustomDrawer from './CustomDrawer';
-import Home from '../Home';
+import Home from '../Home/Home';
 
 function HomeScreen({navigation}) {
   return (

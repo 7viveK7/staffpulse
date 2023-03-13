@@ -7,11 +7,11 @@ import {
   StatusBar,
   StyleSheet,
   FlatList,
-  Text,
   View,
   Image,
   Pressable,
 } from 'react-native';
+import {VStack, Box, HStack, Divider} from 'native-base';
 import {Avatar, Card, Badge, Searchbar} from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -23,11 +23,12 @@ import {
   Modal,
   Stack,
   FormControl,
+  Text,
   Input,
   Center,
   NativeBaseProvider,
 } from 'native-base';
-import NotificationItem from './Notification/NotificationItem';
+import NotificationItem from '../Notification/NotificationItem';
 
 const DATA = [
   {key: 'Android'},
@@ -164,20 +165,28 @@ const AttendanceMl = ({open, openModal, title}) => {
 const Annoncements = ({item}) => {
   return (
     <View style={{marginLeft: 10}} id={item}>
-      <Card.Title
-        title="Employees expected to cloack"
-        subtitle="1 hour ago"
-        titleStyle={{fontSize: 16, fontWeight: '100'}}
-        style={styles.announcementCard}
-        left={props => (
-          <Avatar.Icon
-            {...props}
-            style={styles.announcementCardIcon}
-            icon="clock"
-            color="#ef9c21"
-          />
-        )}
-      />
+      <Center
+        w="64"
+        h="20"
+        bg="green.100"
+        rounded="md"
+        shadow={3}
+        style={{borderLeftColor: 'blue', borderLeftWidth: 3}}>
+        <VStack>
+          <HStack
+            space={12}
+            style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <Text color="coolGray.800" bold>
+              Vivekananda
+            </Text>
+            <Text color="coolGray.800">1 min</Text>
+          </HStack>
+          <Text color="coolGray.600" numberOfLines={2}>
+            NativeBase is a free and open source framework that enable
+            developers to build high-quality mobile
+          </Text>
+        </VStack>
+      </Center>
     </View>
   );
 };
@@ -194,31 +203,30 @@ const Home = ({navigation}) => {
       <StatusBar
         translucent
         backgroundColor="transparent"
-        barStyle={false ? 'light-content' : 'dark-content'}
+        barStyle={'dark-content'}
       />
       <FlatList
         data={[1]}
         renderItem={props => (
           <View>
-            <View style={styles.headerPart}>
+            <View style={styles.announcementsCardd}>
               <View style={styles.searchContainer}>
-                <View
-                  style={{
-                    backgroundColor: 'green',
-                    borderRadius: 5,
-                    marginRight: 5,
+                <Pressable
+                  onPress={() => {
+                    navigation.dispatch(DrawerActions.openDrawer());
                   }}>
-                  <Pressable
-                    onPress={() => {
-                      navigation.dispatch(DrawerActions.openDrawer());
-                    }}>
-                    <Image
-                      style={{height: 35, width: 35}}
-                      source={require('../Images/1.jpeg')}
-                      alt="not found"
-                    />
-                  </Pressable>
-                </View>
+                  <Image
+                    style={{
+                      height: 35,
+                      width: 35,
+                      borderRadius: 100,
+                      marginRight: 9,
+                    }}
+                    source={require('../../Images/3.jpeg')}
+                    alt="not found"
+                  />
+                </Pressable>
+
                 <Searchbar
                   placeholder="Search"
                   style={styles.search}
@@ -264,21 +272,13 @@ const Home = ({navigation}) => {
             </View>
             {/* welecome card */}
             <View style={styles.welcomeCard}>
-              <Text
-                style={{
-                  fontSize: 30,
-                  fontFamily: 'Rochester-Regular',
-                  color: '#f4bd94',
-                }}>
-                Welcome
-              </Text>
+              <Text style={styles.welcomeCardTitle}>Welcome</Text>
 
               <ScrollIndicator
                 horizontal={true}
                 indicatorStyle={{
                   height: 8,
                   width: 40,
-
                   backgroundColor: '#00ab55',
                   borderRadius: 5,
                 }}
@@ -297,16 +297,7 @@ const Home = ({navigation}) => {
                   // marginTop: 60
                 }}>
                 <View style={{flexDirection: 'row'}}>
-                  <Card
-                    style={{
-                      width: 130,
-                      height: 150,
-                      margin: 10,
-                      borderRadius: 12,
-                      backgroundColor: '#fffae7',
-                      borderWidth: 1,
-                      borderColor: '#feeaad',
-                    }}>
+                  <Card style={styles.newUser}>
                     <Card.Content>
                       <View
                         style={{
@@ -317,19 +308,12 @@ const Home = ({navigation}) => {
                         }}>
                         <Image
                           style={styles.megha}
-                          source={require('../Images/3.jpeg')}
+                          source={require('../../Images/3.jpeg')}
                           alt="not found"
                         />
                       </View>
 
-                      <Text
-                        variant="titleLarge"
-                        style={{
-                          color: '#caa846',
-                          alignSelf: 'center',
-                          fontWeight: 'bold',
-                          fontSize: 20,
-                        }}>
+                      <Text variant="titleLarge" style={styles.newUserName}>
                         Megha
                       </Text>
                       <Text
@@ -345,12 +329,9 @@ const Home = ({navigation}) => {
                   </Card>
                   <Card
                     style={{
-                      width: 130,
-                      height: 150,
-                      margin: 10,
-                      borderRadius: 12,
+                      ...styles.newUser,
                       backgroundColor: '#e9f8ff',
-                      borderWidth: 1,
+
                       borderColor: '#b8e7f9',
                     }}>
                     <Card.Content>
@@ -363,7 +344,7 @@ const Home = ({navigation}) => {
                         }}>
                         <Image
                           style={styles.megha}
-                          source={require('../Images/1.jpeg')}
+                          source={require('../../Images/1.jpeg')}
                           alt="error"
                         />
                       </View>
@@ -390,12 +371,8 @@ const Home = ({navigation}) => {
                   </Card>
                   <Card
                     style={{
-                      width: 130,
-                      height: 150,
-                      margin: 10,
-                      borderRadius: 12,
+                      ...styles.newUser,
                       backgroundColor: '#ffeaef',
-                      borderWidth: 1,
                       borderColor: '#fecad6',
                     }}>
                     <Card.Content>
@@ -408,7 +385,7 @@ const Home = ({navigation}) => {
                         }}>
                         <Image
                           style={styles.megha}
-                          source={require('../Images/2.jpeg')}
+                          source={require('../../Images/2.jpeg')}
                           alt="loading.."
                         />
                       </View>
@@ -436,6 +413,7 @@ const Home = ({navigation}) => {
                 </View>
               </ScrollIndicator>
             </View>
+            {/* CheckIn card */}
             <View style={[styles.checkInCard]}>
               <MaterialCommunityIcons
                 name="clock"
@@ -480,6 +458,7 @@ const Home = ({navigation}) => {
                 color="#637382"
               />
             </View>
+            {/* my team */}
             <View style={styles.card}>
               <View
                 style={{
@@ -584,7 +563,7 @@ const Home = ({navigation}) => {
                         }}>
                         <Image
                           style={styles.megha}
-                          source={require('../Images/1.jpeg')}
+                          source={require('../../Images/1.jpeg')}
                         />
                       </View>
                     </View>
@@ -615,19 +594,10 @@ const Home = ({navigation}) => {
                 );
               })}
             </View>
+            {/* quick links */}
             <DropShadow style={styles.shadowProp}>
               <View style={[styles.card, {height: 200}]}>
-                <Text
-                  style={{
-                    color: '#202b35',
-                    margin: 20,
-                    paddingBottom: 10,
-                    fontSize: 20,
-                    fontWeight: 'bold',
-                    fontFamily: 'SofiaSansSemiCondensed-Bold',
-                  }}>
-                  Quick Links
-                </Text>
+                <Text style={styles.title}>Quick Links</Text>
                 <View
                   style={{
                     flexDirection: 'row',
@@ -714,6 +684,7 @@ const Home = ({navigation}) => {
                 </View>
               </View>
             </DropShadow>
+            {/* celebrations */}
             <View style={[styles.card]}>
               <Text
                 style={{
@@ -753,7 +724,7 @@ const Home = ({navigation}) => {
                       }}>
                       <Image
                         style={styles.celebrations}
-                        source={require('../Images/3.jpeg')}
+                        source={require('../../Images/3.jpeg')}
                       />
                     </View>
 
@@ -773,6 +744,7 @@ const Home = ({navigation}) => {
                 );
               })}
             </View>
+            {/* myTasks */}
             <View style={[styles.card]}>
               <Text
                 style={{
@@ -842,10 +814,39 @@ const styles = StyleSheet.create({
     marginTop: 32,
     paddingHorizontal: 24,
   },
+  welcomeCardTitle: {
+    fontSize: 32,
+    padding: 0,
+    fontFamily: 'Rochester-Regular',
+    color: '#334155',
+  },
+  title: {
+    color: '#202b35',
+    margin: 20,
+    paddingBottom: 10,
+    fontSize: 20,
+    fontWeight: 'bold',
+    fontFamily: 'SofiaSansSemiCondensed-Bold',
+  },
   megha: {
     width: 43,
     height: 43,
     borderRadius: 100,
+  },
+  newUserName: {
+    color: '#caa846',
+    alignSelf: 'center',
+    fontWeight: 'bold',
+    fontSize: 20,
+  },
+  newUser: {
+    width: 130,
+    height: 150,
+    margin: 10,
+    borderRadius: 12,
+    backgroundColor: '#fffae7',
+    borderWidth: 1,
+    borderColor: '#feeaad',
   },
   announcementCard: {
     backgroundColor: '#e0c8ae',
@@ -960,7 +961,7 @@ const styles = StyleSheet.create({
     paddingRight: 10,
     alignItems: 'center',
   },
-  headerPart: {
+  announcementsCardd: {
     backgroundColor: '#d9d9d9',
     height: 230,
     justifyContent: 'space-evenly',

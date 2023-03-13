@@ -52,7 +52,7 @@ export default Login = ({navigation}) => {
         alignItems: 'center',
       }}>
       <Image
-        source={require('.././Images/login.png')}
+        source={require('../../Images/login.png')}
         style={{width: '90%', height: 200}}
       />
       <Stack space={4} w="100%" paddingTop={10} alignItems="center">

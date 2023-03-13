@@ -1,13 +1,13 @@
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
-import Home from './src/Components/Home';
+import Home from './src/Components/Home/Home';
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import Search from './src/Components/Search';
 import Notification from './src/Components/Notification/Notification';
 import mySpace from './src/Components/MySpace/mySpace';
-import Login from './src/Components/Login';
+import Login from './src/Components/LoginScreen/Login';
 import LoginScreen from './src/Components/LoginScreen/LoginScreen';
 import HomeScreen from './src/Components/Home/HomeScreen';
 import Attendance from './src/Components/MySpace/Dashboards/Attendance';

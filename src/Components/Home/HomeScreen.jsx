@@ -1,6 +1,6 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {StyleSheet, Platform, TouchableOpacity} from 'react-native';
-import Home from '../Home';
+import Home from '../Home/Home';
 import Icon from 'react-native-vector-icons/Ionicons';
 import MySpace from '../MySpace/mySpace';
 import Notification from '../Notification/Notification';
