@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useEffect, useState} from 'react';
 import ScrollIndicator from 'react-native-custom-scroll-indicator';
 import DropShadow from 'react-native-drop-shadow';
 import {
@@ -29,6 +29,7 @@ import {
   NativeBaseProvider,
 } from 'native-base';
 import NotificationItem from '../Notification/NotificationItem';
+import AnnouncementCard from './anouncements/AnnouncementCard';
 
 const DATA = [
   {key: 'Android'},
@@ -162,38 +163,29 @@ const AttendanceMl = ({open, openModal, title}) => {
   );
 };
 
-const Annoncements = ({item}) => {
-  return (
-    <View style={{marginLeft: 10}} id={item}>
-      <Center
-        w="64"
-        h="20"
-        bg="green.100"
-        rounded="md"
-        shadow={3}
-        style={{borderLeftColor: 'blue', borderLeftWidth: 3}}>
-        <VStack>
-          <HStack
-            space={12}
-            style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <Text color="coolGray.800" bold>
-              Vivekananda
-            </Text>
-            <Text color="coolGray.800">1 min</Text>
-          </HStack>
-          <Text color="coolGray.600" numberOfLines={2}>
-            NativeBase is a free and open source framework that enable
-            developers to build high-quality mobile
-          </Text>
-        </VStack>
-      </Center>
-    </View>
-  );
-};
 const Home = ({navigation}) => {
   const [pressedIcon, setPressedIcon] = useState('Home');
-
+  const [showModal, setShowModal] = useState(false);
   const [open, setOpen] = useState(false);
+  const [announcementData, setAnnouncementData] = useState(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch(
+          'https://newsapi.org/v2/everything?q=bitcoin&apiKey=6016a5388f634b0ab29204bdbcb7b8b2',
+        );
+
+        console.log(response);
+        const data = await response.json();
+        setAnnouncementData(data?.articles);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    fetchData();
+  }, [navigation]);
 
   const openModal = opened => {
     setOpen(opened);
@@ -220,7 +212,6 @@ const Home = ({navigation}) => {
                       height: 35,
                       width: 35,
                       borderRadius: 100,
-                      marginRight: 9,
                     }}
                     source={require('../../Images/3.jpeg')}
                     alt="not found"
@@ -238,7 +229,6 @@ const Home = ({navigation}) => {
                 <MaterialCommunityIcons
                   name="chat"
                   size={33}
-                  style={{marginLeft: 20}}
                   color="#00ab55"
                   onPress={() => {
                     navigation.navigate('chatbox');
@@ -249,13 +239,14 @@ const Home = ({navigation}) => {
                 <Text
                   style={{
                     color: '#212a35',
+                    fontSize: 18,
                     fontFamily: 'SofiaSansSemiCondensed-Bold',
                   }}>
                   Announcements
                 </Text>
                 <Pressable
                   onPress={() =>
-                    navigation.navigate('AnnouncementsCard', {DATA})
+                    navigation.navigate('AnnouncementsCard', {announcementData})
                   }>
                   <Text style={styles.viewAll}>View All </Text>
                 </Pressable>
@@ -263,10 +254,16 @@ const Home = ({navigation}) => {
               <View>
                 <FlatList
                   horizontal={true}
-                  data={DATA}
+                  data={announcementData?.slice(0, 5)}
                   initialNumToRender={true}
-                  renderItem={Annoncements}
-                  keyExtractor={item => <Annoncements key={item.id} />}
+                  renderItem={AnnouncementCard}
+                  keyExtractor={item => (
+                    <AnnouncementCard
+                      key={item.publishedAt}
+                      showModal={showModal}
+                      setShowModal={setShowModal}
+                    />
+                  )}
                 />
               </View>
             </View>
@@ -814,10 +811,14 @@ const styles = StyleSheet.create({
     marginTop: 32,
     paddingHorizontal: 24,
   },
+  top: {
+    marginBottom: 'auto',
+    marginTop: 0,
+  },
   welcomeCardTitle: {
-    fontSize: 32,
-    padding: 0,
-    fontFamily: 'Rochester-Regular',
+    fontSize: 28,
+    paddingTop: 10,
+    fontFamily: 'SofiaSansSemiCondensed-Bold',
     color: '#334155',
   },
   title: {
@@ -829,8 +830,8 @@ const styles = StyleSheet.create({
     fontFamily: 'SofiaSansSemiCondensed-Bold',
   },
   megha: {
-    width: 43,
-    height: 43,
+    width: 40,
+    height: 40,
     borderRadius: 100,
   },
   newUserName: {
@@ -969,8 +970,8 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   search: {
-    width: 250,
-    height: 35,
+    width: '70%',
+    height: 33,
     backgroundColor: '#ffffff',
     color: '#1a1b1b',
   },
@@ -982,6 +983,7 @@ const styles = StyleSheet.create({
   },
   welcomeCard: {
     height: 250,
+    flex: 1,
     backgroundColor: '#d9d9d9',
     flex: 1,
     justifyContent: 'center',
@@ -993,13 +995,13 @@ const styles = StyleSheet.create({
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 30,
+    justifyContent: 'space-around',
+    marginTop: 26,
   },
   viewAll: {
     color: '#139f5a',
     textDecorationLine: 'underline',
-    fontWeight: 'bold',
+    fontWeight: '900',
   },
   card: {
     backgroundColor: 'white',

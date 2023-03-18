@@ -36,6 +36,7 @@ const myTask = [
     numberOf: 8,
   },
 ];
+
 function Announcementss({item}) {
   return (
     <Box alignItems="center" mb={2} id={item}>
@@ -51,37 +52,41 @@ function Announcementss({item}) {
         p="5">
         <Box>
           <HStack alignItems="center">
-            <Text color="coolGray.800" fontWeight="medium" fontSize="xl">
-              Marketing License
+            <Text
+              color="coolGray.800"
+              fontWeight="medium"
+              fontSize="xl"
+              numberOfLines={1}>
+              {item.title}
             </Text>
             <Spacer />
-            <Text fontSize={10} color="coolGray.800">
-              1 month ago
-            </Text>
           </HStack>
 
-          <Text mt="2" fontSize="sm" color="coolGray.700">
-            From onboarding to performance & learning we've got it covered. Make
-            informed decisions with insights
+          <Text mt="2" fontSize="sm" color="coolGray.700" numberOfLines={5}>
+            {item.description}
           </Text>
-          <Flex>
-            <Text mt="2" fontSize={12} fontWeight="medium" color="darkBlue.600">
-              Read More
-            </Text>
-          </Flex>
+
+          <Text mt="2" fontSize={12} fontWeight="medium" color="darkBlue.600">
+            Read More
+          </Text>
+
+          <Text fontSize={10} color="coolGray.800" alignSelf={'flex-end'}>
+            {item.publishedAt}
+          </Text>
         </Box>
       </Pressable>
     </Box>
   );
 }
+
 export default function AnnouncementsCard({route}) {
   return (
     <View style={styles.Container}>
       <FlatList
-        data={route.params.DATA}
+        data={route.params.announcementData}
         initialNumToRender={true}
         renderItem={Announcementss}
-        keyExtractor={item => <Announcementss key={item.id} />}
+        keyExtractor={item => <Announcementss key={item.publishedAt} />}
       />
     </View>
   );
