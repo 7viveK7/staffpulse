@@ -167,8 +167,12 @@ const Home = ({navigation}) => {
   const [pressedIcon, setPressedIcon] = useState('Home');
   const [showModal, setShowModal] = useState(false);
   const [open, setOpen] = useState(false);
+  // const [lastVisibleIndex, setLastVisibleIndex] = useState(0);
   const [announcementData, setAnnouncementData] = useState(null);
-
+  // function onViewableItemsChanged({viewableItems, changed}) {
+  //   const lastVisibleItem = viewableItems[viewableItems.length - 1];
+  //   setLastVisibleIndex(lastVisibleItem.index);
+  // }
   useEffect(() => {
     async function fetchData() {
       try {

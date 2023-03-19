@@ -46,7 +46,7 @@ function Announcementss({item}) {
         overflow="hidden"
         borderWidth="1"
         borderColor="coolGray.300"
-        maxW="96"
+        width={'100%'}
         shadow="3"
         bg="coolGray.100"
         p="5">

@@ -8,6 +8,7 @@ import {
   Image,
   Pressable,
 } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import {VStack, Box, HStack, Divider} from 'native-base';
 import {
@@ -22,20 +23,23 @@ import {
 } from 'native-base';
 import {useState} from 'react';
 
-export default AnnouncementCard = ({item, setShowModal}) => {
-  var index = 1;
-
+export default AnnouncementCard = ({item, index}) => {
   return (
-    <View>
+    <View
+      style={{
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
       <Box style={{marginLeft: 10}} shadow={10}>
         <Center
           w="64"
           h="20"
-          bg="green.100"
+          bg="#e6f5ee"
           rounded="md"
           shadow={3}
           style={{
-            borderLeftColor: 'blue',
+            borderLeftColor: '#00ab55',
 
             padding: 10,
             borderLeftWidth: 3,
@@ -54,6 +58,26 @@ export default AnnouncementCard = ({item, setShowModal}) => {
           </VStack>
         </Center>
       </Box>
+      {index == 4 && (
+        <Center
+          w="20"
+          h="20"
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          {/* <Pressable onPress={() => navigation.navigate('AnnouncementsCard')}> */}
+
+          <Ionicons
+            name="md-arrow-forward-circle-sharp"
+            size={33}
+            color="#00ab55"
+          />
+
+          {/* </Pressable> */}
+        </Center>
+      )}
     </View>
   );
 };
@@ -69,6 +93,7 @@ const styles = StyleSheet.create({
     fontFamily: 'SofiaSansSemiCondensed-Bold',
     color: '#334155',
   },
+
   title: {
     color: '#202b35',
     margin: 20,
