@@ -5,6 +5,7 @@ import {
   StyleSheet,
   FlatList,
   View,
+  TouchableOpacity,
   Image,
   Pressable,
 } from 'react-native';
@@ -23,7 +24,7 @@ import {
 } from 'native-base';
 import {useState} from 'react';
 
-export default AnnouncementCard = ({item, index}) => {
+export default AnnouncementCard = ({item, index, handleItemPress}) => {
   return (
     <View
       style={{
@@ -31,33 +32,35 @@ export default AnnouncementCard = ({item, index}) => {
         justifyContent: 'center',
         alignItems: 'center',
       }}>
-      <Box style={{marginLeft: 10}} shadow={10}>
-        <Center
-          w="64"
-          h="20"
-          bg="#e6f5ee"
-          rounded="md"
-          shadow={3}
-          style={{
-            borderLeftColor: '#00ab55',
+      <Pressable onPress={() => handleItemPress(item)}>
+        <Box style={{marginLeft: 10}} shadow={10}>
+          <Center
+            w="64"
+            h="20"
+            bg="#e6f5ee"
+            rounded="md"
+            shadow={3}
+            style={{
+              borderLeftColor: '#00ab55',
 
-            padding: 10,
-            borderLeftWidth: 3,
-          }}>
-          <VStack>
-            <Text color="coolGray.800" bold numberOfLines={1}>
-              {item.title}
-            </Text>
+              padding: 10,
+              borderLeftWidth: 3,
+            }}>
+            <VStack>
+              <Text color="coolGray.800" bold numberOfLines={1}>
+                {item.title}
+              </Text>
 
-            <Text color="coolGray.600" numberOfLines={1}>
-              {item.description}
-            </Text>
-            <Text fontSize={10} color="coolGray.800" alignSelf={'flex-end'}>
-              {item.publishedAt}
-            </Text>
-          </VStack>
-        </Center>
-      </Box>
+              <Text color="coolGray.600" numberOfLines={1}>
+                {item.description}
+              </Text>
+              <Text fontSize={10} color="coolGray.800" alignSelf={'flex-end'}>
+                {item.publishedAt}
+              </Text>
+            </VStack>
+          </Center>
+        </Box>
+      </Pressable>
       {index == 4 && (
         <Center
           w="20"

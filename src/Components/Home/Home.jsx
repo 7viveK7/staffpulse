@@ -10,6 +10,7 @@ import {
   View,
   Image,
   Pressable,
+  TouchableOpacity,
 } from 'react-native';
 import {VStack, Box, HStack, Divider} from 'native-base';
 import {Avatar, Card, Badge, Searchbar} from 'react-native-paper';
@@ -30,6 +31,7 @@ import {
 } from 'native-base';
 import NotificationItem from '../Notification/NotificationItem';
 import AnnouncementCard from './anouncements/AnnouncementCard';
+import AnnouncementModal from './anouncements/AnnouncementModal';
 
 const DATA = [
   {key: 'Android'},
@@ -167,12 +169,14 @@ const Home = ({navigation}) => {
   const [pressedIcon, setPressedIcon] = useState('Home');
   const [showModal, setShowModal] = useState(false);
   const [open, setOpen] = useState(false);
-  // const [lastVisibleIndex, setLastVisibleIndex] = useState(0);
   const [announcementData, setAnnouncementData] = useState(null);
-  // function onViewableItemsChanged({viewableItems, changed}) {
-  //   const lastVisibleItem = viewableItems[viewableItems.length - 1];
-  //   setLastVisibleIndex(lastVisibleItem.index);
-  // }
+  const [selectedItem, setSelectedItem] = useState(null);
+
+  const handleItemPress = item => {
+    setSelectedItem(item);
+    setShowModal(true);
+  };
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -201,49 +205,50 @@ const Home = ({navigation}) => {
         backgroundColor="transparent"
         barStyle={'dark-content'}
       />
+      <View style={styles.searchContainer}>
+        <Pressable
+          onPress={() => {
+            navigation.dispatch(DrawerActions.openDrawer());
+          }}>
+          <Image
+            style={{
+              height: 35,
+              width: 35,
+              borderRadius: 100,
+            }}
+            source={require('../../Images/3.jpeg')}
+            alt="not found"
+          />
+        </Pressable>
+
+        <Searchbar
+          placeholder="Search"
+          style={styles.search}
+          inputStyle={{
+            padding: 0,
+          }}
+          onFocus={() => navigation.navigate('Search')}
+        />
+        <MaterialCommunityIcons
+          name="chat"
+          size={33}
+          color="#00ab55"
+          onPress={() => {
+            navigation.navigate('chatbox');
+          }}
+        />
+      </View>
       <FlatList
         data={[1]}
         renderItem={props => (
           <View>
             <View style={styles.announcementsCardd}>
-              <View style={styles.searchContainer}>
-                <Pressable
-                  onPress={() => {
-                    navigation.dispatch(DrawerActions.openDrawer());
-                  }}>
-                  <Image
-                    style={{
-                      height: 35,
-                      width: 35,
-                      borderRadius: 100,
-                    }}
-                    source={require('../../Images/3.jpeg')}
-                    alt="not found"
-                  />
-                </Pressable>
-
-                <Searchbar
-                  placeholder="Search"
-                  style={styles.search}
-                  inputStyle={{
-                    padding: 0,
-                  }}
-                  onFocus={() => navigation.navigate('Search')}
-                />
-                <MaterialCommunityIcons
-                  name="chat"
-                  size={33}
-                  color="#00ab55"
-                  onPress={() => {
-                    navigation.navigate('chatbox');
-                  }}
-                />
-              </View>
               <View style={styles.cardsHeading}>
                 <Text
                   style={{
                     color: '#212a35',
                     fontSize: 18,
+
                     fontFamily: 'SofiaSansSemiCondensed-Bold',
                   }}>
                   Announcements
@@ -258,17 +263,23 @@ const Home = ({navigation}) => {
               <View>
                 <FlatList
                   horizontal={true}
-                  data={announcementData?.slice(0, 5)}
+                  data={announcementData?.slice(0, 10)}
                   initialNumToRender={true}
-                  renderItem={AnnouncementCard}
-                  keyExtractor={item => (
+                  keyExtractor={item => item.title}
+                  renderItem={({item}) => (
                     <AnnouncementCard
-                      key={item.publishedAt}
-                      showModal={showModal}
-                      setShowModal={setShowModal}
+                      handleItemPress={handleItemPress}
+                      item={item}
                     />
                   )}
                 />
+                {showModal && (
+                  <AnnouncemengtModal
+                    selectedItem={selectedItem}
+                    showModal={showModal}
+                    setShowModal={setShowModal}
+                  />
+                )}
               </View>
             </View>
             {/* welecome card */}
@@ -896,7 +907,6 @@ const styles = StyleSheet.create({
     marginBottom: 0,
     marginTop: 'auto',
     width: '100%',
-
     height: '90%',
   },
 
@@ -968,13 +978,14 @@ const styles = StyleSheet.create({
   },
   announcementsCardd: {
     backgroundColor: '#d9d9d9',
-    height: 230,
+    height: 120,
     justifyContent: 'space-evenly',
     flex: 1,
+    paddingBottom: 15,
     marginBottom: 10,
   },
   search: {
-    width: '70%',
+    width: '65%',
     height: 33,
     backgroundColor: '#ffffff',
     color: '#1a1b1b',
@@ -983,13 +994,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginLeft: 10,
+    marginBottom: 15,
     marginRight: 10,
   },
   welcomeCard: {
     height: 250,
     flex: 1,
     backgroundColor: '#d9d9d9',
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
@@ -999,8 +1010,10 @@ const styles = StyleSheet.create({
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-around',
-    marginTop: 26,
+    backgroundColor: '#d9d9d9',
+    justifyContent: 'space-evenly',
+    paddingTop: 45,
+    paddingBottom: 8,
   },
   viewAll: {
     color: '#139f5a',

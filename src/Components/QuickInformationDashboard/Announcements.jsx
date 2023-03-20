@@ -14,6 +14,7 @@ import {
 
 import {Avatar, Card, IconButton} from 'react-native-paper';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
+import AnnouncementModal from '../Home/anouncements/AnnouncementModal';
 const myTask = [
   {
     task: 'Attendance',
