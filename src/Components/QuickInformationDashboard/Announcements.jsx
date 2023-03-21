@@ -42,7 +42,7 @@ function Announcementss({item}) {
   return (
     <Box alignItems="center" mb={2} id={item}>
       <Pressable
-        onPress={() => console.log("I'm Pressed")}
+        onPress={() => alert("I'm Pressed")}
         rounded="8"
         overflow="hidden"
         borderWidth="1"

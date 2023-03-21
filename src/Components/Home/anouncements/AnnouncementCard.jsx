@@ -33,13 +33,19 @@ export default AnnouncementCard = ({item, index, handleItemPress}) => {
         alignItems: 'center',
       }}>
       <Pressable onPress={() => handleItemPress(item)}>
-        <Box style={{marginLeft: 10}} shadow={10}>
+        <Box
+          style={{
+            marginLeft: 10,
+            ...(index == 9 && {
+              marginRight: 10,
+            }),
+          }}>
           <Center
             w="64"
             h="20"
             bg="#e6f5ee"
             rounded="md"
-            shadow={3}
+            shadow={13}
             style={{
               borderLeftColor: '#00ab55',
 
@@ -61,26 +67,6 @@ export default AnnouncementCard = ({item, index, handleItemPress}) => {
           </Center>
         </Box>
       </Pressable>
-      {index == 4 && (
-        <Center
-          w="20"
-          h="20"
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-          {/* <Pressable onPress={() => navigation.navigate('AnnouncementsCard')}> */}
-
-          <Ionicons
-            name="md-arrow-forward-circle-sharp"
-            size={33}
-            color="#00ab55"
-          />
-
-          {/* </Pressable> */}
-        </Center>
-      )}
     </View>
   );
 };

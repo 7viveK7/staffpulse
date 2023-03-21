@@ -266,10 +266,11 @@ const Home = ({navigation}) => {
                   data={announcementData?.slice(0, 10)}
                   initialNumToRender={true}
                   keyExtractor={item => item.title}
-                  renderItem={({item}) => (
+                  renderItem={({item, index}) => (
                     <AnnouncementCard
                       handleItemPress={handleItemPress}
                       item={item}
+                      index={index}
                     />
                   )}
                 />
@@ -426,49 +427,78 @@ const Home = ({navigation}) => {
               </ScrollIndicator>
             </View>
             {/* CheckIn card */}
-            <View style={[styles.checkInCard]}>
-              <MaterialCommunityIcons
-                name="clock"
-                size={37}
-                style={{paddingLeft: 7}}
-                color="#0089c8"
-              />
-              <View>
-                <Text
-                  style={{
-                    color: '#2d3842',
-                    fontFamily: 'SofiaSansSemiCondensed',
-                    fontSize: 15,
-                  }}>
-                  03/01/22
-                </Text>
-                <Text
-                  style={{
-                    color: '#2d3842',
-                    fontFamily: 'SofiaSansSemiCondensed',
-                    fontSize: 14,
-                  }}>
-                  Clock In-hh:mm AM
-                </Text>
-                <Text
-                  style={{
-                    color: '#2d3842',
-                    fontFamily: 'SofiaSansSemiCondensed',
-                    fontSize: 14,
-                  }}>
-                  Clock Out-hh:mm PM{' '}
-                </Text>
-              </View>
-              <Pressable
+            <View
+              style={{
+                flexDirection: 'row',
+                width: '100%',
+                justifyContent: 'space-evenly',
+              }}>
+              <View style={[styles.checkInCard]}>
+                <MaterialCommunityIcons
+                  name="clock"
+                  size={33}
+                  style={{paddingLeft: 7, paddingRight: 10}}
+                  color="#0089c8"
+                />
+                <View>
+                  <Text
+                    style={{
+                      color: '#2d3842',
+                      fontWeight: '900',
+                      fontFamily: 'SofiaSansSemiCondensed',
+                      fontSize: 12,
+                    }}>
+                    CLOCK IN
+                  </Text>
+                  <Text
+                    style={{
+                      color: '#2d3842',
+                      fontWeight: '900',
+                      fontFamily: 'SofiaSansSemiCondensed',
+                      fontSize: 12,
+                    }}>
+                    10:00 AM
+                  </Text>
+                </View>
+                {/* <Pressable
                 style={styles.CheckInButton}
                 onPress={() => console.warn('pressed')}>
                 <Text>Clock In </Text>
-              </Pressable>
-              <MaterialIcons
-                name="keyboard-arrow-right"
-                size={33}
-                color="#637382"
-              />
+              </Pressable> */}
+              </View>
+              <View style={[styles.checkInCard]}>
+                <MaterialCommunityIcons
+                  name="clock"
+                  size={33}
+                  style={{paddingLeft: 7, paddingRight: 10}}
+                  color="#0089c8"
+                />
+                <View>
+                  <Text
+                    style={{
+                      color: '#2d3842',
+                      fontWeight: '900',
+                      fontFamily: 'SofiaSansSemiCondensed',
+                      fontSize: 12,
+                    }}>
+                    CLOCK OUT
+                  </Text>
+                  <Text
+                    style={{
+                      color: '#2d3842',
+                      fontWeight: '900',
+                      fontFamily: 'SofiaSansSemiCondensed',
+                      fontSize: 12,
+                    }}>
+                    6:30 PM
+                  </Text>
+                </View>
+                {/* <Pressable
+                style={styles.CheckInButton}
+                onPress={() => console.warn('pressed')}>
+                <Text>Clock In </Text>
+              </Pressable> */}
+              </View>
             </View>
             {/* my team */}
             <View style={styles.card}>
@@ -934,16 +964,17 @@ const styles = StyleSheet.create({
     marginBottom: 50,
   },
   checkInCard: {
-    width: '85%',
+    width: '40%',
+    elevation: 2,
     marginTop: 20,
     marginBottom: 20,
     backgroundColor: '#e9f8ff',
     borderRadius: 10,
     alignSelf: 'center',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+
     alignItems: 'center',
-    padding: 5,
+    padding: 10,
   },
   celebrationCard: {
     width: '90%',
@@ -969,8 +1000,8 @@ const styles = StyleSheet.create({
   CheckInButton: {
     justifyContent: 'center',
     backgroundColor: '#0089c8',
-    width: 75,
-    height: 30,
+    width: 60,
+    height: 25,
     borderRadius: 10,
     paddingLeft: 10,
     paddingRight: 10,
@@ -978,7 +1009,7 @@ const styles = StyleSheet.create({
   },
   announcementsCardd: {
     backgroundColor: '#d9d9d9',
-    height: 120,
+    height: 130,
     justifyContent: 'space-evenly',
     flex: 1,
     paddingBottom: 15,
@@ -996,6 +1027,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginBottom: 15,
     marginRight: 10,
+    marginTop: 10,
   },
   welcomeCard: {
     height: 250,
