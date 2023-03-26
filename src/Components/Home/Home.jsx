@@ -150,13 +150,16 @@ const myTask = [
   },
 ];
 
-const AttendanceMl = ({open, openModal, title}) => {
+const AttendanceMl = ({openAttendance, setopenAttendance}) => {
   return (
     <>
-      <Modal isOpen={open} onClose={() => openModal(false)} safeAreaTop={true}>
+      <Modal
+        isOpen={openAttendance ? true : false}
+        onClose={() => setopenAttendance(false)}
+        safeAreaTop={true}>
         <Modal.Content maxWidth="350" {...styles['AttendanceModal']}>
           <Modal.CloseButton />
-          <Modal.Header>{title}</Modal.Header>
+          <Modal.Header>{openAttendance}</Modal.Header>
           <Modal.Body>
             <NotificationItem />
           </Modal.Body>
@@ -169,7 +172,7 @@ const AttendanceMl = ({open, openModal, title}) => {
 const Home = ({navigation}) => {
   const [pressedIcon, setPressedIcon] = useState('Home');
   const [showModal, setShowModal] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [openAttendance, setopenAttendance] = useState(false);
   const [announcementData, setAnnouncementData] = useState(null);
   const [selectedItem, setSelectedItem] = useState(null);
 
@@ -185,7 +188,6 @@ const Home = ({navigation}) => {
           'https://newsapi.org/v2/everything?q=bitcoin&apiKey=6016a5388f634b0ab29204bdbcb7b8b2',
         );
 
-        console.log(response);
         const data = await response.json();
         setAnnouncementData(data?.articles);
       } catch (error) {
@@ -196,9 +198,6 @@ const Home = ({navigation}) => {
     fetchData();
   }, [navigation]);
 
-  const openModal = opened => {
-    setOpen(opened);
-  };
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
@@ -839,7 +838,7 @@ const Home = ({navigation}) => {
                         {each.task}
                       </Text>
                       <Text style={{color: '#65737f'}}>{each.numberOf}</Text>
-                      <Pressable onPress={() => openModal(true)}>
+                      <Pressable onPress={() => setopenAttendance(each.task)}>
                         <Text
                           style={{
                             color: '#139f5a',
@@ -848,11 +847,6 @@ const Home = ({navigation}) => {
                           }}>
                           View All
                         </Text>
-                        <AttendanceMl
-                          openModal={openModal}
-                          open={open}
-                          title={each.task}
-                        />
                       </Pressable>
                     </View>
                   );
@@ -861,6 +855,10 @@ const Home = ({navigation}) => {
             </View>
           </View>
         )}
+      />
+      <AttendanceMl
+        setopenAttendance={setopenAttendance}
+        openAttendance={openAttendance}
       />
     </SafeAreaView>
   );
@@ -963,8 +961,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 9,
     backgroundColor: '#e6f5ee',
-    borderWidth: 2,
-    borderColor: '#00ab55',
   },
   quickLinks: {
     width: '90%',
