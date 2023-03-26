@@ -23,8 +23,17 @@ import {
   NativeBaseProvider,
 } from 'native-base';
 import {useState} from 'react';
-
+const announcementColors = [
+  {bg1: '#d1fae5', border1: '#10b981'},
+  {bg1: '#ffedd5', border1: '#fb923c'},
+  {bg1: '#fae8ff', border1: '#e879f9'},
+  {bg1: '#e0f2fe', border1: '#38bdf8'},
+  {bg1: '#fee2e2', border1: '#f87171'},
+  {bg1: '#d1fae5', border1: '#34d399'},
+  {bg1: '#ecfeff', border1: '#22d3ee'},
+];
 export default AnnouncementCard = ({item, index, handleItemPress}) => {
+  let randomNumber = Math.floor(Math.random() * 6) + 1;
   return (
     <View
       style={{
@@ -36,6 +45,7 @@ export default AnnouncementCard = ({item, index, handleItemPress}) => {
         <Box
           style={{
             marginLeft: 10,
+            elevation: 3,
             ...(index == 9 && {
               marginRight: 10,
             }),
@@ -43,11 +53,11 @@ export default AnnouncementCard = ({item, index, handleItemPress}) => {
           <Center
             w="64"
             h="20"
-            bg="#e6f5ee"
+            bg={announcementColors[randomNumber].bg1}
             rounded="md"
             shadow={13}
             style={{
-              borderLeftColor: '#00ab55',
+              borderLeftColor: announcementColors[randomNumber].border1,
 
               padding: 10,
               borderLeftWidth: 3,

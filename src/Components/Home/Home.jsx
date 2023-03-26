@@ -32,6 +32,7 @@ import {
 import NotificationItem from '../Notification/NotificationItem';
 import AnnouncementCard from './anouncements/AnnouncementCard';
 import AnnouncementModal from './anouncements/AnnouncementModal';
+import Skeleton from '../Skeletons/Skeleton';
 
 const DATA = [
   {key: 'Android'},
@@ -214,6 +215,7 @@ const Home = ({navigation}) => {
             style={{
               height: 35,
               width: 35,
+              elevation: 1,
               borderRadius: 100,
             }}
             source={require('../../Images/3.jpeg')}
@@ -227,16 +229,28 @@ const Home = ({navigation}) => {
           inputStyle={{
             padding: 0,
           }}
-          onFocus={() => navigation.navigate('Search')}
+          onFocus={() => navigation.navigate('Search', {announcementData})}
         />
-        <MaterialCommunityIcons
-          name="chat"
-          size={33}
-          color="#00ab55"
-          onPress={() => {
-            navigation.navigate('chatbox');
-          }}
-        />
+
+        <Box style={{position: 'relative'}}>
+          <Badge
+            colorScheme="danger"
+            rounded="full"
+            style={{position: 'absolute', top: -6, zIndex: 999, right: -4}}
+            _text={{
+              fontSize: 7,
+            }}>
+            2
+          </Badge>
+          <MaterialCommunityIcons
+            name="chat"
+            size={33}
+            color="#00ab55"
+            onPress={() => {
+              navigation.navigate('chatbox');
+            }}
+          />
+        </Box>
       </View>
       <FlatList
         data={[1]}
@@ -281,6 +295,7 @@ const Home = ({navigation}) => {
                     setShowModal={setShowModal}
                   />
                 )}
+                {!announcementData && <Skeleton />}
               </View>
             </View>
             {/* welecome card */}
@@ -964,10 +979,10 @@ const styles = StyleSheet.create({
     marginBottom: 50,
   },
   checkInCard: {
-    width: '40%',
-    elevation: 2,
+    width: '45%',
+    elevation: 1,
     marginTop: 20,
-    marginBottom: 20,
+    marginBottom: 15,
     backgroundColor: '#e9f8ff',
     borderRadius: 10,
     alignSelf: 'center',
