@@ -10,7 +10,6 @@ import mySpace from './src/Components/MySpace/mySpace';
 import Login from './src/Components/LoginScreen/Login';
 import LoginScreen from './src/Components/LoginScreen/LoginScreen';
 import HomeScreen from './src/Components/Home/HomeScreen';
-import Attendance from './src/Components/MySpace/Dashboards/Attendance';
 import AnnouncementsCard from './src/Components/QuickInformationDashboard/Announcements';
 import {LogBox} from 'react-native';
 import ChartBoxScreen from './src/Components/ChartBox/ChartBox';
@@ -53,11 +52,7 @@ const App = () => {
             component={AnnouncementsCard}
             options={{title: 'Announcements'}}
           />
-          <Stack.Screen
-            name="Attendance"
-            component={Attendance}
-            options={{title: 'Attendance'}}
-          />
+
           <Stack.Screen
             name="Notify"
             component={Notification}

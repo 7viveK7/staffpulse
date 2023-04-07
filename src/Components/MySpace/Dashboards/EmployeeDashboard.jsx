@@ -4,7 +4,11 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {VStack, Box, Divider} from 'native-base';
 import {Avatar, Card, IconButton} from 'react-native-paper';
-import Attendance from './Attendance';
+import Attendance from './NewAnnouncement';
+import NewAnnouncement from './NewAnnouncement';
+import EmployeeForm from './EmployeeForm';
+import EmployeeDetails from '../../AllEmployees/AllEmployeesDetails';
+
 function HomeScreen() {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
@@ -94,14 +98,12 @@ export default function EmployeeDashboard() {
     <Tab.Navigator
       screenOptions={{
         tabBarLabelStyle: {fontSize: 12, fontWeight: '900'},
-        tabBarItemStyle: {width: 120},
         tabBarActiveTintColor: 'green',
-
         tabBarStyle: {backgroundColor: '#fff'},
       }}>
-      <Tab.Screen name="Attendance" component={Attendance} />
-      <Tab.Screen name="Payroll" component={SettingsScreen} />
-      <Tab.Screen name="Tax" component={SettingsScreen} />
+      <Tab.Screen name="New Announcement" component={NewAnnouncement} />
+      <Tab.Screen name="New Employee" component={EmployeeForm} />
+      <Tab.Screen name="Employees " component={EmployeeDetails} />
     </Tab.Navigator>
   );
 }
