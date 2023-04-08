@@ -1,5 +1,6 @@
 import {VStack, Modal, Text, Box, HStack, Divider} from 'native-base';
 import {StyleSheet} from 'react-native';
+import NotificationItem from '../../Notification/NotificationItem';
 
 export default function AttendanceMl({openAttendance, setopenAttendance}) {
   return (

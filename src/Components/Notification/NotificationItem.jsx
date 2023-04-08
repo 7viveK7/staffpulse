@@ -1,5 +1,6 @@
 import {View, StyleSheet, SafeAreaView, StatusBar} from 'react-native';
 import {Box, FlatList, Avatar, Text, HStack, VStack, Spacer} from 'native-base';
+import {useEffect, useState} from 'react';
 const data = [
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',

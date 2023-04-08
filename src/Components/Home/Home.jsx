@@ -10,21 +10,21 @@ import {
   Pressable,
 } from 'react-native';
 
-import {VStack, Modal, Text, Box, HStack, Divider} from 'native-base';
-import {Avatar, Card, Badge, Searchbar} from 'react-native-paper';
+import {Text, Box} from 'native-base';
+import {Badge, Searchbar} from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-import ScrollIndicator from 'react-native-custom-scroll-indicator';
 import DropShadow from 'react-native-drop-shadow';
 import {DrawerActions} from '@react-navigation/native';
 
-import NotificationItem from '../Notification/NotificationItem';
 import AnnouncementCard from './anouncements/AnnouncementCard';
 import Skeleton from '../Skeletons/Skeleton';
 import AttendanceMl from './anouncements/MyTasksMdl';
 import QuickLinks from './QuickLinks';
 import RenderCheckinCheckout from './CheckInOut';
+import WelcomeToNewEmployee from './NewEmployees';
+import MyTasks from './MyTasks';
 
 const teamMembers = [
   {
@@ -122,153 +122,6 @@ const myTask = [
     numberOf: 8,
   },
 ];
-
-function WelcomeToNewEmployee() {
-  return (
-    <View style={styles.welcomeCard}>
-      <Text style={styles.welcomeCardTitle}>Welcome</Text>
-
-      <ScrollIndicator
-        horizontal={true}
-        indicatorStyle={{
-          height: 8,
-          width: 40,
-          backgroundColor: '#00ab55',
-          borderRadius: 5,
-        }}
-        scrollViewBoxStyle={{
-          width: '100%',
-        }}
-        indicatorBackgroundStyle={{
-          height: 8,
-          width: 120,
-          borderRadius: 5,
-          backgroundColor: '#add0bf',
-        }}
-        viewBoxStyle={{
-          alignItems: 'center',
-
-          // marginTop: 60
-        }}>
-        <View style={{flexDirection: 'row'}}>
-          <Card style={styles.newUser}>
-            <Card.Content>
-              <View
-                style={{
-                  alignSelf: 'center',
-                  backgroundColor: '#fee9a8',
-                  padding: 10,
-                  borderRadius: 50,
-                }}>
-                <Image
-                  style={styles.megha}
-                  source={require('../../Images/3.jpeg')}
-                  alt="not found"
-                />
-              </View>
-
-              <Text variant="titleLarge" style={styles.newUserName}>
-                Megha
-              </Text>
-              <Text
-                variant="bodyMedium"
-                style={{
-                  color: '#657582',
-                  alignSelf: 'center',
-                  textAlign: 'center',
-                }}>
-                Ux Designer Join today
-              </Text>
-            </Card.Content>
-          </Card>
-          <Card
-            style={{
-              ...styles.newUser,
-              backgroundColor: '#e9f8ff',
-
-              borderColor: '#b8e7f9',
-            }}>
-            <Card.Content>
-              <View
-                style={{
-                  alignSelf: 'center',
-                  backgroundColor: '#c2e9fc',
-                  padding: 10,
-                  borderRadius: 50,
-                }}>
-                <Image
-                  style={styles.megha}
-                  source={require('../../Images/1.jpeg')}
-                  alt="error"
-                />
-              </View>
-              <Text
-                variant="titleLarge"
-                style={{
-                  color: '#095c85',
-                  alignSelf: 'center',
-                  fontWeight: 'bold',
-                  fontSize: 20,
-                }}>
-                Megha
-              </Text>
-              <Text
-                variant="bodyMedium"
-                style={{
-                  color: '#657582',
-                  alignSelf: 'center',
-                  textAlign: 'center',
-                }}>
-                Ux Designer Join today
-              </Text>
-            </Card.Content>
-          </Card>
-          <Card
-            style={{
-              ...styles.newUser,
-              backgroundColor: '#ffeaef',
-              borderColor: '#fecad6',
-            }}>
-            <Card.Content>
-              <View
-                style={{
-                  alignSelf: 'center',
-                  backgroundColor: '#fecad6',
-                  padding: 10,
-                  borderRadius: 50,
-                }}>
-                <Image
-                  style={styles.megha}
-                  source={require('../../Images/2.jpeg')}
-                  alt="loading.."
-                />
-              </View>
-              <Text
-                variant="titleLarge"
-                style={{
-                  color: '#cc4964',
-                  alignSelf: 'center',
-                  fontWeight: 'bold',
-                  fontSize: 20,
-                }}>
-                Megha
-              </Text>
-              <Text
-                variant="bodyMedium"
-                style={{
-                  color: '#657582',
-                  alignSelf: 'center',
-                  textAlign: 'center',
-                }}>
-                Ux Designer Join today
-              </Text>
-            </Card.Content>
-          </Card>
-        </View>
-      </ScrollIndicator>
-    </View>
-  );
-}
 
 const Home = ({navigation}) => {
   const [pressedIcon, setPressedIcon] = useState('Home');
@@ -403,9 +256,8 @@ const Home = ({navigation}) => {
             {/* welecome card */}
             <WelcomeToNewEmployee />
             {/* CheckIn card */}
-            <View>
-              <RenderCheckinCheckout />
-            </View>
+            <RenderCheckinCheckout />
+
             {/* my team */}
             <View style={styles.card}>
               <View
@@ -415,7 +267,7 @@ const Home = ({navigation}) => {
                   margin: 20,
                 }}>
                 <Text style={styles.subheading}>My Team</Text>
-                <Text style={styles.viewAll}>View All </Text>
+                {/* <Text style={styles.viewAll}>View All </Text> */}
               </View>
               <View
                 style={{
@@ -582,57 +434,7 @@ const Home = ({navigation}) => {
               })}
             </View>
             {/* myTasks */}
-            <View style={[styles.card]}>
-              <Text
-                style={{
-                  color: '#202b35',
-                  margin: 20,
-                  paddingBottom: 10,
-                  fontSize: 20,
-                  ...styles.Mytasksubtitle,
-                }}>
-                My Tasks
-              </Text>
-              <View style={{justifyContent: 'center', alignItems: 'center'}}>
-                {myTask.map(each => {
-                  return (
-                    <View
-                      id={each.task}
-                      style={{
-                        flexDirection: 'row',
-                        justifyContent: 'space-evenly',
-                        alignItems: 'center',
-                        width: '80%',
-                        marginBottom: 20,
-                        height: 49,
-                        borderWidth: 1,
-                        borderColor: each.color,
-                        borderRadius: 10,
-                      }}>
-                      <Text
-                        style={{
-                          color: '#212a35',
-                          width: 120,
-                          fontFamily: 'SofiaSansSemiCondensed-Bold',
-                        }}>
-                        {each.task}
-                      </Text>
-                      <Text style={{color: '#65737f'}}>{each.numberOf}</Text>
-                      <Pressable onPress={() => setopenAttendance(each.task)}>
-                        <Text
-                          style={{
-                            color: '#139f5a',
-                            textDecorationLine: 'underline',
-                            fontFamily: 'SofiaSansSemiCondensed-Bold',
-                          }}>
-                          View All
-                        </Text>
-                      </Pressable>
-                    </View>
-                  );
-                })}
-              </View>
-            </View>
+            <MyTasks setopenAttendance={setopenAttendance} />
           </View>
         )}
       />

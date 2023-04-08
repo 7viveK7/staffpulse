@@ -9,7 +9,7 @@ import Notification from './src/Components/Notification/Notification';
 import mySpace from './src/Components/Navigation/mySpace';
 import Login from './src/Components/LoginScreen/Login';
 import LoginScreen from './src/Components/LoginScreen/LoginScreen';
-import HomeScreen from './src/Components/Home/HomeScreen';
+import HomeScreen from './src/Components/Navigation/HomeScreen';
 import AnnouncementsCard from './src/Components/Announcements/Announcements';
 import {LogBox} from 'react-native';
 import ChartBoxScreen from './src/Components/ChartBox/ChartBox';

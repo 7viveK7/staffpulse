@@ -6,10 +6,13 @@ import {Searchbar} from 'react-native-paper';
 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Announcementss from './Announcements/Announcement';
+import AnnouncementModal from './Home/anouncements/AnnouncementModal';
 export default Search = ({navigation, route}) => {
   const [searchStr, setSearchStr] = useState('');
   const [filteredAnnouncements, setFilteredAnnouncements] = useState([]);
   const [activePill, setActivePill] = useState(null);
+  const [showModal, setShowModal] = useState(null);
+  const [selectedAnnouncement, setSelectedAnnouncement] = useState('');
 
   useEffect(() => {
     const announcmentsArrey = route.params.announcementData;
@@ -104,8 +107,19 @@ export default Search = ({navigation, route}) => {
         <FlatList
           data={filteredAnnouncements}
           initialNumToRender={true}
-          renderItem={Announcementss}
-          keyExtractor={item => <Announcementss key={item.publishedAt} />}
+          keyExtractor={item => item.title}
+          renderItem={({item}) => (
+            <Announcementss
+              item={item}
+              setShowModal={setShowModal}
+              setSelectedAnnouncement={setSelectedAnnouncement}
+            />
+          )}
+        />
+        <AnnouncementModal
+          selectedItem={selectedAnnouncement}
+          showModal={showModal}
+          setShowModal={setShowModal}
         />
       </View>
     </SafeAreaView>
