@@ -99,13 +99,17 @@ const data = [
 ];
 export default ChartBoxScreen = () => {
   const [showModal, setShowModal] = useState(false);
-
+  const [senderData, setSenderData] = useState('');
+  function chartBOxHandler(item) {
+    setShowModal(true);
+    setSenderData(item);
+  }
   return (
     <Box ml={4} mr={4}>
       <FlatList
         data={data}
         renderItem={({item}) => (
-          <Pressable onPress={() => setShowModal(true)}>
+          <Pressable onPress={() => chartBOxHandler(item)}>
             <Box
               borderBottomWidth="1"
               borderColor="muted.200"
@@ -152,7 +156,13 @@ export default ChartBoxScreen = () => {
         )}
         keyExtractor={item => item.id}
       />
-      {showModal && <Chart showModal={showModal} setShowModal={setShowModal} />}
+      {showModal && (
+        <Chart
+          showModal={showModal}
+          setShowModal={setShowModal}
+          senderData={senderData}
+        />
+      )}
     </Box>
   );
 };
