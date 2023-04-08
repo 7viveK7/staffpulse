@@ -1,11 +1,7 @@
-import {
-  View,
-  StyleSheet,
-  SafeAreaView,
-  StatusBar,
-  Pressable,
-} from 'react-native';
+import {StyleSheet, Pressable} from 'react-native';
+
 import {Box, FlatList, Avatar, Text, HStack, VStack, Spacer} from 'native-base';
+
 import Chart from './Chart';
 import {useState} from 'react';
 const data = [

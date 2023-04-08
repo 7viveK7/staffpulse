@@ -1,27 +1,8 @@
 import React from 'react';
-
-import {
-  View,
-  StyleSheet,
-  SafeAreaView,
-  ImageBackground,
-  StatusBar,
-} from 'react-native';
+import {View, StyleSheet, SafeAreaView, StatusBar} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-import {
-  Box,
-  Heading,
-  AspectRatio,
-  Image,
-  VStack,
-  Text,
-  Center,
-  Button,
-  HStack,
-  Stack,
-  NativeBaseProvider,
-} from 'native-base';
+import {Box, Heading, Image, VStack, Text, Button, Stack} from 'native-base';
 
 const SectionCard = ({navigation}) => {
   return (

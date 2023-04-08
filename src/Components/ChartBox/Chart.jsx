@@ -2,8 +2,6 @@ import React from 'react';
 import {
   Button,
   Modal,
-  Center,
-  NativeBaseProvider,
   HStack,
   Image,
   VStack,

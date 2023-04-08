@@ -1,19 +1,18 @@
-import {
-  Pressable,
-  Text,
-  Box,
-  HStack,
-  Spacer,
-  Flex,
-  Badge,
-  Center,
-  NativeBaseProvider,
-} from 'native-base';
-export default function Announcementss({item}) {
+import {Pressable, Text, Box, HStack, Spacer} from 'native-base';
+export default function Announcementss({
+  item,
+  setShowModal,
+  setSelectedAnnouncement,
+}) {
+  console.log(item);
+  function handlePress(item) {
+    setShowModal(true);
+    setSelectedAnnouncement(item);
+  }
   return (
-    <Box alignItems="center" mb={2} id={item}>
+    <Box alignItems="center" mb={2} id={item.title}>
       <Pressable
-        onPress={() => alert("I'm Pressed")}
+        onPress={() => handlePress(item)}
         rounded="8"
         overflow="hidden"
         borderWidth="1"

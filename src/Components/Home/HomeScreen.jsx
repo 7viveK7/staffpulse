@@ -2,13 +2,13 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {StyleSheet, Platform, TouchableOpacity} from 'react-native';
 import Home from '../Home/Home';
 import Icon from 'react-native-vector-icons/Ionicons';
-import MySpace from '../MySpace/mySpace';
+import MySpace from '../Navigation/mySpace';
 import Notification from '../Notification/Notification';
 import {useNavigation} from '@react-navigation/native';
 import CustomTabBar from '../CustomTabBar';
 import CustomTabBarButton from '../CustomTabBarButton';
 import COLORS from '../defaultStyles';
-import EmployeeDashboard from '../MySpace/Dashboards/EmployeeDashboard';
+import EmployeeDashboard from '../Navigation/EmployeeDashboard';
 const Tab = createBottomTabNavigator();
 
 export default function HomeScreen() {

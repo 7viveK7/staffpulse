@@ -8,10 +8,6 @@ import {
 const {width} = Dimensions.get('screen');
 import {Center, Image, Divider} from 'native-base';
 import {Avatar, Card, IconButton} from 'react-native-paper';
-import {
-  grey100,
-  red100,
-} from 'react-native-paper/lib/typescript/styles/themes/v2/colors';
 
 const CustomDrawer = props => {
   return (

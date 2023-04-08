@@ -40,15 +40,18 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
+import VisfyContext from '../ContextApi/ContextApi';
 
 function AnnouncementForm() {
   const [title, setTitle] = useState('');
 
-  const [textAreaValue, setTextAreaValue] = useState('Value Controlled');
+  const [textAreaValue, setTextAreaValue] = useState('');
+  const [newAnnouncement, setNewAnnouncment] = useState({});
   const handleSubmit = () => {
-    onSubmit({title, body});
+    const announce = {title, body, id: 78};
+    newAnnouncement(announce);
     setTitle('');
-    setBody('');
+    setTextAreaValue({});
   };
 
   return (
@@ -127,9 +130,8 @@ export default function NewAnnouncement({route}) {
               //   }}
             />
           </View>
-          <View>
-            <AnnouncementForm />
-          </View>
+
+          <AnnouncementForm />
         </View>
       </View>
     </ScrollView>

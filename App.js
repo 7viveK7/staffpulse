@@ -6,13 +6,14 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import Search from './src/Components/Search';
 import Notification from './src/Components/Notification/Notification';
-import mySpace from './src/Components/MySpace/mySpace';
+import mySpace from './src/Components/Navigation/mySpace';
 import Login from './src/Components/LoginScreen/Login';
 import LoginScreen from './src/Components/LoginScreen/LoginScreen';
 import HomeScreen from './src/Components/Home/HomeScreen';
-import AnnouncementsCard from './src/Components/QuickInformationDashboard/Announcements';
+import AnnouncementsCard from './src/Components/Announcements/Announcements';
 import {LogBox} from 'react-native';
 import ChartBoxScreen from './src/Components/ChartBox/ChartBox';
+//import VisfyContext from './src/Components/ContextApi/ContextApi';
 LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
 LogBox.ignoreAllLogs();
 

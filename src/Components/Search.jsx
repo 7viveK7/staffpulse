@@ -1,26 +1,11 @@
 import {useEffect, useState} from 'react';
-import {
-  View,
-  StyleSheet,
-  ScrollView,
-  SafeAreaView,
-  Image,
-  StatusBar,
-} from 'react-native';
-import {
-  Box,
-  HStack,
-  Spacer,
-  Text,
-  Badge,
-  Pressable,
-  FlatList,
-} from 'native-base';
+import {View, StyleSheet, SafeAreaView, StatusBar} from 'react-native';
+import {Box, HStack, Text, Badge, Pressable, FlatList} from 'native-base';
 
-import {Avatar, Card, Searchbar} from 'react-native-paper';
-import {green100} from 'react-native-paper/lib/typescript/styles/themes/v2/colors';
+import {Searchbar} from 'react-native-paper';
+
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import Announcementss from './QuickInformationDashboard/Announcement';
+import Announcementss from './Announcements/Announcement';
 export default Search = ({navigation, route}) => {
   const [searchStr, setSearchStr] = useState('');
   const [filteredAnnouncements, setFilteredAnnouncements] = useState([]);
@@ -38,6 +23,7 @@ export default Search = ({navigation, route}) => {
       setFilteredAnnouncements([]);
     }
   }, [searchStr]);
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar translucent backgroundColor="transparent" />

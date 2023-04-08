@@ -1,28 +1,10 @@
 import React, {useEffect, useState} from 'react';
+import {View, StyleSheet, Image} from 'react-native';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {
-  View,
-  StyleSheet,
-  ScrollView,
-  Image,
-  SafeAreaView,
-  StatusBar,
-} from 'react-native';
-import {
-  Input,
-  Icon,
-  Stack,
-  Text,
-  Pressable,
-  Center,
-  NativeBaseProvider,
-  Button,
-  FormControl,
-  Box,
-  WarningOutlineIcon,
-} from 'native-base';
+
+import {Input, Icon, Stack, Text, Pressable, Button, Box} from 'native-base';
 
 export default Login = ({navigation}) => {
   const [show, setShow] = useState(false);

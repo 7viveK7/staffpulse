@@ -4,10 +4,10 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {VStack, Box, Divider} from 'native-base';
 import {Avatar, Card, IconButton} from 'react-native-paper';
-import Attendance from './NewAnnouncement';
-import NewAnnouncement from './NewAnnouncement';
-import EmployeeForm from './EmployeeForm';
-import EmployeeDetails from '../../AllEmployees/AllEmployeesDetails';
+import Attendance from '../MySpace/NewAnnouncement';
+import NewAnnouncement from '../MySpace/NewAnnouncement';
+import EmployeeForm from '../MySpace/EmployeeForm';
+import EmployeeDetails from '../MySpace/AllEmployees/AllEmployeesDetails';
 
 function HomeScreen() {
   return (
@@ -61,31 +61,6 @@ function HomeScreen() {
             />
           )}
         />
-      </View>
-    </View>
-  );
-}
-
-function SettingsScreen() {
-  return (
-    <View style={{flex: 1}}>
-      <View style={[styles.card]}>
-        <Image
-          source={require('../../../Images/4o4.png')}
-          style={{width: 300, height: 200}}
-        />
-        <Text
-          style={{
-            color: '#202b35',
-            margin: 20,
-            paddingBottom: 10,
-            textAlign: 'center',
-            fontSize: 20,
-            fontWeight: 'bold',
-            fontFamily: 'SofiaSansSemiCondensed-Bold',
-          }}>
-          Under construction
-        </Text>
       </View>
     </View>
   );
