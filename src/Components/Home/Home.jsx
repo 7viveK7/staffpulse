@@ -24,6 +24,7 @@ import AnnouncementCard from './anouncements/AnnouncementCard';
 import Skeleton from '../Skeletons/Skeleton';
 import AttendanceMl from './anouncements/MyTasksMdl';
 import QuickLinks from './QuickLinks';
+import RenderCheckinCheckout from './CheckInOut';
 
 const teamMembers = [
   {
@@ -268,92 +269,6 @@ function WelcomeToNewEmployee() {
     </View>
   );
 }
-function renderCheckinCheckout({
-  setClockOutTime,
-  clockOutTime,
-  setDisabledClockIn,
-  disabledClockIn,
-  setDisabledClockOut,
-  disabledClockOut,
-  clockInTime,
-  setDisabled,
-  setClockInTime,
-}) {
-  const handleClockIn = () => {
-    setDisabledClockIn(true);
-    const now = new Date();
-    const currentTime = now.toLocaleTimeString([], {
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      hour12: true,
-    });
-    setClockInTime(currentTime);
-  };
-
-  const handleClockOut = () => {
-    setDisabledClockOut(true);
-    const now = new Date();
-    const currentTime = now.toLocaleTimeString([], {
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      hour12: true,
-    });
-    setClockOutTime(currentTime);
-  };
-
-  return (
-    <View
-      style={{
-        flexDirection: 'row',
-        width: '100%',
-        justifyContent: 'space-evenly',
-      }}>
-      <View
-        style={[
-          styles.checkInCard,
-          disabledClockIn && {backgroundColor: 'lightgrey'},
-        ]}>
-        <MaterialCommunityIcons
-          name="clock"
-          size={33}
-          style={{paddingLeft: 7, paddingRight: 10}}
-          color={disabledClockIn ? 'grey' : '#0089c8'}
-        />
-        <View>
-          <TouchableOpacity onPress={handleClockIn} disabled={disabledClockIn}>
-            <Text style={styles.clocktext}>CLOCK IN</Text>
-            <Text style={styles.clocktext}>{clockInTime}</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-      <View
-        style={[
-          styles.checkInCard,
-
-          (disabledClockOut || !disabledClockIn) && {
-            backgroundColor: 'lightgrey',
-          },
-        ]}>
-        <MaterialCommunityIcons
-          name="clock"
-          size={33}
-          style={{paddingLeft: 7, paddingRight: 10}}
-          color={disabledClockOut || !disabledClockIn ? 'grey' : '#0089c8'}
-        />
-        <View>
-          <TouchableOpacity
-            onPress={handleClockOut}
-            disabled={!disabledClockIn || disabledClockOut}>
-            <Text style={styles.clocktext}>CLOCK OUT</Text>
-            <Text style={styles.clocktext}>{clockOutTime}</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    </View>
-  );
-}
 
 const Home = ({navigation}) => {
   const [pressedIcon, setPressedIcon] = useState('Home');
@@ -361,10 +276,6 @@ const Home = ({navigation}) => {
   const [openAttendance, setopenAttendance] = useState(false);
   const [announcementData, setAnnouncementData] = useState(null);
   const [selectedItem, setSelectedItem] = useState(null);
-  const [clockInTime, setClockInTime] = useState('9:00:00 am');
-  const [clockOutTime, setClockOutTime] = useState('6:00:00 pm');
-  const [disabledClockIn, setDisabledClockIn] = useState(false);
-  const [disabledClockOut, setDisabledClockOut] = useState(false);
 
   const handleItemPress = useCallback(
     item => {
@@ -493,17 +404,7 @@ const Home = ({navigation}) => {
             <WelcomeToNewEmployee />
             {/* CheckIn card */}
             <View>
-              {renderCheckinCheckout({
-                setClockOutTime,
-                clockOutTime,
-                setDisabledClockIn,
-                disabledClockIn,
-                setDisabledClockOut,
-                disabledClockOut,
-
-                clockInTime,
-                setClockInTime,
-              })}
+              <RenderCheckinCheckout />
             </View>
             {/* my team */}
             <View style={styles.card}>
