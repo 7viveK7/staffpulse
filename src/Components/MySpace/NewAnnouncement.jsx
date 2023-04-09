@@ -1,59 +1,19 @@
 import React from 'react';
-import {Avatar, Card} from 'react-native-paper';
-import {
-  TextArea,
-  Text,
-  VStack,
-  Box,
-  Input,
-  Center,
-  NativeBaseProvider,
-} from 'native-base';
+import {TextArea, Text, Input} from 'native-base';
 import Entypo from 'react-native-vector-icons/Entypo';
-const myTask = [
-  {
-    task: 'Attendance',
-    numberOf: 13,
-    color: '#dbd4ec',
-  },
-  {
-    task: 'Leave',
-    numberOf: '7',
-    color: '#cfe7f0',
-  },
-  {
-    task: 'Job Offers',
-    color: '#f4d3da',
-    numberOf: 11,
-  },
-  {
-    task: 'Interview Schedule',
-    color: '#fceec7',
-    numberOf: 8,
-  },
-];
 import {useState} from 'react';
-import {
-  View,
-  ScrollView,
-  TextInput,
-  TouchableOpacity,
-  StyleSheet,
-} from 'react-native';
-import VisfyContext from '../ContextApi/ContextApi';
+import {View, ScrollView, TouchableOpacity, StyleSheet} from 'react-native';
+import {useAnnouncementContext} from '.././ContextApi/NewsContext';
 
 function AnnouncementForm() {
-  const [title, setTitle] = useState('');
-
-  const [description, setdescription] = useState('');
-  const [newAnnouncement, setNewAnnouncment] = useState({});
-  const handleSubmit = () => {
-    const announce = {title, description, id: 78};
-    setNewAnnouncment(announce);
-    alert(title);
-    setTitle('');
-    setdescription('');
-  };
+  const {setNewAnnouncement, addNewAnnouncement, newAnnouncement} =
+    useAnnouncementContext();
+  function handlePress() {
+    const now = new Date();
+    const currentDate = now.toLocaleDateString();
+    addNewAnnouncement();
+    setNewAnnouncement(prev => ({...prev, publishedAt: currentDate}));
+  }
 
   return (
     <View style={formStyles.container}>
@@ -61,17 +21,22 @@ function AnnouncementForm() {
       <Input
         placeholder="Title"
         w="100%"
-        autoFocus
-        value={title}
+        value={newAnnouncement?.title}
         onChangeText={text => {
-          setTitle(text);
+          setNewAnnouncement(prev => ({...prev, title: text}));
         }}
       />
       <Text style={formStyles.label}>Description :-</Text>
       <TextArea
-        value={description}
+        value={newAnnouncement?.description}
         placeholder="Eneter your text here"
-        onChangeText={text => setdescription(text)}
+        onChangeText={text =>
+          setNewAnnouncement(prev => ({
+            ...prev,
+
+            description: text,
+          }))
+        }
         w="100%"
         maxW="300"
         h={310}
@@ -80,7 +45,7 @@ function AnnouncementForm() {
         mb={3}
       />
 
-      <TouchableOpacity style={formStyles.button} onPress={handleSubmit}>
+      <TouchableOpacity style={formStyles.button} onPress={handlePress}>
         <Text style={formStyles.buttonText}>Send</Text>
       </TouchableOpacity>
     </View>

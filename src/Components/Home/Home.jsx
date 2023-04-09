@@ -25,6 +25,7 @@ import QuickLinks from './QuickLinks';
 import RenderCheckinCheckout from './CheckInOut';
 import WelcomeToNewEmployee from './NewEmployees';
 import MyTasks from './MyTasks';
+import {useAnnouncementContext} from '.././ContextApi/NewsContext';
 
 const teamMembers = [
   {
@@ -127,8 +128,9 @@ const Home = ({navigation}) => {
   const [pressedIcon, setPressedIcon] = useState('Home');
   const [showModal, setShowModal] = useState(false);
   const [openAttendance, setopenAttendance] = useState(false);
-  const [announcementData, setAnnouncementData] = useState(null);
   const [selectedItem, setSelectedItem] = useState(null);
+
+  const {announcements} = useAnnouncementContext();
 
   const handleItemPress = useCallback(
     item => {
@@ -137,22 +139,6 @@ const Home = ({navigation}) => {
     },
     [setSelectedItem, setShowModal],
   );
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch(
-          'https://newsapi.org/v2/everything?q=bitcoin&apiKey=6016a5388f634b0ab29204bdbcb7b8b2',
-        );
-        const data = await response.json();
-        setAnnouncementData(data?.articles);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-
-    fetchData();
-  }, [navigation]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -186,7 +172,7 @@ const Home = ({navigation}) => {
           inputStyle={{
             padding: 0,
           }}
-          onFocus={() => navigation.navigate('Search', {announcementData})}
+          onFocus={() => navigation.navigate('Search', {announcements})}
         />
 
         <Box style={{position: 'relative'}}>
@@ -225,16 +211,14 @@ const Home = ({navigation}) => {
                   Announcements
                 </Text>
                 <Pressable
-                  onPress={() =>
-                    navigation.navigate('AnnouncementsCard', {announcementData})
-                  }>
+                  onPress={() => navigation.navigate('AnnouncementsCard')}>
                   <Text style={styles.viewAll}>View All </Text>
                 </Pressable>
               </View>
               <View>
                 <FlatList
                   horizontal={true}
-                  data={announcementData?.slice(0, 10)}
+                  data={announcements?.slice(0, 10)}
                   initialNumToRender={true}
                   keyExtractor={item => item.title}
                   renderItem={({item, index}) => (
@@ -252,7 +236,7 @@ const Home = ({navigation}) => {
                     setShowModal={setShowModal}
                   />
                 )}
-                {!announcementData && <Skeleton />}
+                {!announcements && <Skeleton />}
               </View>
             </View>
             {/* welecome card */}

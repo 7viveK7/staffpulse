@@ -3,15 +3,16 @@ import {StyleSheet, FlatList, View} from 'react-native';
 
 import AnnouncementModal from '../Home/anouncements/AnnouncementModal';
 import Announcementss from './Announcement';
+import {useAnnouncementContext} from '.././ContextApi/NewsContext';
 
 export default function AnnouncementsCard({route}) {
   const [showModal, setShowModal] = useState(null);
   const [selectedAnnouncement, setSelectedAnnouncement] = useState('');
-
+  const {announcements} = useAnnouncementContext();
   return (
     <View style={{flex: 1, padding: 10}}>
       <FlatList
-        data={route.params.announcementData}
+        data={announcements}
         initialNumToRender={true}
         keyExtractor={item => item?.title}
         renderItem={({item}) => (

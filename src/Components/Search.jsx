@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useCallback, useState} from 'react';
 import {View, StyleSheet, SafeAreaView, StatusBar} from 'react-native';
 import {Box, HStack, Text, Badge, Pressable, FlatList} from 'native-base';
 
@@ -7,25 +7,29 @@ import {Searchbar} from 'react-native-paper';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Announcementss from './Announcements/Announcement';
 import AnnouncementModal from './Home/anouncements/AnnouncementModal';
+import {useAnnouncementContext} from './ContextApi/NewsContext';
+
 export default Search = ({navigation, route}) => {
   const [searchStr, setSearchStr] = useState('');
   const [filteredAnnouncements, setFilteredAnnouncements] = useState([]);
   const [activePill, setActivePill] = useState(null);
   const [showModal, setShowModal] = useState(null);
   const [selectedAnnouncement, setSelectedAnnouncement] = useState('');
-
-  useEffect(() => {
-    const announcmentsArrey = route.params.announcementData;
-
-    if (searchStr != '') {
-      const searchedData = announcmentsArrey.filter(el =>
+  const {announcements} = useAnnouncementContext();
+  const filteredAnnouncementsHandler = useCallback(() => {
+    if (searchStr !== '') {
+      const searchedData = announcements.filter(el =>
         el.title.toLowerCase().includes(searchStr.toLowerCase()),
       );
       setFilteredAnnouncements(searchedData);
     } else {
       setFilteredAnnouncements([]);
     }
-  }, [searchStr]);
+  }, [announcements, searchStr, setFilteredAnnouncements]);
+
+  useEffect(() => {
+    filteredAnnouncementsHandler();
+  }, [filteredAnnouncementsHandler]);
 
   return (
     <SafeAreaView style={styles.container}>
