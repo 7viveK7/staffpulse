@@ -7,7 +7,7 @@ import {Avatar, Card, IconButton} from 'react-native-paper';
 import Attendance from '../MySpace/NewAnnouncement';
 import NewAnnouncement from '../MySpace/NewAnnouncement';
 import EmployeeForm from '../MySpace/EmployeeForm';
-import EmployeeDetails from '../MySpace/AllEmployees/AllEmployeesDetails';
+import EmployeeDetails from '../AllEmployees/AllEmployeesDetails';
 
 function HomeScreen() {
   return (
@@ -78,7 +78,7 @@ export default function EmployeeDashboard() {
       }}>
       <Tab.Screen name="New Announcement" component={NewAnnouncement} />
       <Tab.Screen name="New Employee" component={EmployeeForm} />
-      <Tab.Screen name="Employees " component={EmployeeDetails} />
+      {/* <Tab.Screen name="Employees " component={EmployeeDetails} /> */}
     </Tab.Navigator>
   );
 }

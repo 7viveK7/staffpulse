@@ -37,7 +37,6 @@ export default AnnouncementCard = ({item, index, handleItemPress}) => {
             shadow={13}
             style={{
               borderLeftColor: announcementColors[randomNumber].border1,
-
               padding: 10,
               borderLeftWidth: 3,
             }}>

@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Skeleton,
-  VStack,
-  HStack,
-  Center,
-  NativeBaseProvider,
-} from 'native-base';
+import {Skeleton, VStack, HStack, Center} from 'native-base';
 
 export default AnnouncementTemplate = () => {
   return (
@@ -14,7 +8,7 @@ export default AnnouncementTemplate = () => {
         w="90%"
         maxW="400"
         borderWidth="1"
-        space={8}
+        space={7}
         rounded="md"
         _dark={{
           borderColor: 'coolGray.500',
@@ -22,8 +16,8 @@ export default AnnouncementTemplate = () => {
         _light={{
           borderColor: 'coolGray.200',
         }}
-        p="4">
-        <VStack flex="3" space="4">
+        p="2">
+        <VStack flex="3" space="3">
           <Skeleton.Text />
         </VStack>
       </HStack>

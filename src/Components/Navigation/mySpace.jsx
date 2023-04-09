@@ -8,6 +8,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import {NavigationContainer} from '@react-navigation/native';
 import CustomDrawer from '../MySpace/CustomDrawer';
 import Home from '../Home/Home';
+import EmployeeList from '../AllEmployees/AllEmployeesDetails';
 
 function HomeScreen({navigation}) {
   return (
@@ -89,43 +90,16 @@ export default function MySpace() {
       />
 
       <Drawer.Screen
-        name="hdfxvsfgm"
-        component={NotificationsScreen}
+        name="EmployeesDetails"
+        component={EmployeeList}
         options={{
-          title: 'Directory',
+          title: 'Employees Details',
           drawerIcon: ({focused, color, size}) => (
             <FontAwesome name="users" size={18} color={color} />
           ),
         }}
       />
-      <Drawer.Screen
-        name="MaterialCommunityIcons"
-        component={NotificationsScreen}
-        options={{
-          title: 'Attendance',
-          drawerIcon: ({focused, color, size}) => (
-            <MaterialCommunityIcons
-              name="passport-biometric"
-              size={18}
-              color={color}
-            />
-          ),
-        }}
-      />
-      <Drawer.Screen
-        name="hdfmgsd"
-        component={NotificationsScreen}
-        options={{
-          title: 'Leave',
-          drawerIcon: ({focused, color, size}) => (
-            <MaterialCommunityIcons
-              name="bag-suitcase"
-              size={18}
-              color={color}
-            />
-          ),
-        }}
-      />
+
       <Drawer.Screen
         name="hmdddgsd"
         component={NotificationsScreen}

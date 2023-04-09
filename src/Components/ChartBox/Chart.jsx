@@ -10,6 +10,7 @@ import {
   Input,
   ScrollView,
 } from 'native-base';
+
 import {useState} from 'react';
 
 const SenderChart = ({message, time}) => {
