@@ -3,31 +3,25 @@ import {Modal, Image, StatusBar, View, StyleSheet} from 'react-native';
 import {Text, Button, HStack} from 'native-base';
 
 const EmployeeDetailsModal = ({employee, isOpen, onClose}) => {
-  const {name, email, phone, designation, imageUrl, department} = employee;
-
   return (
     <Modal animationType="slide" visible={isOpen}>
       <StatusBar backgroundColor="#008080" barStyle="dark-content" />
       <View style={styles.container}>
         <View style={styles.modalHeader}>
-          <Image source={{uri: imageUrl}} style={styles.image} />
-          <Text style={styles.modalHeaderText}>Employee Details</Text>
+          <Image source={{uri: employee.imageUrl}} style={styles.image} />
+          <Text style={styles.modalHeaderText}>{employee.name}</Text>
         </View>
         <View style={styles.modalBody}>
-          <Text style={styles.label}>Name:</Text>
-          <Text style={styles.value}>{name}</Text>
-
-          <Text style={styles.label}>Email:</Text>
-          <Text style={styles.value}>{email}</Text>
-
-          <Text style={styles.label}>Phone:</Text>
-          <Text style={styles.value}>{phone}</Text>
-
-          <Text style={styles.label}>Designation:</Text>
-          <Text style={styles.value}>{designation}</Text>
-
-          <Text style={styles.label}>Department:</Text>
-          <Text style={styles.value}>{department}</Text>
+          {Object.entries(employee).map(
+            ([key, value]) =>
+              key != 'imageUrl' &&
+              key != 'name' && (
+                <View style={styles.row} key={key}>
+                  <Text style={styles.label}>{key}:</Text>
+                  <Text style={styles.value}>{value}</Text>
+                </View>
+              ),
+          )}
         </View>
         <View style={styles.modalFooter}>
           <HStack space={2}>
@@ -75,12 +69,16 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
   },
+  row: {
+    flexDirection: 'row',
+    marginBottom: 15,
+  },
   label: {
     fontWeight: 'bold',
-    marginBottom: 5,
+    marginRight: 10,
   },
   value: {
-    marginBottom: 15,
+    flex: 1,
   },
   modalFooter: {
     height: 50,
