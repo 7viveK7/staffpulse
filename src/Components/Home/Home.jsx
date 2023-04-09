@@ -173,7 +173,9 @@ const Home = ({navigation}) => {
               elevation: 1,
               borderRadius: 100,
             }}
-            source={require('../../Images/3.jpeg')}
+            source={{
+              uri: 'https://miro.medium.com/max/1400/0*0fClPmIScV5pTLoE.jpg',
+            }}
             alt="not found"
           />
         </Pressable>
@@ -337,7 +339,9 @@ const Home = ({navigation}) => {
                       <View style={styles.imagecontainerEmployee}>
                         <Image
                           style={styles.megha}
-                          source={require('../../Images/1.jpeg')}
+                          source={{
+                            uri: 'https://miro.medium.com/max/1400/0*0fClPmIScV5pTLoE.jpg',
+                          }}
                         />
                       </View>
                     </View>
@@ -413,7 +417,9 @@ const Home = ({navigation}) => {
                       }}>
                       <Image
                         style={styles.celebrations}
-                        source={require('../../Images/3.jpeg')}
+                        source={{
+                          uri: 'https://miro.medium.com/max/1400/0*0fClPmIScV5pTLoE.jpg',
+                        }}
                       />
                     </View>
 

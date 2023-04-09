@@ -1,12 +1,131 @@
 import {useEffect, useCallback, useState} from 'react';
-import {StyleSheet, View, Image} from 'react-native';
+import {StyleSheet, TouchableWithoutFeedback, View, Image} from 'react-native';
 import {Avatar, Card} from 'react-native-paper';
 
 import ScrollIndicator from 'react-native-custom-scroll-indicator';
 
 import {Text} from 'native-base';
+import EmployeeDetailsModal from '../AllEmployees/EmployeeData';
+const Employees = [
+  {
+    id: 0,
+    name: 'John Doe',
+    designation: 'Manager',
+    imageUrl:
+      'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+    email: 'johndoe@example.com',
+    phone: '+1 234 567 8901',
+    address: '123 Main Street, Anytown, USA',
+    salary: 75000,
+    hireDate: 'Joined Today',
+    department: 'Engineering',
+    supervisor: 'Jane Smith',
+  },
+  {
+    id: 1,
+    name: 'Smith',
+    designation: 'Engineer',
+    imageUrl:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBwgu1A5zgPSvfE83nurkuzNEoXs9DMNr8Ww&usqp=CAU',
+    email: 'johndoe@example.com',
+    phone: '+1 234 567 8901',
+    address: '123 Main Street, Anytown, USA',
+    salary: 95000,
+    hireDate: 'Joined Today',
+    department: 'Engineering',
+    supervisor: 'Jane Smith',
+  },
+  {
+    id: 2,
+    name: 'Johnson',
+    designation: 'Jr Developer',
+    imageUrl: 'https://miro.medium.com/max/1400/0*0fClPmIScV5pTLoE.jpg',
+    email: 'johndoe@example.com',
+    phone: '+1 234 567 8901',
+    address: '123 Main Street, Anytown, USA',
+    salary: 75000,
+    hireDate: 'Joined Today',
+    department: 'Engineering',
+    supervisor: 'Jane Smith',
+  },
+];
+const theames = [
+  {
+    ImagebackgroundColor: '#fee9a8',
+    backgroundColor: '#fffae7',
+    color: '#caa846',
+    borderColor: '#feeaad',
+  },
+  {
+    ImagebackgroundColor: '#c2e9fc',
+    backgroundColor: '#e9f8ff',
 
+    borderColor: '#b8e7f9',
+    color: '#095c85',
+  },
+  {
+    color: '#cc4964',
+    ImagebackgroundColor: '#fecad6',
+    backgroundColor: '#ffeaef',
+    borderColor: '#fecad6',
+  },
+];
+
+function NewEmployee({employ, setEmployeeDetails, setShowEmployData}) {
+  const handlePress = selectedEmploy => {
+    setEmployeeDetails(selectedEmploy);
+    setShowEmployData(true);
+  };
+  return (
+    <TouchableWithoutFeedback
+      onPress={() => {
+        handlePress(employ);
+      }}>
+      <Card
+        key={employ.id}
+        style={{
+          ...styles.newUser,
+          backgroundColor: theames[employ.id].backgroundColor,
+          borderColor: theames[employ.id].borderColor,
+        }}>
+        <Card.Content>
+          <View
+            style={{
+              alignSelf: 'center',
+              backgroundColor: theames[employ.id].ImagebackgroundColor,
+              padding: 10,
+              borderRadius: 50,
+            }}>
+            <Image
+              style={styles.megha}
+              source={{uri: employ.imageUrl}}
+              alt="not found"
+            />
+          </View>
+
+          <Text
+            variant="titleLarge"
+            style={{...styles.newUserName, color: theames[employ.id].color}}
+            numberOfLines={1}>
+            {employ.name}
+          </Text>
+          <Text
+            variant="bodyMedium"
+            style={{
+              color: '#657582',
+              alignSelf: 'center',
+              textAlign: 'center',
+            }}>
+            {employ.designation} {employ.hireDate}
+          </Text>
+        </Card.Content>
+      </Card>
+    </TouchableWithoutFeedback>
+  );
+}
 export default function WelcomeToNewEmployee() {
+  const [employeeDetails, setEmployeeDetails] = useState({});
+  const [showEmloyData, setShowEmployData] = useState(false);
   return (
     <View style={styles.welcomeCard}>
       <Text style={styles.welcomeCardTitle}>Welcome</Text>
@@ -34,121 +153,22 @@ export default function WelcomeToNewEmployee() {
           // marginTop: 60
         }}>
         <View style={{flexDirection: 'row'}}>
-          <Card style={styles.newUser}>
-            <Card.Content>
-              <View
-                style={{
-                  alignSelf: 'center',
-                  backgroundColor: '#fee9a8',
-                  padding: 10,
-                  borderRadius: 50,
-                }}>
-                <Image
-                  style={styles.megha}
-                  source={require('../../Images/3.jpeg')}
-                  alt="not found"
-                />
-              </View>
-
-              <Text variant="titleLarge" style={styles.newUserName}>
-                Megha
-              </Text>
-              <Text
-                variant="bodyMedium"
-                style={{
-                  color: '#657582',
-                  alignSelf: 'center',
-                  textAlign: 'center',
-                }}>
-                Ux Designer Join today
-              </Text>
-            </Card.Content>
-          </Card>
-          <Card
-            style={{
-              ...styles.newUser,
-              backgroundColor: '#e9f8ff',
-
-              borderColor: '#b8e7f9',
-            }}>
-            <Card.Content>
-              <View
-                style={{
-                  alignSelf: 'center',
-                  backgroundColor: '#c2e9fc',
-                  padding: 10,
-                  borderRadius: 50,
-                }}>
-                <Image
-                  style={styles.megha}
-                  source={require('../../Images/1.jpeg')}
-                  alt="error"
-                />
-              </View>
-              <Text
-                variant="titleLarge"
-                style={{
-                  color: '#095c85',
-                  alignSelf: 'center',
-                  fontWeight: 'bold',
-                  fontSize: 20,
-                }}>
-                Megha
-              </Text>
-              <Text
-                variant="bodyMedium"
-                style={{
-                  color: '#657582',
-                  alignSelf: 'center',
-                  textAlign: 'center',
-                }}>
-                Ux Designer Join today
-              </Text>
-            </Card.Content>
-          </Card>
-          <Card
-            style={{
-              ...styles.newUser,
-              backgroundColor: '#ffeaef',
-              borderColor: '#fecad6',
-            }}>
-            <Card.Content>
-              <View
-                style={{
-                  alignSelf: 'center',
-                  backgroundColor: '#fecad6',
-                  padding: 10,
-                  borderRadius: 50,
-                }}>
-                <Image
-                  style={styles.megha}
-                  source={require('../../Images/2.jpeg')}
-                  alt="loading.."
-                />
-              </View>
-              <Text
-                variant="titleLarge"
-                style={{
-                  color: '#cc4964',
-                  alignSelf: 'center',
-                  fontWeight: 'bold',
-                  fontSize: 20,
-                }}>
-                Megha
-              </Text>
-              <Text
-                variant="bodyMedium"
-                style={{
-                  color: '#657582',
-                  alignSelf: 'center',
-                  textAlign: 'center',
-                }}>
-                Ux Designer Join today
-              </Text>
-            </Card.Content>
-          </Card>
+          {Employees.map(employ => {
+            return (
+              <NewEmployee
+                employ={employ}
+                setEmployeeDetails={setEmployeeDetails}
+                setShowEmployData={setShowEmployData}
+              />
+            );
+          })}
         </View>
       </ScrollIndicator>
+      <EmployeeDetailsModal
+        isOpen={showEmloyData}
+        onClose={setShowEmployData}
+        employee={employeeDetails}
+      />
     </View>
   );
 }
