@@ -45,26 +45,33 @@ import VisfyContext from '../ContextApi/ContextApi';
 function AnnouncementForm() {
   const [title, setTitle] = useState('');
 
-  const [textAreaValue, setTextAreaValue] = useState('');
+  const [description, setdescription] = useState('');
   const [newAnnouncement, setNewAnnouncment] = useState({});
   const handleSubmit = () => {
-    const announce = {title, body, id: 78};
+    const announce = {title, description, id: 78};
     setNewAnnouncment(announce);
+    alert(title);
     setTitle('');
-    setTextAreaValue('');
+    setdescription('');
   };
 
   return (
     <View style={formStyles.container}>
       <Text style={formStyles.label}>Title :-</Text>
-      <Input placeholder="Title" w="100%" autoFocus />
+      <Input
+        placeholder="Title"
+        w="100%"
+        autoFocus
+        value={title}
+        onChangeText={text => {
+          setTitle(text);
+        }}
+      />
       <Text style={formStyles.label}>Description :-</Text>
-
       <TextArea
-        value={textAreaValue}
+        value={description}
         placeholder="Eneter your text here"
-        onChange={e => setTextAreaValue(e.currentTarget.value)}
-        onChangeText={text => setTextAreaValue(text)}
+        onChangeText={text => setdescription(text)}
         w="100%"
         maxW="300"
         h={310}

@@ -14,12 +14,12 @@ const myTask = [
     color: '#cfe7f0',
   },
   {
-    task: 'Job Offers',
+    task: 'JobOffers',
     color: '#f4d3da',
     numberOf: 11,
   },
   {
-    task: 'Interview Schedule',
+    task: 'InterviewSchedule',
     color: '#fceec7',
     numberOf: 8,
   },

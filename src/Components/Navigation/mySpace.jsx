@@ -110,6 +110,7 @@ export default function MySpace() {
           ),
         }}
       />
+
       <Drawer.Screen
         name="hmddfdgsd"
         component={NotificationsScreen}
