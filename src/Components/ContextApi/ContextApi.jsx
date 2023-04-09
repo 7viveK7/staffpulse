@@ -1,5 +1,14 @@
 import React from 'react';
 
-const VisfyContext = React.createContext();
-function MyContext() {}
-export default VisfyContext;
+const EmployeeContext = React.createContext();
+function EmployeeProvider() {
+  const value = {newAnnouncement, formData};
+
+  return (
+    <EmployeeContext.Provider value={value}>
+      {children}
+    </EmployeeContext.Provider>
+  );
+}
+
+export {EmployeeContext, EmployeeProvider};

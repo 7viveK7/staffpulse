@@ -49,9 +49,9 @@ function AnnouncementForm() {
   const [newAnnouncement, setNewAnnouncment] = useState({});
   const handleSubmit = () => {
     const announce = {title, body, id: 78};
-    newAnnouncement(announce);
+    setNewAnnouncment(announce);
     setTitle('');
-    setTextAreaValue({});
+    setTextAreaValue('');
   };
 
   return (
