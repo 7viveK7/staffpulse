@@ -1,25 +1,13 @@
 import React, {useState} from 'react';
 import {View, ScrollView, StyleSheet} from 'react-native';
 import {Input, Radio, Text, Item, Button} from 'native-base';
+import {useAnnouncementContext} from '.././ContextApi/NewsContext';
 
 export default function EmployeeForm({route}) {
-  const [formData, setFormData] = useState({
-    name: '',
-    gender: '',
-    number: '',
-    dob: '',
-    village: '',
-    designation: '',
-    doj: '',
-    experience: '',
-  });
+  const {newEmployee, setNewEmployee, addEmployee} = useAnnouncementContext();
 
   const handleChange = (key, value) => {
-    setFormData({...formData, [key]: value});
-  };
-
-  const handleSubmit = () => {
-    console.log('Form submitted:', formData);
+    setNewEmployee(prev => ({...prev, [key]: value}));
   };
 
   return (
@@ -27,55 +15,61 @@ export default function EmployeeForm({route}) {
       <ScrollView>
         <Text style={styles.label}>Employee Name:</Text>
         <Input
-          value={formData.name}
-          autoFocus
+          value={newEmployee?.name}
           onChangeText={value => handleChange('name', value)}
         />
 
-        <Text style={styles.label}>Gender:</Text>
+        <Text style={styles.label}>department:</Text>
         <Input
-          value={formData.gender}
-          onChangeText={value => handleChange('gender', value)}
+          value={newEmployee?.department}
+          onChangeText={value => handleChange('department', value)}
         />
 
-        <Text style={styles.label}>Phone Number:</Text>
+        <Text style={styles.label}>email:</Text>
         <Input
-          value={formData.number}
-          onChangeText={value => handleChange('number', value)}
-          keyboardType="numeric"
+          value={newEmployee?.email}
+          onChangeText={value => handleChange('email', value)}
+          keyboardType="email"
         />
 
-        <Text style={styles.label}>Date of Birth:</Text>
+        <Text style={styles.label}>phone:</Text>
         <Input
-          value={formData.dob}
-          onChangeText={value => handleChange('dob', value)}
+          value={newEmployee?.phone}
+          keyboardType="numaric"
+          onChangeText={value => handleChange('phone', value)}
         />
 
-        <Text style={styles.label}>Village:</Text>
+        <Text style={styles.label}>address:</Text>
         <Input
-          value={formData.village}
-          onChangeText={value => handleChange('village', value)}
+          value={newEmployee?.address}
+          onChangeText={value => handleChange('address', value)}
         />
 
         <Text style={styles.label}>Designation:</Text>
         <Input
-          value={formData.designation}
+          value={newEmployee?.designation}
           onChangeText={value => handleChange('designation', value)}
         />
 
-        <Text style={styles.label}>Date of Joining:</Text>
+        <Text style={styles.label}>salary:</Text>
         <Input
-          value={formData.doj}
-          onChangeText={value => handleChange('doj', value)}
+          value={newEmployee?.salary}
+          onChangeText={value => handleChange('salary', value)}
         />
 
-        <Text style={styles.label}>Experience:</Text>
+        <Text style={styles.label}>hireDate:</Text>
         <Input
-          value={formData.experience}
-          onChangeText={value => handleChange('experience', value)}
+          value={newEmployee?.hireDate}
+          onChangeText={value => handleChange('hireDate', value)}
         />
 
-        <Button block onPress={handleSubmit} style={styles.button}>
+        <Text style={styles.label}>supervisor:</Text>
+        <Input
+          value={newEmployee?.supervisor}
+          onChangeText={value => handleChange('supervisor', value)}
+        />
+
+        <Button block onPress={addEmployee} style={styles.button}>
           <Text style={styles.buttonText}>Submit</Text>
         </Button>
       </ScrollView>

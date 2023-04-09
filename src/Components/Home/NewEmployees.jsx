@@ -6,6 +6,7 @@ import ScrollIndicator from 'react-native-custom-scroll-indicator';
 
 import {Text} from 'native-base';
 import EmployeeDetailsModal from '../AllEmployees/EmployeeData';
+import {useAnnouncementContext} from '../ContextApi/NewsContext';
 const Employees = [
   {
     id: 0,
@@ -126,6 +127,8 @@ function NewEmployee({employ, setEmployeeDetails, setShowEmployData}) {
 export default function WelcomeToNewEmployee() {
   const [employeeDetails, setEmployeeDetails] = useState({});
   const [showEmloyData, setShowEmployData] = useState(false);
+  const {addEmployee} = useAnnouncementContext();
+
   return (
     <View style={styles.welcomeCard}>
       <Text style={styles.welcomeCardTitle}>Welcome</Text>
