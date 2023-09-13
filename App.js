@@ -14,6 +14,8 @@ import AnnouncementsCard from './src/Components/Announcements/Announcements';
 import {LogBox} from 'react-native';
 import ChartBoxScreen from './src/Components/ChartBox/ChartBox';
 import {EmployeeProvider} from './src/Components/ContextApi/NewsContext';
+import { Provider } from 'react-redux';
+import store from './src/store/store';
 //import VisfyContext from './src/Components/ContextApi/ContextApi';
 LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
 LogBox.ignoreAllLogs();
@@ -21,6 +23,7 @@ LogBox.ignoreAllLogs();
 const Stack = createNativeStackNavigator();
 const App = () => {
   return (
+    <Provider store={store}>
     <GestureHandlerRootView style={{flex: 1}}>
       <EmployeeProvider>
         <NavigationContainer>
@@ -70,6 +73,7 @@ const App = () => {
         </NavigationContainer>
       </EmployeeProvider>
     </GestureHandlerRootView>
+    </Provider>
   );
 };
 export default App;
