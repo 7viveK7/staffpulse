@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 const employeesData = [
   {
     id: 1,
@@ -198,7 +198,7 @@ const employeesData = [
 ];
 const EmployeeContext = React.createContext();
 
-function EmployeeProvider({children}) {
+function EmployeeProvider({ children }) {
   const [announcements, setAnnouncements] = useState([]);
   const [newAnnouncement, setNewAnnouncement] = useState({
     title: '',
@@ -257,7 +257,7 @@ function EmployeeProvider({children}) {
   const addNewAnnouncement = () => {
     newAnnouncement.description &&
       setAnnouncements(announcements => [newAnnouncement, ...announcements]);
-    setNewAnnouncement({title: '', description: ''});
+    setNewAnnouncement({ title: '', description: '' });
   };
 
   const value = {
@@ -288,4 +288,4 @@ const useAnnouncementContext = () => {
   return context;
 };
 
-export {useAnnouncementContext, EmployeeProvider};
+export { useAnnouncementContext, EmployeeProvider };

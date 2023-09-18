@@ -1,4 +1,4 @@
-import {useEffect, useCallback, useState} from 'react';
+import { useEffect, useCallback, useState } from 'react';
 import {
   SafeAreaView,
   StatusBar,
@@ -10,13 +10,13 @@ import {
   Pressable,
 } from 'react-native';
 
-import {Text, Box} from 'native-base';
-import {Badge, Searchbar} from 'react-native-paper';
+import { Text, Box } from 'native-base';
+import { Badge, Searchbar } from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import DropShadow from 'react-native-drop-shadow';
-import {DrawerActions} from '@react-navigation/native';
+import { DrawerActions } from '@react-navigation/native';
 
 import AnnouncementCard from './anouncements/AnnouncementCard';
 import Skeleton from '../Skeletons/Skeleton';
@@ -25,7 +25,7 @@ import QuickLinks from './QuickLinks';
 import RenderCheckinCheckout from './CheckInOut';
 import WelcomeToNewEmployee from './NewEmployees';
 import MyTasks from './MyTasks';
-import {useAnnouncementContext} from '.././ContextApi/NewsContext';
+import { useAnnouncementContext } from '.././ContextApi/NewsContext';
 
 const teamMembers = [
   {
@@ -124,13 +124,13 @@ const myTask = [
   },
 ];
 
-const Home = ({navigation}) => {
+const Home = ({ navigation }) => {
   const [pressedIcon, setPressedIcon] = useState('Home');
   const [showModal, setShowModal] = useState(false);
   const [openAttendance, setopenAttendance] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
 
-  const {announcements} = useAnnouncementContext();
+  const { announcements } = useAnnouncementContext();
 
   const handleItemPress = useCallback(
     item => {
@@ -169,17 +169,18 @@ const Home = ({navigation}) => {
         <Searchbar
           placeholder="Search"
           style={styles.search}
+          place
           inputStyle={{
             padding: 0,
           }}
-          onFocus={() => navigation.navigate('Search', {announcements})}
+          onFocus={() => navigation.navigate('Search', { announcements })}
         />
 
-        <Box style={{position: 'relative'}}>
+        <Box style={{ position: 'relative' }}>
           <Badge
             colorScheme="danger"
             rounded="full"
-            style={{position: 'absolute', top: -6, zIndex: 999, right: -4}}
+            style={{ position: 'absolute', top: -6, zIndex: 999, right: -4 }}
             _text={{
               fontSize: 7,
             }}>
@@ -221,7 +222,7 @@ const Home = ({navigation}) => {
                   data={announcements?.slice(0, 10)}
                   initialNumToRender={true}
                   keyExtractor={item => item.title}
-                  renderItem={({item, index}) => (
+                  renderItem={({ item, index }) => (
                     <AnnouncementCard
                       handleItemPress={handleItemPress}
                       item={item}
@@ -319,7 +320,7 @@ const Home = ({navigation}) => {
               {teamMembers.map(member => {
                 return (
                   <View id={member.name} style={styles.myTaskemployee}>
-                    <View style={{width: 65}}>
+                    <View style={{ width: 65 }}>
                       <View style={styles.imagecontainerEmployee}>
                         <Image
                           style={styles.megha}
@@ -338,10 +339,10 @@ const Home = ({navigation}) => {
                       }}>
                       {member.name}
                     </Text>
-                    <Text style={{color: '#727d89', width: 65}}>
+                    <Text style={{ color: '#727d89', width: 65 }}>
                       {member.posion}
                     </Text>
-                    <View style={{flexDirection: 'row', width: 68}}>
+                    <View style={{ flexDirection: 'row', width: 68 }}>
                       <Badge
                         style={{
                           marginBottom: 'auto',
@@ -351,7 +352,7 @@ const Home = ({navigation}) => {
                             member.state == 'Absent' ? 'red' : '#36a970',
                         }}
                         size={16}></Badge>
-                      <Text style={{color: '#727d89'}}>{member.state}</Text>
+                      <Text style={{ color: '#727d89' }}>{member.state}</Text>
                     </View>
                   </View>
                 );
@@ -380,7 +381,7 @@ const Home = ({navigation}) => {
                     id={celebrate.celebratetype}
                     style={[
                       styles.celebrationCard,
-                      {backgroundColor: celebrate.color},
+                      { backgroundColor: celebrate.color },
                     ]}>
                     <Text
                       style={{
@@ -505,7 +506,7 @@ const styles = StyleSheet.create({
   },
 
   shadowProp: {
-    shadowOffset: {width: 0, height: 0.5},
+    shadowOffset: { width: 0, height: 0.5 },
     shadowColor: '#c4c4c4',
     shadowOpacity: 0.3,
     shadowRadius: 1,
@@ -622,7 +623,7 @@ const styles = StyleSheet.create({
   },
   search: {
     width: '65%',
-    height: 33,
+    height: 35,
     backgroundColor: '#ffffff',
     color: '#1a1b1b',
   },
