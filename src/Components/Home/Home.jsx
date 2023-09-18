@@ -28,7 +28,7 @@ import MyTasks from './MyTasks';
 import { useAnnouncementContext } from '.././ContextApi/NewsContext';
 import { useDispatch, useSelector } from 'react-redux';
 import { AnnouncementSelector, AnnouncementsAction, errorSelector, statusSelector } from '../../store/userSlice';
-import { networkSelector } from '../../store/Auth';
+import { AuthUserSelector, networkSelector } from '../../store/Auth';
 import NetworkErrorMessage from '../networkmessage';
 
 const teamMembers = [
@@ -138,7 +138,7 @@ const Home = ({ navigation }) => {
   const AnnoncementStatus = useSelector(statusSelector)
   const AnnerrorSelector = useSelector(errorSelector)
   const isNetwork = useSelector(networkSelector)
-
+  const [user] = useSelector(AuthUserSelector)
   // const Annoncement = AnnouncementsAction()
 
 
@@ -175,7 +175,7 @@ const Home = ({ navigation }) => {
               borderRadius: 100,
             }}
             source={{
-              uri: 'https://miro.medium.com/max/1400/0*0fClPmIScV5pTLoE.jpg',
+              uri: user?.profile,
             }}
             alt="not found"
           />

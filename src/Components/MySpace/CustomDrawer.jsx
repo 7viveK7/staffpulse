@@ -31,7 +31,7 @@ const CustomDrawer = props => {
               borderRadius={50}
               borderColor="amber.700"
               // padding={19}
-              source={require('../../Images/1.jpeg')}
+              source={{ uri: user?.profile }}
             />
           )}
         />

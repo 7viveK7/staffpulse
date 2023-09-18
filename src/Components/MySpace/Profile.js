@@ -11,13 +11,13 @@ export default function Profile({ navigation }) {
         <View style={styles.container}>
             <View style={styles.modalHeader}>
                 <Image source={{ uri: user.profile }} style={styles.image} />
-                <Text style={styles.modalHeaderText}>{user.name}</Text>
+
             </View>
             <View style={styles.modalBody}>
                 {Object.entries(user).map(
                     ([key, value]) =>
                         key != 'profile' &&
-                        key != 'name' && (
+                        (
                             <View style={styles.row} key={key}>
                                 <Text style={styles.label}>{key}:</Text>
                                 <Text style={styles.value}>{value}</Text>
@@ -49,15 +49,19 @@ const styles = StyleSheet.create({
         elevation: 5,
     },
     image: {
-        width: 40,
-        height: 40,
-        borderRadius: 10,
+        width: 200,
+        height: 200,
+        borderRadius: 100,
         marginBottom: 1,
+        marginRight: 10,
     },
     modalHeader: {
-        height: 70,
+        height: 250,
+        width: '100%',
         backgroundColor: '#008080',
+        flexDirection: 'row',
         justifyContent: 'center',
+        paddingHorizontal: 10,
         alignItems: 'center',
         borderTopLeftRadius: 10,
         borderTopRightRadius: 10,

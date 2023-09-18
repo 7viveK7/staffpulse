@@ -82,7 +82,7 @@ const App = () => {
             <Stack.Screen
               name="chatbox"
               component={ChartBoxScreen}
-              options={{ title: 'ChartBox' }}
+              options={{ title: 'Chatbox ' }}
             />
           </Stack.Navigator>
         </NavigationContainer>
