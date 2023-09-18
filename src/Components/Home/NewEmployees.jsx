@@ -1,12 +1,14 @@
-import {useEffect, useCallback, useState} from 'react';
-import {StyleSheet, TouchableWithoutFeedback, View, Image} from 'react-native';
-import {Avatar, Card} from 'react-native-paper';
+import { useEffect, useCallback, useState } from 'react';
+import { StyleSheet, TouchableWithoutFeedback, View, Image } from 'react-native';
+import { Avatar, Card } from 'react-native-paper';
 
 import ScrollIndicator from 'react-native-custom-scroll-indicator';
 
-import {Text} from 'native-base';
+import { Text } from 'native-base';
 import EmployeeDetailsModal from '../AllEmployees/EmployeeData';
-import {useAnnouncementContext} from '../ContextApi/NewsContext';
+import { useAnnouncementContext } from '../ContextApi/NewsContext';
+import { employeesSelector } from '../../store/Auth';
+import { useSelector } from 'react-redux';
 const Employees = [
   {
     id: 0,
@@ -70,9 +72,23 @@ const theames = [
     backgroundColor: '#ffeaef',
     borderColor: '#fecad6',
   },
+  {
+    ImagebackgroundColor: '#fee9a8',
+    backgroundColor: '#fffae7',
+    color: '#caa846',
+    borderColor: '#feeaad',
+  },
+  {
+    ImagebackgroundColor: '#c2e9fc',
+    backgroundColor: '#e9f8ff',
+
+    borderColor: '#b8e7f9',
+    color: '#095c85',
+  },
+
 ];
 
-function NewEmployee({employ, setEmployeeDetails, setShowEmployData}) {
+export function NewEmployee({ employ, setEmployeeDetails, setShowEmployData, isAllEmployee = false }) {
   const handlePress = selectedEmploy => {
     setEmployeeDetails(selectedEmploy);
     setShowEmployData(true);
@@ -83,9 +99,10 @@ function NewEmployee({employ, setEmployeeDetails, setShowEmployData}) {
         handlePress(employ);
       }}>
       <Card
-        key={employ.id}
+        key={employ.name}
         style={{
           ...styles.newUser,
+          // ...(isAllEmployee && width:)
           backgroundColor: theames[employ.id].backgroundColor,
           borderColor: theames[employ.id].borderColor,
         }}>
@@ -99,16 +116,16 @@ function NewEmployee({employ, setEmployeeDetails, setShowEmployData}) {
             }}>
             <Image
               style={styles.megha}
-              source={{uri: employ.imageUrl}}
+              source={{ uri: employ.profile }}
               alt="not found"
             />
           </View>
 
           <Text
             variant="titleLarge"
-            style={{...styles.newUserName, color: theames[employ.id].color}}
+            style={{ ...styles.newUserName, color: theames[employ.id].color }}
             numberOfLines={1}>
-            {employ.name}
+            {employ?.name}
           </Text>
           <Text
             variant="bodyMedium"
@@ -117,7 +134,16 @@ function NewEmployee({employ, setEmployeeDetails, setShowEmployData}) {
               alignSelf: 'center',
               textAlign: 'center',
             }}>
-            {employ.designation} {employ.hireDate}
+            {employ.role}
+          </Text>
+          <Text
+            variant="bodyMedium"
+            style={{
+              color: '#657582',
+              alignSelf: 'center',
+              textAlign: 'center',
+            }}>
+            {employ?.hireDate}
           </Text>
         </Card.Content>
       </Card>
@@ -127,7 +153,8 @@ function NewEmployee({employ, setEmployeeDetails, setShowEmployData}) {
 export default function WelcomeToNewEmployee() {
   const [employeeDetails, setEmployeeDetails] = useState({});
   const [showEmloyData, setShowEmployData] = useState(false);
-  const {addEmployee} = useAnnouncementContext();
+  const { addEmployee } = useAnnouncementContext();
+  const newJoiners = useSelector(employeesSelector)
 
   return (
     <View style={styles.welcomeCard}>
@@ -155,8 +182,8 @@ export default function WelcomeToNewEmployee() {
 
           // marginTop: 60
         }}>
-        <View style={{flexDirection: 'row'}}>
-          {Employees.map(employ => {
+        <View style={{ flexDirection: 'row' }}>
+          {newJoiners.map(employ => {
             return (
               <NewEmployee
                 employ={employ}
@@ -198,11 +225,14 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     fontWeight: 'bold',
     fontSize: 20,
+    textAlign: 'center'
   },
   newUser: {
-    width: 130,
+    width: 150,
     height: 150,
-    margin: 10,
+    marginLeft: 10,
+    marginBottom: 10,
+    marginTop: 10,
     borderRadius: 12,
     backgroundColor: '#fffae7',
     borderWidth: 1,

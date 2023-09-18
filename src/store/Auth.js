@@ -5,11 +5,12 @@ import fetchAnnouncement from '../Api/api';
 
 const userList = [
     {
+        id: 0,
         name: 'John Doe',
         email: 'john@example.com',
         mobileNumber: 9999999991,
         password: 'password123',
-        role: 'manager',
+        role: 'Manager',
         address: '123 Main Street, Anytown, USA',
         salary: 75000,
         profile:
@@ -17,11 +18,12 @@ const userList = [
         hireDate: '2022-01-01',
     },
     {
+        id: 1,
         name: 'Jane Smith',
         email: 'jane@example.com',
         mobileNumber: 9999999992,
         password: 'secretPassword',
-        role: 'hr',
+        role: 'HR',
         address: '123 Main Street, Anytown, USA',
         salary: 75000,
         profile:
@@ -29,11 +31,12 @@ const userList = [
         hireDate: '2022-01-01',
     },
     {
+        id: 2,
         name: 'Alice Johnson',
         email: 'alice@example.com',
         mobileNumber: 9999999993,
         password: 'mySecurePassword',
-        role: 'developer',
+        role: 'Developer',
         address: '123 Main Street, Anytown, USA',
         salary: 75000,
         profile:
@@ -41,11 +44,12 @@ const userList = [
         hireDate: '2022-01-01',
     },
     {
+        id: 3,
         name: 'Bob Brown',
         email: 'bob@example.com',
         mobileNumber: 9999999994,
         password: 'bobPassword',
-        role: 'manager',
+        role: 'Designer',
         address: '123 Main Street, Anytown, USA',
         salary: 75000,
         profile:
@@ -53,11 +57,12 @@ const userList = [
         hireDate: '2022-01-01',
     },
     {
+        id: 4,
         name: 'Eve Wilson',
         email: 'eve@example.com',
         mobileNumber: 9998887777,
         password: 'eveSecret',
-        role: 'developer',
+        role: 'Developer',
         address: '123 Main Street, Anytown, USA',
         salary: 75000,
         profile:

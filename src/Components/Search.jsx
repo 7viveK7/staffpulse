@@ -1,21 +1,21 @@
-import {useEffect, useCallback, useState} from 'react';
-import {View, StyleSheet, SafeAreaView, StatusBar} from 'react-native';
-import {Box, HStack, Text, Badge, Pressable, FlatList} from 'native-base';
+import { useEffect, useCallback, useState } from 'react';
+import { View, StyleSheet, SafeAreaView, StatusBar } from 'react-native';
+import { Box, HStack, Text, Badge, Pressable, FlatList } from 'native-base';
 
-import {Searchbar} from 'react-native-paper';
+import { Searchbar } from 'react-native-paper';
 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Announcementss from './Announcements/Announcement';
 import AnnouncementModal from './Home/anouncements/AnnouncementModal';
-import {useAnnouncementContext} from './ContextApi/NewsContext';
+import { useAnnouncementContext } from './ContextApi/NewsContext';
 
-export default Search = ({navigation, route}) => {
+export default Search = ({ navigation, route }) => {
   const [searchStr, setSearchStr] = useState('');
   const [filteredAnnouncements, setFilteredAnnouncements] = useState([]);
   const [activePill, setActivePill] = useState(null);
   const [showModal, setShowModal] = useState(null);
   const [selectedAnnouncement, setSelectedAnnouncement] = useState('');
-  const {announcements} = useAnnouncementContext();
+  const { announcements } = useAnnouncementContext();
   const filteredAnnouncementsHandler = useCallback(() => {
     if (searchStr !== '') {
       const searchedData = announcements.filter(el =>
@@ -39,7 +39,7 @@ export default Search = ({navigation, route}) => {
           style={{
             width: '100%',
             borderColor: 'none',
-            marginTop: 3,
+
             height: 35,
             backgroundColor: '#ffffff',
             color: '#black',
@@ -72,7 +72,7 @@ export default Search = ({navigation, route}) => {
               <Box
                 boxWithShadow={{
                   shadowColor: '#000',
-                  shadowOffset: {width: 0, height: 3},
+                  shadowOffset: { width: 0, height: 3 },
                   shadowOpacity: 0.1,
                   shadowRadius: 1,
                 }}>
@@ -107,12 +107,12 @@ export default Search = ({navigation, route}) => {
           Suggitions
         </Text>
       </View>
-      <View style={{margin: 10}}>
+      <View style={{ margin: 10 }}>
         <FlatList
           data={filteredAnnouncements}
           initialNumToRender={true}
           keyExtractor={item => item.title}
-          renderItem={({item}) => (
+          renderItem={({ item }) => (
             <Announcementss
               item={item}
               setShowModal={setShowModal}

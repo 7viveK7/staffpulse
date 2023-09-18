@@ -28,7 +28,7 @@ import MyTasks from './MyTasks';
 import { useAnnouncementContext } from '.././ContextApi/NewsContext';
 import { useDispatch, useSelector } from 'react-redux';
 import { AnnouncementSelector, AnnouncementsAction, errorSelector, statusSelector } from '../../store/userSlice';
-import { AuthUserSelector, networkSelector } from '../../store/Auth';
+import { AuthUserSelector, employeesSelector, networkSelector } from '../../store/Auth';
 import NetworkErrorMessage from '../networkmessage';
 
 const teamMembers = [
@@ -139,6 +139,8 @@ const Home = ({ navigation }) => {
   const AnnerrorSelector = useSelector(errorSelector)
   const isNetwork = useSelector(networkSelector)
   const [user] = useSelector(AuthUserSelector)
+
+
   // const Annoncement = AnnouncementsAction()
 
 
@@ -186,7 +188,7 @@ const Home = ({ navigation }) => {
           style={styles.search}
           place
           inputStyle={{
-            padding: 0,
+            paddingBottom: 10,
           }}
           onFocus={() => navigation.navigate('Search', { announcements })}
         />
@@ -262,7 +264,7 @@ const Home = ({ navigation }) => {
             <RenderCheckinCheckout />
 
             {/* my team */}
-            <View style={styles.card}>
+            {['HR', 'Manager'].includes(user?.role) && <View style={styles.card}>
               <View
                 style={{
                   flexDirection: 'row',
@@ -373,14 +375,14 @@ const Home = ({ navigation }) => {
                   </View>
                 );
               })}
-            </View>
+            </View>}
             {/* quick links */}
             <DropShadow style={styles.shadowProp}>
               <QuickLinks />
             </DropShadow>
 
             {/* celebrations */}
-            <View style={[styles.card]}>
+            {['HR', 'Manager'].includes(user?.role) && <View style={[styles.card]}>
               <Text
                 style={{
                   color: '#202b35',
@@ -439,7 +441,7 @@ const Home = ({ navigation }) => {
                   </View>
                 );
               })}
-            </View>
+            </View>}
             {/* myTasks */}
             <MyTasks setopenAttendance={setopenAttendance} />
           </View>
