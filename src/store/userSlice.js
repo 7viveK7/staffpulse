@@ -23,9 +23,9 @@ const initialState = {
 };
 
 //2.selectors
-export const AnnouncementSelector = (state) => state.announcements
-export const statusSelector = (state) => state.status
-export const errorSelector = (state) => state.error
+export const AnnouncementSelector = (state) => state.user.announcements
+export const statusSelector = (state) => state.user.status
+export const errorSelector = (state) => state.user.error
 
 
 //3.async thunk 

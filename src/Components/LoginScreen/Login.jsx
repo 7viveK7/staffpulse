@@ -7,8 +7,10 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { Input, Icon, Stack, Text, Pressable, Button, Box } from 'native-base';
 import { useDispatch, useSelector } from 'react-redux';
 import { employeesSelector, setAuthUser } from '../../store/Auth';
+import { useToast } from 'native-base';
 
 export default Login = ({ navigation }) => {
+  const toast = useToast()
   const [show, setShow] = useState(false);
   const userList = useSelector(employeesSelector)
   const dispatch = useDispatch()
@@ -19,13 +21,19 @@ export default Login = ({ navigation }) => {
 
   function onSubmit() {
     const authenticatedUser = userList.filter((authUser) => authUser.mobileNumber == user.email && authUser.password == user.password)
-    console.log({ authenticatedUser, user })
+
     if (authenticatedUser.length) {
       dispatch(setAuthUser(authenticatedUser))
       navigation.push('HomeScreen');
 
     }
     else {
+      toast.show({
+        description: "Please enter a valid details",
+        style: { backgroundColor: '#ffa2ad', },
+        shadow: "1"
+
+      })
       setValidate(true);
       setauorthontication(true);
       setUser({ ...user, password: '' });
@@ -60,7 +68,12 @@ export default Login = ({ navigation }) => {
             base: '75%',
             md: '25%',
           }}
+          style={{
+            fontWeight: '500', fontSize: 16,
+            fontFamily: 'SofiaSansSemiCondensed-Bold',
+          }}
           value={user.email}
+          keyboardType='phone-pad'
           // InputRightElement={
           //   user.email && (
           //     <Icon
@@ -87,7 +100,7 @@ export default Login = ({ navigation }) => {
               color="muted.400"
             />
           }
-          placeholder="Email/Phone"
+          placeholder="Phone"
           onChangeText={e => {
             setUser({ ...user, email: e });
           }}
@@ -99,6 +112,18 @@ export default Login = ({ navigation }) => {
           }}
           type={show ? 'text' : 'password'}
           value={user.password}
+          style={{
+            fontWeight: '500', fontSize: 16,
+            fontFamily: 'SofiaSansSemiCondensed-Bold',
+          }}
+          InputLeftElement={
+            <Icon
+              as={<MaterialIcons name="lock" />}
+              size={5}
+              ml="2"
+              color="muted.400"
+            />
+          }
           InputRightElement={
             <Pressable onPress={() => setShow(!show)}>
               <Icon

@@ -26,6 +26,10 @@ import RenderCheckinCheckout from './CheckInOut';
 import WelcomeToNewEmployee from './NewEmployees';
 import MyTasks from './MyTasks';
 import { useAnnouncementContext } from '.././ContextApi/NewsContext';
+import { useDispatch, useSelector } from 'react-redux';
+import { AnnouncementSelector, AnnouncementsAction, errorSelector, statusSelector } from '../../store/userSlice';
+import { networkSelector } from '../../store/Auth';
+import NetworkErrorMessage from '../networkmessage';
 
 const teamMembers = [
   {
@@ -129,8 +133,19 @@ const Home = ({ navigation }) => {
   const [showModal, setShowModal] = useState(false);
   const [openAttendance, setopenAttendance] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
+  const dispatch = useDispatch()
+  const announcements = useSelector(AnnouncementSelector)
+  const AnnoncementStatus = useSelector(statusSelector)
+  const AnnerrorSelector = useSelector(errorSelector)
+  const isNetwork = useSelector(networkSelector)
 
-  const { announcements } = useAnnouncementContext();
+  // const Annoncement = AnnouncementsAction()
+
+
+  useEffect(() => {
+    dispatch(AnnouncementsAction())
+  }, [isNetwork])
+  // const { announcements } = useAnnouncementContext();
 
   const handleItemPress = useCallback(
     item => {
@@ -217,7 +232,7 @@ const Home = ({ navigation }) => {
                 </Pressable>
               </View>
               <View>
-                <FlatList
+                {AnnoncementStatus == "fulfilled" && <FlatList
                   horizontal={true}
                   data={announcements?.slice(0, 10)}
                   initialNumToRender={true}
@@ -229,7 +244,8 @@ const Home = ({ navigation }) => {
                       index={index}
                     />
                   )}
-                />
+                />}
+                {!isNetwork && !(AnnoncementStatus == "pending") && <NetworkErrorMessage />}
                 {showModal && (
                   <AnnouncemengtModal
                     selectedItem={selectedItem}
@@ -237,7 +253,7 @@ const Home = ({ navigation }) => {
                     setShowModal={setShowModal}
                   />
                 )}
-                {!announcements && <Skeleton />}
+                {AnnoncementStatus == "pending" && <Skeleton />}
               </View>
             </View>
             {/* welecome card */}

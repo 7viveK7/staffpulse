@@ -68,17 +68,18 @@ const userList = [
 // 1. intialState
 const initialState = {
     tokenId: '',
+    isNetwork: null,
     isAuthenticated: false,
     authenticatedUser: [],
     otp: '',
     employees: userList,
-    status: 'idle',
-    error: null,
+
 };
 
 //2.selectors
 export const employeesSelector = (state) => state.Auth.employees
 export const AuthUserSelector = (state) => state.Auth.authenticatedUser
+export const networkSelector = (state) => state.Auth.isNetwork
 
 const slice2 = createSlice({
     name: 'auth',
@@ -89,10 +90,13 @@ const slice2 = createSlice({
         // },
         setAuthUser: (state, action) => {
             state.authenticatedUser = action.payload
-        }
+        },
+        setNetwork: (state, action) => {
+            state.isNetwork = action.payload
+        },
     },
 
 });
 
-export const { setAuthUser } = slice2.actions;
+export const { setAuthUser, setNetwork } = slice2.actions;
 export default slice2.reducer;
