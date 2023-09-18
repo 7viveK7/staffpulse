@@ -1,29 +1,46 @@
-import React, {useEffect, useState} from 'react';
-import {View, StyleSheet, Image} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, StyleSheet, Image } from 'react-native';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-import {Input, Icon, Stack, Text, Pressable, Button, Box} from 'native-base';
+import { Input, Icon, Stack, Text, Pressable, Button, Box } from 'native-base';
+import { useDispatch, useSelector } from 'react-redux';
+import { employeesSelector, setAuthUser } from '../../store/Auth';
 
-export default Login = ({navigation}) => {
+export default Login = ({ navigation }) => {
   const [show, setShow] = useState(false);
+  const userList = useSelector(employeesSelector)
+  const dispatch = useDispatch()
 
-  const [user, setUser] = useState({email: '', password: ''});
+  const [user, setUser] = useState({ email: '', password: '' });
   const [validate, setValidate] = useState(null);
   const [auorthontication, setauorthontication] = useState(null);
 
   function onSubmit() {
-    if (user.email === 'vivek' && user.password === '1') {
+    const authenticatedUser = userList.filter((authUser) => authUser.mobileNumber == user.email && authUser.password == user.password)
+    console.log({ authenticatedUser, user })
+    if (authenticatedUser.length) {
+      dispatch(setAuthUser(authenticatedUser))
       navigation.push('HomeScreen');
-      setUser({email: '', password: ''});
 
-      setValidate(false);
-    } else {
+    }
+    else {
       setValidate(true);
       setauorthontication(true);
-      setUser({...user, password: ''});
+      setUser({ ...user, password: '' });
+
     }
+    // if (user.email === 'vivek' && user.password === '1') {
+    //   navigation.push('HomeScreen');
+    //   setUser({ email: '', password: '' });
+
+    //   setValidate(false);
+    // } else {
+    //   setValidate(true);
+    //   setauorthontication(true);
+    //   setUser({ ...user, password: '' });
+    // }
   }
 
   return (
@@ -35,7 +52,7 @@ export default Login = ({navigation}) => {
       }}>
       <Image
         source={require('../../Images/login.png')}
-        style={{width: '90%', height: 200}}
+        style={{ width: '90%', height: 200 }}
       />
       <Stack space={4} w="100%" paddingTop={10} alignItems="center">
         <Input
@@ -44,24 +61,24 @@ export default Login = ({navigation}) => {
             md: '25%',
           }}
           value={user.email}
-          InputRightElement={
-            user.email && (
-              <Icon
-                as={
-                  <AntDesign
-                    name={
-                      !['vivek'].includes(user.email)
-                        ? 'closecircle'
-                        : 'checkcircle'
-                    }
-                  />
-                }
-                size={4}
-                mr="2"
-                color={user.email === 'vivek' ? 'green.700' : 'danger.600'}
-              />
-            )
-          }
+          // InputRightElement={
+          //   user.email && (
+          //     <Icon
+          //       as={
+          //         <AntDesign
+          //           name={
+          //             !validate
+          //               ? 'closecircle'
+          //               : 'checkcircle'
+          //           }
+          //         />
+          //       }
+          //       size={4}
+          //       mr="2"
+          //       color={user.email === 'vivek' ? 'green.700' : 'danger.600'}
+          //     />
+          //   )
+          // }
           InputLeftElement={
             <Icon
               as={<MaterialIcons name="person" />}
@@ -72,7 +89,7 @@ export default Login = ({navigation}) => {
           }
           placeholder="Email/Phone"
           onChangeText={e => {
-            setUser({...user, email: e});
+            setUser({ ...user, email: e });
           }}
         />
         <Input
@@ -86,28 +103,24 @@ export default Login = ({navigation}) => {
             <Pressable onPress={() => setShow(!show)}>
               <Icon
                 as={
-                  !auorthontication ? (
-                    <MaterialIcons
-                      name={show ? 'visibility' : 'visibility-off'}
-                    />
-                  ) : (
-                    <AntDesign name="closecircle" />
-                  )
+                  <MaterialIcons
+                    name={show ? 'visibility' : 'visibility-off'}
+                  />
                 }
                 mr="2"
                 size={4}
-                color={!auorthontication ? 'muted.400' : 'danger.500'}
+              // color={!auorthontication ? 'muted.400' : 'danger.500'}
               />
             </Pressable>
           }
           onChangeText={e => {
-            setUser({...user, password: e});
+            setUser({ ...user, password: e });
             setauorthontication(false);
           }}
           placeholder="Password"
         />
 
-        <Text style={{textAlign: 'right', fontWeight: '500', width: '75%'}}>
+        <Text style={{ textAlign: 'right', fontWeight: '500', width: '75%' }}>
           Forget password ?
         </Text>
         <Box alignItems="center" w="100%">
@@ -117,7 +130,7 @@ export default Login = ({navigation}) => {
               base: '75%',
               md: '25%',
             }}>
-            <Text style={{fontWeight: '600', color: '#fff'}}>Login</Text>
+            <Text style={{ fontWeight: '600', color: '#fff' }}>Login</Text>
           </Button>
         </Box>
       </Stack>
