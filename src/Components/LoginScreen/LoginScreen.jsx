@@ -1,10 +1,10 @@
 import React from 'react';
-import {View, StyleSheet, SafeAreaView, StatusBar} from 'react-native';
+import { View, StyleSheet, SafeAreaView, StatusBar } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-import {Box, Heading, Image, VStack, Text, Button, Stack} from 'native-base';
+import { Box, Heading, Image, VStack, Text, Button, Stack } from 'native-base';
 
-const SectionCard = ({navigation}) => {
+const SectionCard = ({ navigation }) => {
   return (
     <Box alignItems="flex-start">
       <Box width={300} overflow="hidden">
@@ -19,12 +19,12 @@ const SectionCard = ({navigation}) => {
             <Button
               key={'sm'}
               size={'sm'}
-              onPress={() => navigation.navigate('VISFY')}>
+              onPress={() => navigation.replace('VISFY')}>
               <View
                 style={{
                   flexDirection: 'row',
                 }}>
-                <Text style={{fontWeight: '900', color: '#fff'}}>
+                <Text style={{ fontWeight: '900', color: '#fff' }}>
                   Get Started{' '}
                 </Text>
                 <MaterialIcons name="arrow-right-alt" size={20} color="#fff" />
@@ -37,7 +37,7 @@ const SectionCard = ({navigation}) => {
   );
 };
 
-export default LoginScreen = ({navigation}) => {
+export default LoginScreen = ({ navigation }) => {
   return (
     <>
       <SafeAreaView style={styles.container}>

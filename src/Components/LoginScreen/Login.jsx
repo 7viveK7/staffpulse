@@ -24,7 +24,7 @@ export default Login = ({ navigation }) => {
 
     if (authenticatedUser.length) {
       dispatch(setAuthUser(authenticatedUser))
-      navigation.push('HomeScreen');
+      navigation.replace('HomeScreen');
 
     }
     else {

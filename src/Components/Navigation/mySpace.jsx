@@ -3,6 +3,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import { Button, Image, View } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
@@ -10,6 +11,7 @@ import CustomDrawer from '../MySpace/CustomDrawer';
 import Home from '../Home/Home';
 import EmployeeList from '../AllEmployees/AllEmployeesDetails';
 import Profile from '../MySpace/Profile';
+import Login from '../LoginScreen/Login';
 
 function HomeScreen({ navigation }) {
   return (
@@ -125,11 +127,11 @@ export default function MySpace() {
       />
       <Drawer.Screen
         name="hmOrganization Chartddfdgsd"
-        component={NotificationsScreen}
+        component={Login}
         options={{
-          title: 'Calender',
+          title: 'Logout',
           drawerIcon: ({ focused, color, size }) => (
-            <Icon name="md-calendar" size={18} color={color} />
+            <AntDesign name="logout" size={18} color={color} />
           ),
         }}
       />
