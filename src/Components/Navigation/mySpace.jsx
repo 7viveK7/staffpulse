@@ -11,7 +11,7 @@ import CustomDrawer from '../MySpace/CustomDrawer';
 import Home from '../Home/Home';
 import EmployeeList from '../AllEmployees/AllEmployeesDetails';
 import Profile from '../MySpace/Profile';
-import Login from '../LoginScreen/Login';
+import Login from '../../Screens/LoginScreen/Login';
 
 function HomeScreen({ navigation }) {
   return (
