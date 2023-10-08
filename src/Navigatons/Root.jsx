@@ -6,14 +6,16 @@ import { NavigationContainer } from '@react-navigation/native';
 import NetInfo from '@react-native-community/netinfo';
 
 import Home from '../Components/Home/Home';
-import Search from '../Components/Search';
+// import Search from '../Components/';
 import Notification from '../Components/Notification/Notification';
 import mySpace from '../Components/Navigation/mySpace';
 import Login from '../Screens/LoginScreen/Login'
 import LoginScreen from '../Screens/LoginScreen/LoginScreen';
-import HomeScreen from '../Components/Navigation/HomeScreen';
-import AnnouncementsCard from '../Components/Announcements/Announcements';
+// import HomeScreen from '../Components/Navigation/HomeScreen';
+import AnnouncementsCard from '../Screens/Announcements/Announcements';
 import ChartBoxScreen from '../Components/ChartBox/ChartBox';
+import HomeScreen from './HomeScreen';
+import Search from '../Screens/Search';
 
 
 const Stack = createNativeStackNavigator();

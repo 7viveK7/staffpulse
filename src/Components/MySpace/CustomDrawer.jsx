@@ -13,7 +13,7 @@ import { AuthUserSelector } from '../../store/Auth';
 
 const CustomDrawer = props => {
   const [user] = useSelector(AuthUserSelector)
-  console.log({ user })
+  // console.log({ user })
   return (
     <DrawerContentScrollView {...props}>
       <View>
