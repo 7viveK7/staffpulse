@@ -4,9 +4,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { VStack, Box, Divider } from 'native-base';
 import { Avatar, Card, IconButton } from 'react-native-paper';
-import Attendance from '../Components/MySpace/NewAnnouncement';
-import NewAnnouncement from '../Components/MySpace/NewAnnouncement';
-import EmployeeForm from '../Components/MySpace/EmployeeForm';
+import Attendance from '../Screens/NewAnnouncement';
+import NewAnnouncement from '../Screens/NewAnnouncement';
+import EmployeeForm from '../Screens/EmployeeForm';
 import EmployeeDetails from '../Components/AllEmployees/AllEmployeesDetails';
 
 function HomeScreen() {

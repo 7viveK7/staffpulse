@@ -6,16 +6,16 @@ import { NavigationContainer } from '@react-navigation/native';
 import NetInfo from '@react-native-community/netinfo';
 
 import Home from '../Components/Home/Home';
-// import Search from '../Components/';
-import Notification from '../Components/Notification/Notification';
-import mySpace from '../Components/Navigation/mySpace';
+import mySpace from '../Screens/mySpace';
 import Login from '../Screens/LoginScreen/Login'
 import LoginScreen from '../Screens/LoginScreen/LoginScreen';
 // import HomeScreen from '../Components/Navigation/HomeScreen';
 import AnnouncementsCard from '../Screens/Announcements/Announcements';
-import ChartBoxScreen from '../Components/ChartBox/ChartBox';
-import HomeScreen from './HomeScreen';
+import ChartBoxScreen from '../Screens/ChartBox/ChartBox';
+import HomeScreen from './FooterTab';
 import Search from '../Screens/Search';
+import Notification from '../Screens/Notification/Notification';
+import Chart from '../Screens/ChartBox/Chart';
 
 
 const Stack = createNativeStackNavigator();
@@ -64,7 +64,13 @@ const Root = () => {
                 <Stack.Screen
                     name="chatbox"
                     component={ChartBoxScreen}
-                    options={{ title: 'Chatbox ' }}
+                    options={{ title: 'Notification ' }}
+                />
+                <Stack.Screen
+                    name="chatScreen"
+                    component={Chart}
+                    visible={false}
+                    options={{ headerShown: false }}
                 />
             </Stack.Navigator>
         </NavigationContainer>

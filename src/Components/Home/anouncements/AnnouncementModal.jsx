@@ -1,8 +1,8 @@
 import React from 'react';
-import {Button, Modal, Center, Text, NativeBaseProvider} from 'native-base';
-import {useState} from 'react';
-import {StyleSheet} from 'react-native';
-import NotificationItem from '../../Notification/NotificationItem';
+import { Button, Modal, Center, Text, NativeBaseProvider } from 'native-base';
+import { useState } from 'react';
+import { StyleSheet } from 'react-native';
+import NotificationItem from '../../../Screens/Notification/NotificationItem';
 export default AnnouncemengtModal = ({
   showModal,
   selectedItem,

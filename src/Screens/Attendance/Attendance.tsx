@@ -1,15 +1,51 @@
 import { View, StyleSheet, SafeAreaView, StatusBar } from 'react-native';
 import { Box, FlatList, Avatar, Text, HStack, VStack, Spacer } from 'native-base';
 import React, { useState } from 'react'
-import NotificationItem from '../../Components/Notification/NotificationItem';
+import NotificationItem from '../Notification/NotificationItem';
 
 import { Calendar, LocaleConfig } from 'react-native-calendars';
+import Icon from 'react-native-vector-icons/Octicons';
+
 const attendanceData = {
     '2023-10-01': [{ startDate: 10 }, { endDate: 2 }],
     '2023-10-02': [{ startDate: 7 }, { endDate: 2 }],
     // Add more event data as needed...
 };
 
+const workingDays = [
+    {
+        "type": "Payble Days",
+        "days": 10
+    },
+    {
+        "type": "Present",
+        "days": 0
+    },
+    {
+        "type": "On Duty",
+        "days": 0
+    },
+    {
+        "type": "Paid Leaves",
+        "days": 0
+    },
+    {
+        "type": "Holiday",
+        "days": 0
+    },
+    {
+        "type": "Weekend",
+        "days": 0
+    },
+    {
+        "type": "Absent",
+        "days": 0
+    },
+    {
+        "type": "Unpaid Leave",
+        "days": 0
+    }
+]
 const CustomDayComponent = ({ date, marking }) => {
     const timeString1 = '10:00:00';
     const timeString2 = '1:30:10';
@@ -70,8 +106,31 @@ export default function AttendanceCalender() {
                 //     '2023-09-03': { selected: true, marked: true, selectedColor: 'blue' }
                 // }}
                 />
+                <View style={{ width: "100%", borderRadius: 5, backgroundColor: '#fff', marginTop: 10, padding: 12, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' }}
+                >
+                    <View style={{ flexDirection: 'row' }}>
+                        <Icon name={'clock'} size={22} color={'black'} style={{ marginRight: 5 }} />
+                        <Text >Total Working Hours</Text>
+                    </View>
+
+                    <Text >74:23</Text>
+                </View>
+
+                <View style={{ width: "100%", borderRadius: 5, backgroundColor: '#fff', marginTop: 10, padding: 10, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' }}>
+                    {workingDays.map((workingday) => {
+                        return (
+
+                            <View style={{ width: "48%", borderRadius: 5, backgroundColor: 'green', marginTop: 10, padding: 10 }} >
+                                <Text style={{ color: '#fff' }}>{workingday?.type}</Text>
+                                <Text style={{ color: '#fff' }}>{workingday?.days}</Text>
+                            </View>
+                        )
+                    })}
+
+
+                </View>
             </View>
-            {/* section ui */}
+
         </SafeAreaView>
     )
 }

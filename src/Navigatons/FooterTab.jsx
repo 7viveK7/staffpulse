@@ -4,8 +4,8 @@ import { StyleSheet, Platform, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import MySpace from '../Components/Navigation/mySpace';
-import Notification from '../Components/Notification/Notification';
+import MySpace from '../Screens/mySpace';
+import Notification from '../Screens/Notification/Notification';
 
 import COLORS from '../Components/defaultStyles';
 
@@ -56,7 +56,7 @@ export default function HomeScreen() {
       />}
       <Tab.Screen
         name="Attendance"
-        component={EmployeeDashboard}
+        component={AttendanceCalender}
         visible={false}
         options={{ headerShown: false }}
       />

@@ -1,5 +1,5 @@
-import {StyleSheet} from 'react-native';
-import NotificationItem from '../../Notification/NotificationItem';
+import { StyleSheet } from 'react-native';
+import NotificationItem from '../../../Screens/Notification/NotificationItem';
 
 import {
   Box,
@@ -11,7 +11,7 @@ import {
   VStack,
   Spacer,
 } from 'native-base';
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 const data = {
   Attendance: [
     {
@@ -173,7 +173,7 @@ const data = {
     },
   ],
 };
-function Task({item}) {
+function Task({ item }) {
   return (
     <Box
       borderBottomWidth="1"
@@ -220,7 +220,7 @@ function Task({item}) {
   );
 }
 
-export default function AttendanceMl({openAttendance, setopenAttendance}) {
+export default function AttendanceMl({ openAttendance, setopenAttendance }) {
   const [taskData, setTaskData] = useState([]);
   useEffect(() => {
     const filterData = data[openAttendance];
@@ -238,7 +238,7 @@ export default function AttendanceMl({openAttendance, setopenAttendance}) {
           <Modal.Body>
             <FlatList
               data={taskData}
-              renderItem={({item}) => <Task item={item} />}
+              renderItem={({ item }) => <Task item={item} />}
               keyExtractor={item => item.id}
             />
           </Modal.Body>
